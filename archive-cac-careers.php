@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying archive pages
+ * The template for displaying Careers Archive
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -10,42 +10,93 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<div id="primary" class="content-area">
+	<main id="main" class="site-main">
 
-		<?php if ( have_posts() ) : ?>
+		<?php if (have_posts()): ?>
 
 			<header class="page-header">
+				<h1 class="page-title">
+					<?php post_type_archive_title(); ?>
+				</h1>
+			</header>
+
+		<?php endif; ?>
+
+		<?php
+		$args = array(
+			'post_type' => 'cac-careers',
+			'posts_per_page' => -1,
+		);
+
+		$careers_query = new WP_Query($args);
+
+		if ($careers_query->have_posts()): ?>
+
+			<form>
 				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
+				$store_locations = get_posts(
+					array(
+						'post_type' => 'cac-careers',
+						'posts_per_page' => -1,
+						'meta_key' => 'location_name',
+						'fields' => 'ids',
+						'orderby' => 'meta_value',
+						'order' => 'ASC',
+					)
+				);
+//array_unique removes all duplicates and array_map takes the post id and returns the location name 
+				$store_locations = array_unique(array_map(function ($post_id) {
+					return get_field('location_name', $post_id);
+				}, $store_locations));
+
+				// Output radio buttons
+				foreach ($store_locations as $location): ?>
+					<label>
+						<input type="radio" name="location" value="<?php echo esc_attr($location); ?>">
+						<?php echo esc_html($location); ?>
+					</label>
+				<?php endforeach; ?>
+				<label>
+					<input type="radio" name="location" value="All" checked> All
+				</label>
+
+			</form>
+
+			<div id="filtered-jobs">
+				<?php
+				while ($careers_query->have_posts()):
+					$careers_query->the_post();
+
+					$location_name = get_field('location_name');
+					$job_descriptions = get_field('job_descriptions');
+					//dont need
+					$job_requirements = get_field('job_requirements');
+					$job_cta = get_field('job_cta');
+
+					echo '<div class="job-information">';
+					echo '<h2>' . esc_html(get_the_title()) . '</h2>';
+					echo '<p class="location">' . esc_html($location_name) . '</p>';
+					echo '<p><strong>Description:</strong> ' . esc_html($job_descriptions) . '</p>';
+					echo '<p>Requirements: ' . esc_html($job_requirements) . '</p>';
+					echo '<a href="' . esc_url($job_cta) . '">Apply Now</a>';
+					echo '</div>';
+
+				endwhile;
+
+				wp_reset_postdata();
 				?>
-			</header><!-- .page-header -->
+			</div>
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
+		<?php else:
+			echo 'No Careers found.';
 		endif;
 		?>
 
 	</main><!-- #main -->
+</div><!-- #primary -->
 
 <?php
 get_sidebar();
 get_footer();
+?>
