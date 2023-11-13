@@ -65,7 +65,7 @@ get_header();
         if ( get_field('social_media_message') ): 
             echo '<div class="social-media-message">' . get_field('social_media_message') . '</div>';
         endif;
-
+      
         // Display Social Media Links
         if ( have_rows('social_media_links') ): 
             echo '<div class="social-media-links">';
@@ -86,7 +86,7 @@ get_header();
                 echo '</div>';
             endwhile;
             
-            gravity_form( 1, false, false, false, '', false );
+            
             echo '</div>';
         endif;
         
@@ -99,11 +99,12 @@ get_header();
         endif;
 
     endwhile; // End of the loop.
+    gravity_form( 1, false, false, false, '', false );
     ?>
 
 </main>
 
 <?php
-get_sidebar();
+// get_sidebar();
 get_footer();
 ?>
