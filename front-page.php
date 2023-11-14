@@ -51,8 +51,13 @@ get_header();
 		?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
-
-	<img src="<?php the_field('hero_product_image'); ?>" />
+	
+	<?php
+	$image = get_field('hero_product_image');
+	$size = 'full'; // (thumbnail, medium, large, full or custom size)
+	if( $image ) {
+		echo wp_get_attachment_image( $image, $size );
+	}?>
 
 	<p><?php the_field('first_engaging_message');?></p>
 	<?php
@@ -80,7 +85,13 @@ get_header();
 
 	<h2><?php the_field('section_title'); ?></h2>
 	<p><?php the_field('short_introduction') ?></p>
-	<img src="<?php the_field('our_story_image'); ?>" />
+
+	<?php
+	$image = get_field('our_story_image');
+	$size = 'full'; // (thumbnail, medium, large, full or custom size)
+	if( $image ) {
+		echo wp_get_attachment_image( $image, $size );
+	}?>
 
 	<?php
 	$link = get_field('our_story_cta');
