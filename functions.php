@@ -201,37 +201,53 @@ if (class_exists('WooCommerce')) {
 /**
  * Remove SKU from product page.
  */
- 
+
 // Remove SKU from product meta
-function remove_product_sku() {
-    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+function remove_product_sku()
+{
+	remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
 }
 add_action('woocommerce_before_single_product', 'remove_product_sku');
 
 //Remove WooCommerce Tabs - this code removes all 3 tabs - to be more specific just remove actual unset lines 
 
-add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
+add_filter('woocommerce_product_tabs', 'woo_remove_product_tabs', 98);
 
-function woo_remove_product_tabs( $tabs ) {
+function woo_remove_product_tabs($tabs)
+{
 
-    unset( $tabs['description'] );      	// Remove the description tab
+	unset($tabs['description']);      	// Remove the description tab
 
-    return $tabs;
-
+	return $tabs;
 }
 // Remove short description from product page
-remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
 
 // Add long description to product page
 
-add_action( 'woocommerce_single_product_summary', 'ta_the_content' );
+add_action('woocommerce_single_product_summary', 'ta_the_content');
 
-function ta_the_content() {
-        echo the_content();
+function ta_the_content()
+{
+	echo the_content();
 }
 
 // Remove the WooCommerce sidebar on single product pages
-function remove_woocommerce_sidebar() {
-    remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
+function remove_woocommerce_sidebar()
+{
+	remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
 }
 add_action('init', 'remove_woocommerce_sidebar');
+
+// Setting a default value for a radio button field on Checkout field
+
+function custom_override_checkout_fields($fields)
+{
+	$fields['billing']['location']['default'] = 'Vancouver';
+
+	$fields['billing']['purchase_method']['default'] = 'Local Pickup';
+
+	return $fields;
+} // End custom_override_checkout_fields()
+
+add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
