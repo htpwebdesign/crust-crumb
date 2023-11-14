@@ -95,10 +95,10 @@ if (woocommerce_product_loop()) {
 	// }
 
 ?>
-
+	<!-- Custom result count based on the filter -->
+	<p id="filtered-results-count">Showing <span id="results-count"><?php $products = wc_get_products( array( 'posts_per_page' => -1 ) ); ?></span> products</p>
 
 	<!-- Filter Buttons -->
-	<p id="filtered-results-count">Showing <span id="results-count">all</span> products</p>
 	<div class="filter-button-group">
 		<button data-filter="*">All</button>
 		<?php
@@ -136,7 +136,7 @@ if (woocommerce_product_loop()) {
 <?php
 
 
-	// woocommerce_product_loop_end();
+	woocommerce_product_loop_end();
 
 	/**
 	 * Hook: woocommerce_after_shop_loop.
