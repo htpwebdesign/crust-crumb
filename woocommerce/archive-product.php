@@ -60,20 +60,57 @@ if ( woocommerce_product_loop() ) {
 	woocommerce_product_loop_start();
 
 
-	if ( wc_get_loop_prop( 'total' ) ) {
-		while ( have_posts() ) {
-			the_post();
+	// if ( wc_get_loop_prop( 'total' ) ) {
+	// 	while ( have_posts() ) {
+	// 		the_post();
 
-			/**
-			 * Hook: woocommerce_shop_loop.
-			 */
-			do_action( 'woocommerce_shop_loop' );
+	// 		/**
+	// 		 * Hook: woocommerce_shop_loop.
+	// 		 */
+	// 		do_action( 'woocommerce_shop_loop' );
 
-			wc_get_template_part( 'content', 'product' );
-		}
-	}
+	// 		wc_get_template_part( 'content', 'product' );
+	// 	}
+	// }
+?>
+	<!-- Filter Buttons -->
+	<div class="filter-button-group">
+    <button data-filter="*">All</button>
+    <?php
+    $product_categories = get_terms('product_cat');
+    foreach ($product_categories as $category) :
+        $category_slug = $category->slug;
+    ?>
+        <button data-filter=".<?php echo esc_attr($category_slug); ?>"><?php echo esc_html($category->name); ?></button>
+    <?php endforeach; ?>
+	</div>
+	
+	<!-- Product Loop -->
 
-	woocommerce_product_loop_end();
+	<div class="isotope-container">
+    <?php
+    if (have_posts()) :
+        while (have_posts()) :
+            the_post();
+            $categories = get_the_terms(get_the_ID(), 'product_cat');
+            $category_classes = '';
+            if ($categories) {
+                foreach ($categories as $category) {
+                    $category_classes .= $category->slug . ' ';
+                }
+            }
+            echo '<div class="isotope-item ' . esc_attr($category_classes) . '">';
+            wc_get_template_part('content', 'product');
+            echo '</div>';
+        endwhile;
+    endif;
+    ?>
+	</div>
+
+<?php
+	
+
+	// woocommerce_product_loop_end();
 
 	/**
 	 * Hook: woocommerce_after_shop_loop.
@@ -81,6 +118,8 @@ if ( woocommerce_product_loop() ) {
 	 * @hooked woocommerce_pagination - 10
 	 */
 	do_action( 'woocommerce_after_shop_loop' );
+	
+	
 } else {
 	/**
 	 * Hook: woocommerce_no_products_found.
