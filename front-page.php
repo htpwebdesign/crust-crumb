@@ -74,7 +74,7 @@ get_header();
 		<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
 	<?php endif; ?>
 
-	<p><?php the_field('slogan_message');?></p>
+	<h1><?php the_field('slogan_message');?></h1>
 
 
 
@@ -92,7 +92,7 @@ get_header();
 
 	<?php endif; ?>
 	<h3><?php the_field('section_title_2'); ?></h3>
-	<h4><?php the_field('section_title_3'); ?></h4>
+	<h3><?php the_field('section_title_3'); ?></h3>
 
 	<?php
 	$link = get_field('contact_page_cta');
