@@ -50,6 +50,73 @@ get_header();
 		endif;
 		?>
 
+	<?php while ( have_posts() ) : the_post(); ?>
+	
+	<?php
+	$image = get_field('hero_product_image');
+	$size = 'full'; // (thumbnail, medium, large, full or custom size)
+	if( $image ) {
+		echo wp_get_attachment_image( $image, $size );
+	}?>
+
+	<p><?php the_field('first_engaging_message');?></p>
+	<?php
+	$link = get_field('hero_cta');
+	if( $link ): 
+		$link_url = $link['url'];
+		$link_title = $link['title'];
+		?>
+		<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
+	<?php endif; ?>
+
+	<p><?php the_field('second_engaging_message'); ?></p>
+	<?php
+	$link = get_field('hero_cta_2');
+	if( $link ): 
+		$link_url = $link['url'];
+		$link_title = $link['title'];
+		?>
+		<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
+	<?php endif; ?>
+
+	<h1><?php the_field('slogan_message');?></h1>
+
+
+
+	<h2><?php the_field('section_title'); ?></h2>
+	<p><?php the_field('short_introduction') ?></p>
+
+	<?php
+	$image = get_field('our_story_image');
+	$size = 'full'; // (thumbnail, medium, large, full or custom size)
+	if( $image ) {
+		echo wp_get_attachment_image( $image, $size );
+	}?>
+
+	<?php
+	$link = get_field('our_story_cta');
+	if( $link ): 
+		$link_url = $link['url'];
+		$link_title = $link['title'];
+		?>
+	<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
+
+	<?php endif; ?>
+	<h3><?php the_field('section_title_2'); ?></h3>
+	<h3><?php the_field('section_title_3'); ?></h3>
+
+	<?php
+	$link = get_field('contact_page_cta');
+	if( $link ): 
+		$link_url = $link['url'];
+		$link_title = $link['title'];
+		?>
+	<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
+
+	<?php endif; 
+
+	endwhile; // end of the loop. ?>
+
 	</main><!-- #main -->
 
 <?php
