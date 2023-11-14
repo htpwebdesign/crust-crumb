@@ -52,6 +52,8 @@ function crust_crumb_setup()
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__('Primary', 'crust-crumb'),
+			'footer-left' => esc_html__('Footer Menu Left', 'crust-crumb'),
+			'footer-right' => esc_html__('Footer Menu Right', 'crust-crumb'),
 		)
 	);
 
