@@ -197,3 +197,35 @@ if (defined('JETPACK__VERSION')) {
 if (class_exists('WooCommerce')) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+/**
+ * Remove SKU from product page.
+ */
+ 
+// Remove SKU from product meta
+function remove_product_sku() {
+    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+}
+add_action('woocommerce_before_single_product', 'remove_product_sku');
+
+//Remove WooCommerce Tabs - this code removes all 3 tabs - to be more specific just remove actual unset lines 
+
+add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
+
+function woo_remove_product_tabs( $tabs ) {
+
+    unset( $tabs['description'] );      	// Remove the description tab
+
+    return $tabs;
+
+}
+// Remove short description from product page
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+
+// Add long description to product page
+
+add_action( 'woocommerce_single_product_summary', 'ta_the_content' );
+
+function ta_the_content() {
+        echo the_content();
+}
