@@ -46,7 +46,27 @@ do_action('woocommerce_before_main_content');
 	?>
 </header>
 <?php
-echo '<p>Testing</p>';
+// Output the image
+if (function_exists('get_field')) {
+	$size = 'full'; // (thumbnail, medium, large, full or custom size)
+	if (get_field('hero_image', 19)) {
+		echo wp_get_attachment_image(get_field('hero_image', 19), $size);
+	}
+}
+
+// Output the instructions
+
+if (function_exists('get_field')) {
+
+	if (get_field('delivery_instruction', 19)) {
+		echo '<p>' . esc_html(get_field('delivery_instruction', 19)) . '</p>';
+	}
+
+	if (get_field('pickup_instruction', 19)) {
+		echo '<p>' . esc_html(get_field('pickup_instruction', 19)) . '</p>';
+	}
+}
+
 if (woocommerce_product_loop()) {
 
 	/**
@@ -73,8 +93,12 @@ if (woocommerce_product_loop()) {
 	// 		wc_get_template_part( 'content', 'product' );
 	// 	}
 	// }
+
 ?>
+
+
 	<!-- Filter Buttons -->
+	<p id="filtered-results-count">Showing <span id="results-count">all</span> products</p>
 	<div class="filter-button-group">
 		<button data-filter="*">All</button>
 		<?php
@@ -90,6 +114,7 @@ if (woocommerce_product_loop()) {
 
 	<div class="isotope-container">
 		<?php
+
 		if (have_posts()) :
 			while (have_posts()) :
 				the_post();
@@ -140,6 +165,6 @@ do_action('woocommerce_after_main_content');
  *
  * @hooked woocommerce_get_sidebar - 10
  */
-do_action('woocommerce_sidebar');
+// do_action('woocommerce_sidebar');
 
 get_footer('shop');

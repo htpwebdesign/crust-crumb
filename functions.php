@@ -214,3 +214,6 @@ function enqueue_isotope()
 	wp_enqueue_script('filter-menu', get_template_directory_uri() . '/js/filter-menu.js', array('jquery', 'isotope'), '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'enqueue_isotope');
+
+// Remove default sorting options
+remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
