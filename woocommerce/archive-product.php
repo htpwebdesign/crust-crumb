@@ -80,20 +80,6 @@ if (woocommerce_product_loop()) {
 
 	woocommerce_product_loop_start();
 
-
-	// if ( wc_get_loop_prop( 'total' ) ) {
-	// 	while ( have_posts() ) {
-	// 		the_post();
-
-	// 		/**
-	// 		 * Hook: woocommerce_shop_loop.
-	// 		 */
-	// 		do_action( 'woocommerce_shop_loop' );
-
-	// 		wc_get_template_part( 'content', 'product' );
-	// 	}
-	// }
-
 ?>
 	<!-- Custom result count based on the filter -->
 	<p id="filtered-results-count">Showing <span id="results-count"><?php $products = wc_get_products( array( 'posts_per_page' => -1 ) ); ?></span> products</p>
@@ -165,6 +151,6 @@ do_action('woocommerce_after_main_content');
  *
  * @hooked woocommerce_get_sidebar - 10
  */
-// do_action('woocommerce_sidebar');
+// do_action('woocommerce_sidebar'); -- Commented out to remove sidebar from shop page
 
 get_footer('shop');
