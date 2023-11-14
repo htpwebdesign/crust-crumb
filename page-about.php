@@ -31,18 +31,24 @@ get_header();
 		endwhile; // End of the loop.
 		?>
 
-		<?php while ( have_posts() ) : the_post(); ?>
+		<?php while ( have_posts() ) : the_post();
 
-		<img src="<?php the_field('hero_iamge'); ?>" />
+		$image = get_field('hero_iamge');
+				$size = 'full'; // (thumbnail, medium, large, full or custom size)
+				if( $image ) {
+					echo wp_get_attachment_image( $image, $size );
+				}
 
-		<?php if( have_rows('career_timeline') ):
+			if( have_rows('career_timeline') ):
 
 			// loop through the rows of data
 			while ( have_rows('career_timeline') ) : the_row();
 
-				// display a sub field value
-				?><img src="<?php the_sub_field('milestone_image'); ?>" />
-				
+				$image = get_sub_field('milestone_image');
+				$size = 'full'; // (thumbnail, medium, large, full or custom size)
+				if( $image ) {
+					echo wp_get_attachment_image( $image, $size );
+				}?>
 				
 				<h3><?php the_sub_field('milestone_title'); ?></h3>
 
@@ -63,8 +69,13 @@ get_header();
 		<h3><?php the_field('sub_heading'); ?></h3>
 		<p><?php the_field('sub_content') ?></p>
 
-		<img src="<?php the_field('illustration_image'); ?>" />
-		<?php
+		<?php 
+		$image = get_field('illustration_image');
+		$size = 'full'; // (thumbnail, medium, large, full or custom size)
+		if( $image ) {
+			echo wp_get_attachment_image( $image, $size );
+		}
+
 		$link = get_field('cta');
 		if( $link ): 
 			$link_url = $link['url'];
@@ -75,7 +86,13 @@ get_header();
 
 		<h3><?php the_field('sub_heading_2'); ?></h3>
 		<p><?php the_field('sub_content_2') ?></p>
-		<img src="<?php the_field('illustration_image_2'); ?>" />
+
+		<?php
+		$image = get_field('illustration_image_2');
+		$size = 'full'; // (thumbnail, medium, large, full or custom size)
+		if( $image ) {
+			echo wp_get_attachment_image( $image, $size );
+		}?>
 
 		<?php
 		$link = get_field('cta_2');
