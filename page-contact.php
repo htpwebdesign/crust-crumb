@@ -99,7 +99,7 @@ get_header();
         endif;
 
     endwhile; // End of the loop.
-    gravity_form( 1, false, false, false, '', false );
+    gravity_form( 2, false, false, false, '', false );
     ?>
 
 </main>
