@@ -147,7 +147,7 @@ function crust_crumb_scripts()
 {
 	wp_enqueue_style('crust-crumb-style', get_stylesheet_uri(), array(), _S_VERSION);
 	wp_style_add_data('crust-crumb-style', 'rtl', 'replace');
-
+	wp_enqueue_script('isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js', array('jquery'), '3.0.6', true);
 	wp_enqueue_script('crust-crumb-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
