@@ -229,3 +229,9 @@ add_action( 'woocommerce_single_product_summary', 'ta_the_content' );
 function ta_the_content() {
         echo the_content();
 }
+
+// Remove the WooCommerce sidebar on single product pages
+function remove_woocommerce_sidebar() {
+    remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
+}
+add_action('init', 'remove_woocommerce_sidebar');
