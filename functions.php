@@ -273,3 +273,14 @@ function custom_override_checkout_fields($fields)
 } // End custom_override_checkout_fields()
 
 add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
+
+// Add toggle-location.js to the checkout page
+function enqueue_toggle_location_script()
+{
+	// Enqueue the script
+	wp_enqueue_script('toggle-location', get_template_directory_uri() . '/js/toggle-location.js', array('jquery'), null, true);
+
+}
+
+// Hook into the 'wp_enqueue_scripts' action
+add_action('wp_enqueue_scripts', 'enqueue_toggle_location_script');
