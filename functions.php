@@ -52,6 +52,8 @@ function crust_crumb_setup()
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__('Primary', 'crust-crumb'),
+			'footer-left' => esc_html__('Footer Menu Left', 'crust-crumb'),
+			'footer-right' => esc_html__('Footer Menu Right', 'crust-crumb'),
 		)
 	);
 
@@ -145,7 +147,7 @@ function crust_crumb_scripts()
 {
 	wp_enqueue_style('crust-crumb-style', get_stylesheet_uri(), array(), _S_VERSION);
 	wp_style_add_data('crust-crumb-style', 'rtl', 'replace');
-
+	wp_enqueue_script('isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js', array('jquery'), '3.0.6', true);
 	wp_enqueue_script('crust-crumb-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
@@ -198,4 +200,91 @@ if (class_exists('WooCommerce')) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
 
+<<<<<<< HEAD
 
+=======
+/**
+ * Add Isotope to the theme.
+ */
+
+function enqueue_isotope()
+{
+	// Enqueue jQuery
+	wp_enqueue_script('jquery');
+
+	// Enqueue Isotope - already called above in crust_crumb_scripts()
+	// wp_enqueue_script('isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js', array('jquery'), '3.0.6', true);
+
+	// Enqueue your custom script
+	wp_enqueue_script('filter-menu', get_template_directory_uri() . '/js/filter-menu.js', array('jquery', 'isotope'), '1.0', true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_isotope');
+
+// Remove default sorting options
+remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
+
+// Remove default result count
+remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
+
+
+// Remove SKU from product meta
+function remove_product_sku()
+{
+	remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+}
+add_action('woocommerce_before_single_product', 'remove_product_sku');
+
+//Remove WooCommerce Tabs - this code removes all 3 tabs - to be more specific just remove actual unset lines 
+
+add_filter('woocommerce_product_tabs', 'woo_remove_product_tabs', 98);
+
+function woo_remove_product_tabs($tabs)
+{
+
+	unset($tabs['description']);      	// Remove the description tab
+
+	return $tabs;
+}
+// Remove short description from product page
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+
+// Add long description to product page
+
+add_action('woocommerce_single_product_summary', 'ta_the_content');
+
+function ta_the_content()
+{
+	echo the_content();
+}
+
+// Remove the WooCommerce sidebar on single product pages
+function remove_woocommerce_sidebar()
+{
+	remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
+}
+add_action('init', 'remove_woocommerce_sidebar');
+
+// Setting a default value for a radio button field on Checkout field
+
+function custom_override_checkout_fields($fields)
+{
+	$fields['billing']['location']['default'] = 'Vancouver';
+
+	$fields['billing']['purchase_method']['default'] = 'Local Pickup';
+
+	return $fields;
+} // End custom_override_checkout_fields()
+
+add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
+
+// Add toggle-location.js to the checkout page
+function enqueue_toggle_location_script()
+{
+	// Enqueue the script
+	wp_enqueue_script('toggle-location', get_template_directory_uri() . '/js/toggle-location.js', array('jquery'), null, true);
+
+}
+
+// Hook into the 'wp_enqueue_scripts' action
+add_action('wp_enqueue_scripts', 'enqueue_toggle_location_script');
+>>>>>>> c77c58d7fc5b2de8a31104d4b17b588d43a540b4

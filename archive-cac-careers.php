@@ -45,7 +45,7 @@ get_header();
 						'order' => 'ASC',
 					)
 				);
-//array_unique removes all duplicates and array_map takes the post id and returns the location name 
+				//array_unique removes all duplicates and array_map takes the post id and returns the location name 
 				$store_locations = array_unique(array_map(function ($post_id) {
 					return get_field('location_name', $post_id);
 				}, $store_locations));
@@ -70,18 +70,15 @@ get_header();
 
 					$location_name = get_field('location_name');
 					$job_descriptions = get_field('job_descriptions');
-					//dont need
-					$job_requirements = get_field('job_requirements');
 					$job_cta = get_field('job_cta');
 
-					echo '<div class="job-information">';
+					// Add a class based on location to each job-information div
+					echo '<div class="job-information location-' . sanitize_title($location_name) . '">';
 					echo '<h2>' . esc_html(get_the_title()) . '</h2>';
-					echo '<p class="location">' . esc_html($location_name) . '</p>';
-					echo '<p><strong>Description:</strong> ' . esc_html($job_descriptions) . '</p>';
-					echo '<p>Requirements: ' . esc_html($job_requirements) . '</p>';
+					echo esc_html($location_name);
+					echo $job_descriptions;
 					echo '<a href="' . esc_url($job_cta) . '">Apply Now</a>';
 					echo '</div>';
-
 				endwhile;
 
 				wp_reset_postdata();
