@@ -209,8 +209,8 @@ function enqueue_isotope()
 	// Enqueue jQuery
 	wp_enqueue_script('jquery');
 
-	// Enqueue Isotope
-	wp_enqueue_script('isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js', array('jquery'), '3.0.6', true);
+	// Enqueue Isotope - already called above in crust_crumb_scripts()
+	// wp_enqueue_script('isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js', array('jquery'), '3.0.6', true);
 
 	// Enqueue your custom script
 	wp_enqueue_script('filter-menu', get_template_directory_uri() . '/js/filter-menu.js', array('jquery', 'isotope'), '1.0', true);
