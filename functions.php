@@ -199,3 +199,26 @@ if (defined('JETPACK__VERSION')) {
 if (class_exists('WooCommerce')) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+/**
+ * Add Isotope to the theme.
+ */
+
+function enqueue_isotope()
+{
+	// Enqueue jQuery
+	wp_enqueue_script('jquery');
+
+	// Enqueue Isotope
+	wp_enqueue_script('isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js', array('jquery'), '3.0.6', true);
+
+	// Enqueue your custom script
+	wp_enqueue_script('filter-menu', get_template_directory_uri() . '/js/filter-menu.js', array('jquery', 'isotope'), '1.0', true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_isotope');
+
+// Remove default sorting options
+remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
+
+// Remove default result count
+remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
