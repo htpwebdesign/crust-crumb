@@ -258,12 +258,6 @@ function enqueue_toggle_location_script()
 	// Enqueue the script
 	wp_enqueue_script('toggle-location', get_template_directory_uri() . '/js/toggle-location.js', array('jquery'), null, true);
 
-	// // Pass localized variables to the script
-	// wp_localize_script('toggle-location', 'toggleLocationParams', array(
-	// 	'localPickupValue' => 'Local Pickup',
-	// 	'deliveryValue'    => 'Delivery',
-	// 	'locationFieldId'  => 'billing_location_field',
-	// ));
 }
 
 // Hook into the 'wp_enqueue_scripts' action
