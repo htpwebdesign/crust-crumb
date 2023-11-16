@@ -24,18 +24,25 @@
 		</nav>
 	</div><!-- .footer-menus -->
 	<div class="site-info">
+		<ul class="team-list">
 
-		<a href="<?php echo esc_url(__('https://wordpress.org/', 'crust-crumb')); ?>">
-			<?php
-			/* translators: %s: CMS name, i.e. WordPress. */
-			printf(esc_html__('Proudly powered by %s', 'crust-crumb'), 'WordPress');
-			?>
-		</a>
-		<span class="sep"> | </span>
-		<?php
-		/* translators: 1: Theme name, 2: Theme author. */
-		printf(esc_html__('Theme: %1$s by %2$s.', 'crust-crumb'), 'crust-crumb', '<a href="https://crustandcrumb.bcitwebdeveloper.ca/">FWD 34</a>');
-		?>
+
+			<li><a href="<?php echo esc_url(__('link_to_linkedin_profile_1')); ?>">
+					<?php esc_html_e('Team Member 1', 'crust-crumb'); ?>
+				</a></li>
+			<li><a href="<?php echo esc_url(__('link_to_linkedin_profile_2')); ?>">
+					<?php esc_html_e('Team Member 2', 'crust-crumb'); ?>
+				</a></li>
+			<li><a href="<?php echo esc_url(__('link_to_linkedin_profile_3')); ?>">
+					<?php esc_html_e('Team Member 3', 'crust-crumb'); ?>
+				</a></li>
+			<li><a href="<?php echo esc_url(__('link_to_linkedin_profile_4')); ?>">
+					<?php esc_html_e('Team Member 4', 'crust-crumb'); ?>
+				</a></li>
+			<li><a href="<?php echo esc_url(__('link_to_linkedin_profile_5')); ?>">
+					<?php esc_html_e('Team Member 5', 'crust-crumb'); ?>
+				</a></li>
+		</ul>
 		<!-- need to make privacy policy page -->
 		<p>
 			<?php the_privacy_policy_link() ?>

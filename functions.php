@@ -119,26 +119,6 @@ function crust_crumb_content_width()
 }
 add_action('after_setup_theme', 'crust_crumb_content_width', 0);
 
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function crust_crumb_widgets_init()
-{
-	register_sidebar(
-		array(
-			'name' => esc_html__('Sidebar', 'crust-crumb'),
-			'id' => 'sidebar-1',
-			'description' => esc_html__('Add widgets here.', 'crust-crumb'),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget' => '</section>',
-			'before_title' => '<h2 class="widget-title">',
-			'after_title' => '</h2>',
-		)
-	);
-}
-add_action('widgets_init', 'crust_crumb_widgets_init');
 
 /**
  * Enqueue scripts and styles.
@@ -149,6 +129,11 @@ function crust_crumb_scripts()
 	wp_style_add_data('crust-crumb-style', 'rtl', 'replace');
 	wp_enqueue_script('isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js', array('jquery'), '3.0.6', true);
 	wp_enqueue_script('crust-crumb-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+	// Enqueue jQuery
+	wp_enqueue_script('jquery');
+
+	// Enqueue your custom script
+	wp_enqueue_script('filter-menu', get_template_directory_uri() . '/js/filter-menu.js', array('jquery', 'isotope'), '1.0', true);
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
@@ -200,25 +185,7 @@ if (class_exists('WooCommerce')) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
 
-<<<<<<< HEAD
 
-=======
-/**
- * Add Isotope to the theme.
- */
-
-function enqueue_isotope()
-{
-	// Enqueue jQuery
-	wp_enqueue_script('jquery');
-
-	// Enqueue Isotope - already called above in crust_crumb_scripts()
-	// wp_enqueue_script('isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js', array('jquery'), '3.0.6', true);
-
-	// Enqueue your custom script
-	wp_enqueue_script('filter-menu', get_template_directory_uri() . '/js/filter-menu.js', array('jquery', 'isotope'), '1.0', true);
-}
-add_action('wp_enqueue_scripts', 'enqueue_isotope');
 
 // Remove default sorting options
 remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
@@ -287,4 +254,3 @@ function enqueue_toggle_location_script()
 
 // Hook into the 'wp_enqueue_scripts' action
 add_action('wp_enqueue_scripts', 'enqueue_toggle_location_script');
->>>>>>> c77c58d7fc5b2de8a31104d4b17b588d43a540b4
