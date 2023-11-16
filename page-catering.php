@@ -1,7 +1,5 @@
 <?php
-/*
- * Template Name: Catering Page
- */
+
 
 get_header();
 
