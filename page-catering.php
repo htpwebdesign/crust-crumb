@@ -1,10 +1,15 @@
 <?php
-/*
- * Template Name: Catering Page
+/**
+ * The template for displaying the catering page
+ *
+ * @package Crust_&_Crumb_Bakery
  */
 
 get_header();
+?>
 
+<main id="primary" class="site-main">
+    <?php
 // Page loop
 while ( have_posts() ) : the_post(); ?>
 
@@ -60,5 +65,8 @@ while ( have_posts() ) : the_post(); ?>
     ?>
 
 <?php endwhile;
+?>
+</main>
 
+<?php
 get_footer(); ?>
