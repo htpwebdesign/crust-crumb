@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Contact Page
+ * 
  * The template for displaying the contact page
  *
  * @package Crust_&_Crumb_Bakery

@@ -1,6 +1,9 @@
 <?php
-/*
- * Template Name: Catering Page
+/**
+ * 
+ * The template for displaying the catering page
+ *
+ * @package Crust_&_Crumb_Bakery
  */
 
 
