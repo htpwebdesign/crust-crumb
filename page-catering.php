@@ -3,9 +3,12 @@
  * Template Name: Catering Page
  */
 
-get_header();
 
+get_header();
+?>
+<main id="primary" class="site-main">
 // Page loop
+<?php
 while ( have_posts() ) : the_post(); ?>
 
     <h1><?php the_title(); ?></h1>
@@ -59,6 +62,7 @@ while ( have_posts() ) : the_post(); ?>
     }
     ?>
 
-<?php endwhile;
-
+<?php endwhile; ?>
+</main>
+<?php
 get_footer(); ?>
