@@ -235,3 +235,50 @@ if (!function_exists('crust_crumb_woocommerce_header_cart')) {
 <?php
 	}
 }
+
+// Remove default sorting options
+remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
+
+// Remove default result count
+remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
+
+// Remove default notices
+remove_action('woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10);
+
+
+// Remove SKU from product meta
+function remove_product_sku()
+{
+	remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+}
+add_action('woocommerce_before_single_product', 'remove_product_sku');
+
+//Remove WooCommerce Tabs - this code removes all 3 tabs - to be more specific just remove actual unset lines 
+
+add_filter('woocommerce_product_tabs', 'woo_remove_product_tabs', 98);
+
+function woo_remove_product_tabs($tabs)
+{
+
+	unset($tabs['description']);      	// Remove the description tab
+
+	return $tabs;
+}
+// Remove short description from product page
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+
+// Add long description to product page
+
+add_action('woocommerce_single_product_summary', 'ta_the_content');
+
+function ta_the_content()
+{
+	echo the_content();
+}
+
+// Remove the WooCommerce sidebar on single product pages
+function remove_woocommerce_sidebar()
+{
+	remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
+}
+add_action('init', 'remove_woocommerce_sidebar');

@@ -46,29 +46,24 @@ do_action('woocommerce_before_main_content');
 	?>
 </header>
 <?php
-// Output the image
-if (function_exists('get_field')) {
-	$size = 'full'; // (thumbnail, medium, large, full or custom size)
-	if (get_field('hero_image', 19)) {
-		echo wp_get_attachment_image(get_field('hero_image', 19), $size);
+
+	// Output the image and the instructions
+	if (function_exists('get_field')) {
+		$size = 'full'; // (thumbnail, medium, large, full or custom size)
+		if (get_field('hero_image', 19)) {
+			echo wp_get_attachment_image(get_field('hero_image', 19), $size);
+		}
+		if (get_field('delivery_instruction', 19)) {
+			echo '<p class="delivery-instruction">' . esc_html(get_field('delivery_instruction', 19)) . '</p>';
+		}
+
+		if (get_field('pickup_instruction', 19)) {
+			echo '<p class="pickup-instruction>' . esc_html(get_field('pickup_instruction', 19)) . '</p>';
+		}
 	}
-}
-
-// Output the instructions
-
-if (function_exists('get_field')) {
-
-	if (get_field('delivery_instruction', 19)) {
-		echo '<p>' . esc_html(get_field('delivery_instruction', 19)) . '</p>';
-	}
-
-	if (get_field('pickup_instruction', 19)) {
-		echo '<p>' . esc_html(get_field('pickup_instruction', 19)) . '</p>';
-	}
-}
 
 if (woocommerce_product_loop()) {
-
+	
 	/**
 	 * Hook: woocommerce_before_shop_loop.
 	 *
@@ -82,7 +77,7 @@ if (woocommerce_product_loop()) {
 
 ?>
 	<!-- Custom result count based on the filter -->
-	<p id="filtered-results-count">Showing <span id="results-count"><?php $products = wc_get_products( array( 'posts_per_page' => -1 ) ); ?></span> products</p>
+	<p id="filtered-results-count">Showing <span id="results-count"><?php $products = wc_get_products(array('posts_per_page' => -1)); ?></span> products</p>
 
 	<!-- Filter Buttons -->
 	<div class="filter-button-group">
