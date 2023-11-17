@@ -33,8 +33,13 @@ get_header();
 
 		if ($careers_query->have_posts()): ?>
 
+
+
+
 			<form>
 				<?php
+				// Step 1: Querying for Store Locations
+				// meta_key orders posts based on  location_name ACF
 				$store_locations = get_posts(
 					array(
 						'post_type' => 'cac-careers',
@@ -45,25 +50,26 @@ get_header();
 						'order' => 'ASC',
 					)
 				);
-				//array_unique removes all duplicates and array_map takes the post id and returns the location name 
+
+				// Step 2: Removing Duplicate Locations
 				$store_locations = array_unique(array_map(function ($post_id) {
 					return get_field('location_name', $post_id);
 				}, $store_locations));
 
-				// Output radio buttons
+				// Step 3: Outputting Radio Buttons
 				foreach ($store_locations as $location): ?>
 					<label>
 						<input type="radio" name="location" value="<?php echo esc_attr($location); ?>">
 						<?php echo esc_html($location); ?>
 					</label>
 				<?php endforeach; ?>
+
 				<label>
 					<input type="radio" name="location" value="All" checked> All
 				</label>
-
 			</form>
 
-			<div id="filtered-jobs">
+			<div>
 				<?php
 				while ($careers_query->have_posts()):
 					$careers_query->the_post();
@@ -73,9 +79,9 @@ get_header();
 					$job_cta = get_field('job_cta');
 
 					// Add a class based on location to each job-information div
-					echo '<article class="job-information location-' . sanitize_title($location_name) . '">';
+					echo '<article class="job-information">';
 					echo '<h2>' . esc_html(get_the_title()) . '</h2>';
-					echo esc_html($location_name);
+					echo '<p class="location">' . esc_html($location_name) . '</p>';
 					echo $job_descriptions;
 					echo '<a href="' . esc_url($job_cta) . '">Apply Now</a>';
 					echo '</article>';
@@ -96,4 +102,4 @@ get_header();
 <?php
 get_sidebar();
 get_footer();
-?>
+?>	
