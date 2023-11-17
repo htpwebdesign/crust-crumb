@@ -16,29 +16,22 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
-
-		<?php
-		while ( have_posts() ) :
-			the_post();
-
-			get_template_part( 'template-parts/content', 'page' );
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
 		<?php while ( have_posts() ) : the_post();
+		if (function_exists("get_field")) {
+		
+		?>
+		<figure class="hero-banner">
+			<?php
+			$image = get_field('hero_iamge');
+					$size = 'full'; // (thumbnail, medium, large, full or custom size)
+					if( $image ) {
+						echo wp_get_attachment_image( $image, $size );
+					}?>
+		</figure>
+		
+		<section class="career-timeline">
 
-		$image = get_field('hero_iamge');
-				$size = 'full'; // (thumbnail, medium, large, full or custom size)
-				if( $image ) {
-					echo wp_get_attachment_image( $image, $size );
-				}
-
+			<?php
 			if( have_rows('career_timeline') ):
 
 			// loop through the rows of data
@@ -51,6 +44,8 @@ get_header();
 				}?>
 				
 				<h3><?php the_sub_field('milestone_title'); ?></h3>
+		</section>
+
 
 				<?php
 
@@ -62,51 +57,58 @@ get_header();
 
 		endif;
 		?>
+		<article class="story-introduction">
+			<h2><?php the_field('section_heading');?></h2>
+			<p><?php the_field('content');?></p>
+		</article>
 
-		<h2><?php the_field('section_heading');?></h2>
-		<p><?php the_field('content');?></p>
+		<article class="more-about-us">
+			<h3><?php the_field('sub_heading'); ?></h3>
+			<p><?php the_field('sub_content') ?></p>
+			<?php 
+			$image = get_field('illustration_image');
+			$size = 'full'; // (thumbnail, medium, large, full or custom size)
+			if( $image ) {
+				echo wp_get_attachment_image( $image, $size );
+			}
+	
+			$link = get_field('cta');
+			if( $link ): 
+				$link_url = $link['url'];
+				$link_title = $link['title'];
+				?>
+				<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
+			<?php endif; ?>
+		</article>
 
-		<h3><?php the_field('sub_heading'); ?></h3>
-		<p><?php the_field('sub_content') ?></p>
 
-		<?php 
-		$image = get_field('illustration_image');
-		$size = 'full'; // (thumbnail, medium, large, full or custom size)
-		if( $image ) {
-			echo wp_get_attachment_image( $image, $size );
-		}
 
-		$link = get_field('cta');
-		if( $link ): 
-			$link_url = $link['url'];
-			$link_title = $link['title'];
-			?>
+		<article class="more-about-us">
+			<h3><?php the_field('sub_heading_2'); ?></h3>
+			<p><?php the_field('sub_content_2');?></p>
+	
+			<?php
+			$image = get_field('illustration_image_2');
+			$size = 'full'; // (thumbnail, medium, large, full or custom size)
+			if( $image ) {
+				echo wp_get_attachment_image( $image, $size );
+			}?>
+	
+			<?php
+			$link = get_field('cta_2');
+			if( $link ): 
+				$link_url = $link['url'];
+				$link_title = $link['title'];
+				?>
 			<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
-		<?php endif; ?>
-
-		<h3><?php the_field('sub_heading_2'); ?></h3>
-		<p><?php the_field('sub_content_2') ?></p>
-
-		<?php
-		$image = get_field('illustration_image_2');
-		$size = 'full'; // (thumbnail, medium, large, full or custom size)
-		if( $image ) {
-			echo wp_get_attachment_image( $image, $size );
-		}?>
-
-		<?php
-		$link = get_field('cta_2');
-		if( $link ): 
-			$link_url = $link['url'];
-			$link_title = $link['title'];
-			?>
-		<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
-
-		<?php endif; ?>
+	
+			</article>
+			<?php endif; 
 
 
+	}
 
-		<?php endwhile; // end of the loop. ?>
+		 endwhile; // end of the loop. ?>
 
 	</main><!-- #main -->
 
