@@ -9,3 +9,9 @@
 @mixin column-width($numberColumns: 3) {
 	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
+
+// Border-radius
+@mixin border-radius-card {
+	border-radius: 45deg;
+  }
+  
