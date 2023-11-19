@@ -1,8 +1,6 @@
 <?php
 /**
-
  * The template for displaying the contact page
- *
  * @package Crust_&_Crumb_Bakery
  */
 
@@ -14,12 +12,11 @@ get_header();
     <?php
     while (have_posts()):
         the_post();
-        if (function_exists("get_field")) {
-            // Display Page Title
-            if (get_field('page_title')):
-                echo '<h1>' . get_field('page_title') . '</h1>';
-            endif;
 
+        // Directly display the WordPress page title
+        the_title('<h1>', '</h1>');
+
+        if (function_exists("get_field")) {
             // Query location-CPT posts
             $location_posts = new WP_Query(
                 array(
@@ -34,7 +31,6 @@ get_header();
                     $location_posts->the_post();
 
                     // Fetch fields for each location
-    
                     $location_name = get_field('location_name');
                     $location_hours = get_field('location_hours');
                     $location_phone = get_field('location_phone');
@@ -69,15 +65,15 @@ get_header();
                 echo '<p class="social-media-message">' . get_field('social_media_message') . '</p>';
             endif;
 
-            // Display Social Media Links
+            // Social Media Links section
             if (have_rows('social_media_links')):
-                echo '<section class="social-media-links">';
+                echo '<nav class="social-media-links"><ul>';
                 while (have_rows('social_media_links')):
                     the_row();
                     $social_media_link_url = get_sub_field('social_media_link');
                     $social_media_image_id = get_sub_field('social_media_image');
 
-                    echo '<div class="social-media-item">';
+                    echo '<li class="social-media-item">';
                     if ($social_media_link_url) {
                         echo '<a href="' . esc_url($social_media_link_url) . '">';
                         if ($social_media_image_id) {
@@ -87,15 +83,11 @@ get_header();
                         }
                         echo '</a>';
                     }
-                    echo '</div>';
+                    echo '</li>';
                 endwhile;
-
-
-                echo '</section>';
+                echo '</ul></nav>';
             endif;
         }
-        // The default page content
-        get_template_part('template-parts/content', 'page');
 
         // If comments are open or we have at least one comment, load up the comment template.
         if (comments_open() || get_comments_number()):
@@ -109,6 +101,5 @@ get_header();
 </main>
 
 <?php
-// get_sidebar();
 get_footer();
 ?>
