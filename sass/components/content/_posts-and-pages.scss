@@ -39,11 +39,6 @@
   display: block;
 }
 
-.page-id-27 {
-  .store-locations {
-    // padding: 2rem $page-margin;
-  }
-}
 @media (min-width: $small-screen) {
   .store-locations {
     display: flex;
@@ -51,7 +46,7 @@
     align-items: center;
   }
   .page-id-27 .accordionContent {
-    display: grid;
+    display: inline;
   }
   .location-container {
     padding: 1rem $page-margin;
