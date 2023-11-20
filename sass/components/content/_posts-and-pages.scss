@@ -40,6 +40,9 @@
 }
 
 @media (min-width: $small-screen) {
+  .page-id-27 .accordionTitle {
+    cursor: auto;
+  }
   .store-locations {
     display: flex;
     flex-direction: column;
