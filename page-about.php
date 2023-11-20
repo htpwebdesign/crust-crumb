@@ -16,54 +16,49 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
-		<?php while ( have_posts() ) : the_post();
-		if (function_exists("get_field")) {
-			// Display Page Title
-			if (get_field('page_title')):
-				echo '<h1>' . get_field('page_title') . '</h1>';
-			endif;
 		
-		?>
 		<figure class="hero-banner">
 			<?php
+			while ( have_posts() ) : the_post();
+			// Directly display the WordPress page title
+			the_title('<h1>', '</h1>');
 			$image = get_field('hero_iamge');
 					$size = 'full'; // (thumbnail, medium, large, full or custom size)
 					if( $image ) {
 						echo wp_get_attachment_image( $image, $size );
 					}?>
 		</figure>
-		
+
+				<?php
+
+			endwhile;
+			?>
+	
+		<section class="story-introduction">
+			<h2><?php the_field('section_heading');?></h2>
+			<p><?php the_field('content');?></p>
+		</section>
+
 		<section class="career-timeline">
 
 			<?php
 			if( have_rows('career_timeline') ):
 
-			// loop through the rows of data
-			while ( have_rows('career_timeline') ) : the_row();
+				// loop through the rows of data
+				while ( have_rows('career_timeline') ) : the_row();
 
-				$image = get_sub_field('milestone_image');
-				$size = 'full'; // (thumbnail, medium, large, full or custom size)
-				if( $image ) {
-					echo wp_get_attachment_image( $image, $size );
-				}?>
-				
-				<h2><?php the_sub_field('milestone_title'); ?></h2>
-		</section>
-
-
+					$image = get_sub_field('milestone_image');
+					$size = 'full'; // (thumbnail, medium, large, full or custom size)
+					if( $image ) {
+						echo wp_get_attachment_image( $image, $size );
+					}?>
+					
+					<h2><?php the_sub_field('milestone_title'); ?></h2>
 				<?php
-
-			endwhile;
-
-		else :
-
-			// no rows found
-
-		endif;
-		?>
-		<section class="story-introduction">
-			<h2><?php the_field('section_heading');?></h2>
-			<p><?php the_field('content');?></p>
+				endwhile;
+	
+			endif;
+			?>
 		</section>
 
 		<section class="more-about-us">
@@ -110,9 +105,7 @@ get_header();
 			<?php endif; 
 
 
-	}
-
-		 endwhile; // end of the loop. ?>
+		  ?>
 
 	</main><!-- #main -->
 
