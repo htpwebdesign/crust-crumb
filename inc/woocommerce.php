@@ -282,3 +282,27 @@ function remove_woocommerce_sidebar()
 	remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
 }
 add_action('init', 'remove_woocommerce_sidebar');
+
+// Setting a default value for a radio button field on Checkout field
+
+function custom_override_checkout_fields($fields)
+{
+	$fields['billing']['location']['default'] = 'Vancouver';
+
+	$fields['billing']['purchase_method']['default'] = 'Local Pickup';
+
+	return $fields;
+} // End custom_override_checkout_fields()
+
+add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
+
+// Add toggle-location.js to the checkout page
+function enqueue_toggle_location_script()
+{
+	// Enqueue the script
+	wp_enqueue_script('toggle-location', get_template_directory_uri() . '/js/toggle-location.js', array('jquery'), null, true);
+
+}
+
+// Hook into the 'wp_enqueue_scripts' action
+add_action('wp_enqueue_scripts', 'enqueue_toggle_location_script');
