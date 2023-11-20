@@ -36,18 +36,22 @@ get_header();
                     $location_phone = get_field('location_phone');
                     $location_address = get_field('location_address');
 
-                    echo '<article class="store">';
+                    echo '<article class="location-container">';
+                    echo '<h2 class="location-name">' . esc_html($location_name) . '</h2>';
+
                     // Display location image
                     $location_image_id = get_post_meta(get_the_ID(), 'location_image', true);
                     if ($location_image_id) {
                         $location_image_url = wp_get_attachment_image_url($location_image_id, 'full');
-                        echo '<img src="' . esc_url($location_image_url) . '" alt="' . esc_attr(get_the_title()) . '" />';
+                        echo '<img src="' . esc_url($location_image_url) . '" alt="' . esc_attr(get_the_title()) . '" class="location-img" />';
                     }
                     // Display other location details
-                    echo '<h2>' . esc_html($location_name) . '</h2>';
-                    echo '<p>Hours: ' . esc_html($location_hours) . '</p>';
-                    echo '<p>Phone: ' . esc_html($location_phone) . '</p>';
-                    echo '<p>Address: ' . esc_html($location_address) . '</p>';
+                    echo '<p class="location-address">' . esc_html($location_address) . '</p>';
+                    echo '<div>';
+                    echo '<p class="location-phone">Phone: ' . esc_html($location_phone) . '</p>';
+                    echo '<p class="location-hours">Hours:<br/>' . $location_hours . '</p>';
+                    echo '</div>';
+
                     echo '</article>';
 
                 endwhile;
@@ -55,9 +59,11 @@ get_header();
             endif;
             wp_reset_postdata();
 
+
             // Display Store Locations Map
-            if (get_field('store_locations_map')):
-                echo '<section class="store-locations-map">' . get_field('store_locations_map') . '</section>';
+            //need to add in the google maps 
+            if (get_field('')):
+                echo '<section class="store-locations-map">' . get_field('location_map') . '</section>';
             endif;
 
             // Display Social Media Message

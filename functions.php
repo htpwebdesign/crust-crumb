@@ -127,18 +127,22 @@ function crust_crumb_scripts()
 {
 	wp_enqueue_style('crust-crumb-style', get_stylesheet_uri(), array(), _S_VERSION);
 	wp_style_add_data('crust-crumb-style', 'rtl', 'replace');
+
 	wp_enqueue_script('isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js', array('jquery'), '3.0.6', true);
 	wp_enqueue_script('crust-crumb-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
-	// Enqueue jQuery
-	wp_enqueue_script('jquery');
 
-	// Enqueue your custom script
+	wp_enqueue_script('accordion', get_template_directory_uri() . '/js/accordion.js', array('jquery'), null, true);
+
 	wp_enqueue_script('filter-menu', get_template_directory_uri() . '/js/filter-menu.js', array('jquery', 'isotope'), '1.0', true);
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
-	wp_enqueue_script('filter-jobs', get_template_directory_uri() . '/js/filter-jobs.js', array('jquery'), null, true);
+
+	if (is_post_type_archive('cac-careers')) {
+		wp_enqueue_script('filter-jobs', get_template_directory_uri() . '/js/filter-jobs.js', array('jquery'), null, true);
+	}
+
 }
 add_action('wp_enqueue_scripts', 'crust_crumb_scripts');
 
