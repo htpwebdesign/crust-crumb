@@ -18,6 +18,10 @@ get_header();
 	<main id="primary" class="site-main">
 		<?php while ( have_posts() ) : the_post();
 		if (function_exists("get_field")) {
+			// Display Page Title
+			if (get_field('page_title')):
+				echo '<h1>' . get_field('page_title') . '</h1>';
+			endif;
 		
 		?>
 		<figure class="hero-banner">
@@ -43,7 +47,7 @@ get_header();
 					echo wp_get_attachment_image( $image, $size );
 				}?>
 				
-				<h3><?php the_sub_field('milestone_title'); ?></h3>
+				<h2><?php the_sub_field('milestone_title'); ?></h2>
 		</section>
 
 
@@ -57,13 +61,13 @@ get_header();
 
 		endif;
 		?>
-		<article class="story-introduction">
+		<section class="story-introduction">
 			<h2><?php the_field('section_heading');?></h2>
 			<p><?php the_field('content');?></p>
-		</article>
+		</section>
 
-		<article class="more-about-us">
-			<h3><?php the_field('sub_heading'); ?></h3>
+		<section class="more-about-us">
+			<h2><?php the_field('sub_heading'); ?></h2>
 			<p><?php the_field('sub_content') ?></p>
 			<?php 
 			$image = get_field('illustration_image');
@@ -79,12 +83,12 @@ get_header();
 				?>
 				<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
 			<?php endif; ?>
-		</article>
+		</section>
 
 
 
-		<article class="more-about-us">
-			<h3><?php the_field('sub_heading_2'); ?></h3>
+		<section class="more-about-us">
+			<h2><?php the_field('sub_heading_2'); ?></h2>
 			<p><?php the_field('sub_content_2');?></p>
 	
 			<?php
@@ -102,7 +106,7 @@ get_header();
 				?>
 			<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
 	
-			</article>
+			</section>
 			<?php endif; 
 
 

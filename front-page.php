@@ -74,7 +74,7 @@ get_header();
 	</section>
 		
 	<section class="featured-products">
-		<h3><?php the_field('section_title_2'); ?></h3>
+		<h2><?php the_field('section_title_2'); ?></h2>
 		<?php
 		$best_selling_products = wc_get_products(array(
 			'limit'         => 5, // Number of best-selling products to display
@@ -84,24 +84,28 @@ get_header();
 		if ($best_selling_products) {
 			foreach ($best_selling_products as $product) {
 				// Access product details using $product object
-				echo '<h2>' . esc_html($product->get_name()) . '</h2>';
-				echo '<div>' . $product->get_price_html() . '</div>';
+				?>
+				<article>
+					<h3><?php esc_html($product->get_name()); ?></h3>
+					<div><?php $product->get_price_html(); ?></div>
 		
-				// Display product image
-				$image_id = $product->get_image_id();
-				$image_url = wp_get_attachment_image_url($image_id, 'thumbnail');
-				if ($image_url) {
-					echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($product->get_name()) . '" />';
-				}
-		
-				// Display other product details as needed
+					<?php
+					// Display product image
+					$image_id = $product->get_image_id();
+					$image_url = wp_get_attachment_image_url($image_id, 'thumbnail');
+					if ($image_url) {
+						echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($product->get_name()) . '" />';
+					}
+					?>
+				</article>
+					<?php
 			}
 		}
 	?>
 	</section>
 
 	<section class="our-locations">
-		<h3><?php the_field('section_title_3'); ?></h3>
+		<h2><?php the_field('section_title_3'); ?></h2>
 		<?php
 		// Query location-CPT posts
 				$location_posts = new WP_Query(
