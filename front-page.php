@@ -86,8 +86,8 @@ get_header();
 				// Access product details using $product object
 				?>
 				<article>
-					<h3><?php esc_html($product->get_name()); ?></h3>
-					<div><?php $product->get_price_html(); ?></div>
+					<h3><?php echo esc_html($product->get_name()); ?></h3>
+					<div><?php echo $product->get_price_html(); ?></div>
 		
 					<?php
 					// Display product image
