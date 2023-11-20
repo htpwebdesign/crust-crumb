@@ -1,88 +1,95 @@
-@import 'sass/abstracts/variables/breakpoints-margins';
+@import "sass/abstracts/variables/breakpoints-margins";
 
 .sticky {
-	display: block;
+  display: block;
 }
 
 .post,
 .page {
-	margin: 0 0 1.5em;
+  margin: 0 0 1.5em;
 }
 
 .updated:not(.published) {
-	display: none;
+  display: none;
 }
 
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+  margin: 1.5em 0 0;
 }
 
 .page-links {
-	clear: both;
-	margin: 0 0 1.5em;
+  clear: both;
+  margin: 0 0 1.5em;
 }
-
 
 /*contact*/
 
- /* Style the buttons that are used to open and close the accordion panel */
-//  .accordionTitle {
-// 	cursor: pointer;
-
-//   }
-  
-//   .accordionTitle + .accordionContent {
-// 	display: none;
-//   }
-  
-//   .accordionTitle.is-open + .accordionContent {
-// 	display: block;
-//   }
-
-
-.page-id-27 
-{
-.store-locations{
-	margin: 0 $page-margin;
+/* Style the buttons that are used to open and close the accordion panel */
+.accordionTitle {
+  cursor: pointer;
 }
 
+.accordionContent {
+  display: none;
+}
+
+.accordionTitle.is-open ~ .accordionContent {
+  display: block;
+}
+
+.page-id-27 {
+  .store-locations {
+    margin: 0 $page-margin;
+  }
 }
 @media (min-width: $small-screen) {
-	.page-id-27 
-{
-	.store-locations{
+  .page-id-27 {
+    .store-locations {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .location-container {
+        display: grid;
+        column-gap: 1rem;
+        grid-template-columns: 515px fit-content(515px);
+        grid-template-rows: 50px 320px 150px;
+       
 		
-			display: flex;
-			flex-direction: column;
-			align-items: center;
 		
-	}
-	.location-container {
-		display: grid;
+		
+		
+		.accordionContent {
+          display: inline;
+        }
+        div:nth-child(even) {
+          grid-column: 2/2;
+          grid-row: 2/3;
+        }
+        div:nth-child(odd) {
+          grid-column: 1/1;
+          grid-row: 2/3;
+        }
 
-		column-gap: 1rem;
-		grid-template-columns: 515px 1fr;
-		grid-template-rows: 50px 320px 150px;
-		div{
-			grid-column: 2/2;
-			grid-row: 2/3;
-			
-		}
-		.location-img{
-			grid-column: 1/2;
-			grid-row: 1/1;
-		}
-		.location-address{
-			grid-column: 1/1;
-			grid-row: 3;
-		}
+        .location-img:nth-child(even) {
+          grid-column: 1/2;
+          grid-row: 1/1;
+        }
+        .location-img:nth-child(odd) {
+          grid-column: 2/2;
+          grid-row: 1/1;
+        }
 
-
-	}
-	
-	
-
-}
+        .location-address:nth-child(even) {
+          grid-column: 1/1;
+          grid-row: 3;
+        }
+        .location-address:nth-child(odd) {
+          grid-column: 2/2;
+          grid-row: 3;
+        }
+      }
+    }
+  }
 }

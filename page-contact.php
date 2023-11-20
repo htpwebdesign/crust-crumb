@@ -36,20 +36,21 @@ get_header();
                     $location_phone = get_field('location_phone');
                     $location_address = get_field('location_address');
 
-                    echo '<article class="location-container">';
-                    echo '<h2 class="location-name">' . esc_html($location_name) . '</h2>';
+                    echo '<article class="location-container accordion-container">';
+                    echo '<h2 class="location-name accordionTitle">' . esc_html($location_name) . '</h2>';
 
                     // Display location image
+    
                     $location_image_id = get_post_meta(get_the_ID(), 'location_image', true);
                     if ($location_image_id) {
                         $location_image_url = wp_get_attachment_image_url($location_image_id, 'full');
-                        echo '<img src="' . esc_url($location_image_url) . '" alt="' . esc_attr(get_the_title()) . '" class="location-img" />';
+                        echo '<img src="' . esc_url($location_image_url) . '" alt="' . esc_attr(get_the_title()) . '" class="accordionContent location-img" />';
                     }
                     // Display other location details
-                    echo '<p class="location-address">' . esc_html($location_address) . '</p>';
-                    echo '<div>';
-                    echo '<p class="location-phone">Phone: ' . esc_html($location_phone) . '</p>';
-                    echo '<p class="location-hours">Hours:<br/>' . $location_hours . '</p>';
+                    echo '<p class="location-address accordionContent">' . esc_html($location_address) . '</p>';
+                    echo '<div class="accordionContent">';
+                    echo '<p class="location-phone ">Phone: ' . esc_html($location_phone) . '</p>';
+                    echo '<p class="location-hours ">Hours:<br/>' . $location_hours . '</p>';
                     echo '</div>';
 
                     echo '</article>';
