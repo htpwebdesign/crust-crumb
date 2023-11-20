@@ -36,7 +36,7 @@ get_header();
                     $location_phone = get_field('location_phone');
                     $location_address = get_field('location_address');
 
-                    echo '<article class="location-container accordion-container">';
+                    echo '<article class="location-container">';
                     echo '<h2 class="location-name accordionTitle">' . esc_html($location_name) . '</h2>';
 
                     // Display location image
