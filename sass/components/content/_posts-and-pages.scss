@@ -39,28 +39,30 @@
   display: block;
 }
 
+.page-id-27 .location-name {
+  background-color: $primary-color;
+  color: white;
+}
+
 @media (min-width: $small-screen) {
-  .page-id-27 .accordionTitle {
-    cursor: auto;
+  .page-id-27 {
+    .accordionTitle {
+      cursor: auto;
+    }
+    .accordionContent {
+      display: inline;
+    }
   }
   .store-locations {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  .page-id-27 .accordionContent {
-    display: inline;
-  }
-  .location-container {
-    padding: 1rem $page-margin;
-  }
+
   .store-locations {
     .location-container:nth-child(3n) {
       background-color: $secondary-color;
     }
-  }
-
-  .store-locations {
     .location-container:nth-child(3n + 1) {
       background-color: $primary-color;
       .accordionContent,
@@ -70,12 +72,16 @@
     }
   }
 
-  .location-container:nth-child(odd) {
+  .page-id-27 .location-container {
+    padding: 1rem $page-margin;
     display: grid;
     width: 100%;
     justify-content: center;
     column-gap: 2rem;
     grid-template-rows: 50px 320px 50px;
+  }
+
+  .location-container:nth-child(odd) {
     grid-template-columns: 515px fit-content(515px);
 
     div {
@@ -98,11 +104,6 @@
     }
   }
   .location-container:nth-child(even) {
-    display: grid;
-    justify-content: center;
-    width: 100%;
-    column-gap: 2rem;
-    grid-template-rows: 50px 320px 50px;
     grid-template-columns: fit-content(515px) 515px;
 
     div {
@@ -119,3 +120,5 @@
     }
   }
 }
+
+/*careers*/
