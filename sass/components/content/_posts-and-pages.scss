@@ -24,11 +24,38 @@
   margin: 0 0 1.5em;
 }
 
+/*careers*/
+.job-information {
+  width: 100%;
+  color: white;
+  background-color: $secondary-color;
+  //to match the contact page margins
+  margin: 9.96px 0;
+}
+.post-type-archive-cac-careers {
+  .accordionTitle {
+    margin: 0px;
+  }
+  .accordionTitle.is-open ~ .accordionContent {
+    text-align: start;
+    display: inline;
+  }
+  .site-main {
+    margin: 0 $page-margin;
+  }
+  #filtered-jobs {
+    display: flex;
+    max-width: 1024px;
+    align-items: center;
+  }
+}
 /*contact*/
 
 /* Style the buttons that are used to open and close the accordion panel */
 .accordionTitle {
   cursor: pointer;
+  background-color: $primary-color;
+  // margin: 0;
 }
 
 .accordionContent {
@@ -36,20 +63,32 @@
 }
 
 .accordionTitle.is-open ~ .accordionContent {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  max-width: 515px;
+  margin: 0 auto;
+  padding: 0 $page-margin;
 }
 
 .page-id-27 {
   .location-name {
-    background-color: $primary-color;
     color: white;
   }
+  .location-container {
+    margin: 0 $page-margin;
+    background-color: $secondary-color;
+  }
+  .location-img {
+    width: 100%;
+  }
 }
+
 @media (min-width: $small-screen) {
   .page-id-27 {
     .accordionTitle {
       cursor: auto;
     }
+
     .accordionContent {
       display: inline;
     }
@@ -75,6 +114,9 @@
         color: white;
       }
     }
+    .location-container:nth-child(3n + 2) {
+      background-color: transparent;
+    }
   }
 
   .page-id-27 .location-container {
@@ -82,7 +124,7 @@
     display: grid;
     width: 100%;
     justify-content: center;
-    column-gap: 5%;
+    column-gap: 4%;
     grid-template-rows: 50px 320px 50px;
   }
 
