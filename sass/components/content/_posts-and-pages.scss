@@ -39,11 +39,12 @@
   display: block;
 }
 
-.page-id-27 .location-name {
-  background-color: $primary-color;
-  color: white;
+.page-id-27 {
+  .location-name {
+    background-color: $primary-color;
+    color: white;
+  }
 }
-
 @media (min-width: $small-screen) {
   .page-id-27 {
     .accordionTitle {
@@ -51,6 +52,10 @@
     }
     .accordionContent {
       display: inline;
+    }
+    .location-name {
+      background-color: transparent;
+      color: black;
     }
   }
   .store-locations {
@@ -77,7 +82,7 @@
     display: grid;
     width: 100%;
     justify-content: center;
-    column-gap: 2rem;
+    column-gap: 5%;
     grid-template-rows: 50px 320px 50px;
   }
 
