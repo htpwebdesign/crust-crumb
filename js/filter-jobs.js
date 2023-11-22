@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(function () {
                 iso.layout();
-            }, 300); // Adjust the debounce time as needed
+            }, 0);
         });
     }
 });

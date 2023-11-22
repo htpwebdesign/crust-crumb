@@ -77,7 +77,7 @@ get_header();
 						echo '<article class="job-information accordion-container location-' . sanitize_title($location_name) . '">';
 						echo '<h2 class="accordionTitle">' . esc_html(get_the_title()) . '</h2>';
 						echo '<div class="accordionContent">';
-						echo esc_html($location_name);
+						echo '<b>' . esc_html($location_name) . '</b>';
 						echo $job_descriptions;
 						echo '<a href="' . esc_url($job_cta) . '">Apply Now</a>';
 						echo '</div>';

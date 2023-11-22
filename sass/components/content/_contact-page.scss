@@ -1,0 +1,104 @@
+@import "sass/abstracts/variables/breakpoints-margins";
+@import "sass/abstracts/variables/colors";
+/*contact*/
+
+/* Style the buttons that are used to open and close the accordion panel */
+
+.page-id-27 {
+
+  .location-name {
+    color: white;
+  }
+  .location-container {
+    margin: 0 $page-margin;
+    background-color: $secondary-color;
+  }
+  .location-img {
+    width: 100%;
+  }
+}
+
+@media (min-width: $small-screen) {
+  .page-id-27 {
+    .accordionTitle {
+      cursor: auto;
+    }
+
+    .accordionContent {
+      display: inline;
+    }
+    .location-name {
+      background-color: transparent;
+      color: black;
+    }
+  }
+  .store-locations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .store-locations {
+    .location-container:nth-child(3n) {
+      background-color: $secondary-color;
+    }
+    .location-container:nth-child(3n + 1) {
+      background-color: $primary-color;
+      .accordionContent,
+      .accordionTitle {
+        color: white;
+      }
+    }
+    .location-container:nth-child(3n + 2) {
+      background-color: transparent;
+    }
+  }
+
+  .page-id-27 .location-container {
+    padding: 1rem $page-margin;
+    display: grid;
+    width: 100%;
+    justify-content: center;
+    column-gap: 4%;
+    grid-template-rows: 50px 320px 50px;
+  }
+
+  .location-container:nth-child(odd) {
+    grid-template-columns: 515px fit-content(515px);
+
+    div {
+      grid-column: 2/2;
+      grid-row: 2/3;
+    }
+
+    .location-img {
+      grid-column: 1/2;
+      grid-row: 1/1;
+    }
+
+    .location-address {
+      grid-column: 1/1;
+      grid-row: 3;
+    }
+
+    .accordionContent {
+      display: inline;
+    }
+  }
+  .location-container:nth-child(even) {
+    grid-template-columns: fit-content(515px) 515px;
+
+    div {
+      grid-column: 1/1;
+      grid-row: 2/3;
+    }
+    .location-img {
+      grid-column: 2/2;
+      grid-row: 1/1;
+    }
+    .location-address {
+      grid-column: 2/2;
+      grid-row: 3;
+    }
+  }
+}
