@@ -1,0 +1,51 @@
+// Homepage
+
+.page-id-13 {
+    .hero-banner {
+        position: relative;
+    }
+
+    .hero-image-background {
+        filter: blur(2px);
+        min-height: 7.8125rem;
+    }
+
+    .hero-3d-image {
+        position: absolute;
+        top: 15%;
+        right: 0;
+        left: 0;
+        transform: translateX(50%);
+        width: 50%;
+        z-index: 10;
+    }
+
+    h1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        color: $text-secondary-color;
+        font-size: 1.3rem;
+        text-shadow: 1px 1px 2px black;
+        text-align: center;
+    }
+
+    
+}
+
+// .hero-3d-image {
+//     position: absolute;
+//     top: 25%;
+//     right: 0;
+//     width: 50%;
+//     z-index: 10;
+// }
+
+// h1 {
+//     position: absolute;
+//     bottom: 0;
+//     left: 0;
+//     z-index: 10;
+// }
