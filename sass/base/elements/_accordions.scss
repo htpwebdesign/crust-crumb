@@ -1,0 +1,58 @@
+@import "sass/abstracts/variables/colors";
+@import "sass/abstracts/variables/breakpoints-margins";
+/*general styling*/
+.accordionTitle {
+  cursor: pointer;
+  background-color: $primary-color;
+}
+
+.accordionContent {
+  display: none;
+}
+
+.accordionTitle.is-open ~ .accordionContent {
+  display: flex;
+  flex-direction: column;
+}
+
+/*contact*/
+
+.page-id-27 {
+  .accordionTitle.is-open ~ .accordionContent {
+    max-width: 515px;
+    margin: 0 auto;
+    padding: 0 $page-margin;
+  }
+}
+@media (min-width: $small-screen) {
+  .page-id-27 {
+    .accordionTitle {
+      cursor: auto;
+    }
+
+    .accordionContent {
+      display: inline;
+    }
+  }
+}
+
+/*careers*/
+
+.post-type-archive-cac-careers {
+  .accordionTitle {
+    margin: 0px;
+    cursor: pointer;
+  }
+  .accordionTitle.is-open ~ .accordionContent {
+    text-align: start;
+    display: inline-block;
+    & > * {
+      margin-bottom: 20px;
+    }
+  }
+  .accordionContent {
+    color: black;
+    margin: 0 $page-margin;
+    padding: 8px 0;
+  }
+}
