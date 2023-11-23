@@ -8,6 +8,10 @@
   .wp-post-image {
     border: 5px solid $secondary-color;
   }
+  .woocommerce-product-gallery__image {
+    display: flex;
+    justify-content: center;
+  }
   img {
     border-radius: 25px;
   }
@@ -119,7 +123,7 @@
     .product:not(.add_to_cart_inline) {
       display: grid;
       grid-template-columns: 400px 1fr;
-      grid-template-rows: 400px 400px 1fr;
+      grid-template-rows: 400px auto 1fr;
     }
     .related,
     .products {
