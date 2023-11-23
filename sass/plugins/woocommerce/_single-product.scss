@@ -1,10 +1,17 @@
+@import "sass/abstracts/variables/breakpoints-margins";
+@import "sass/abstracts/variables/colors";
 .single-product {
+  #page {
+    display: inline;
+  }
   div.product {
     position: relative;
+    margin: 0 $page-margin;
 
     .woocommerce-product-gallery {
       position: relative;
-      float: left;
+      // float: left;
+      width: 100%;
 
       .woocommerce-product-gallery__trigger {
         position: absolute;
@@ -62,7 +69,9 @@
       }
     }
   }
-
+  .entry-summary {
+    margin: 0 $page-margin;
+  }
 }
 
 .stock {
@@ -76,5 +85,27 @@
 
   &.out-of-stock {
     color: $woocommerce__color-error;
+  }
+}
+
+@media (min-width: $small-screen) {
+  .single-product {
+    margin: 0 auto;
+    max-width: 950px;
+    .product {
+      display: grid;
+      grid-template-columns: 400px 1fr;
+      grid-template-rows: 400px 1fr 1fr;
+    }
+    .related,
+    .products {
+      display: flex;
+      grid-row: 3/3;
+      grid-column: 1/2;
+    }
+    .woocommerce-tabs {
+      display: inline;
+      grid-column: 1/2;
+    }
   }
 }
