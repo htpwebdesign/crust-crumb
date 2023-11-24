@@ -5,7 +5,6 @@
 /* Style the buttons that are used to open and close the accordion panel */
 
 .page-id-27 {
-
   .location-name {
     color: white;
   }
@@ -20,13 +19,7 @@
 
 @media (min-width: $small-screen) {
   .page-id-27 {
-    .accordionTitle {
-      cursor: auto;
-    }
 
-    .accordionContent {
-      display: inline;
-    }
     .location-name {
       background-color: transparent;
       color: black;
@@ -81,9 +74,6 @@
       grid-row: 3;
     }
 
-    .accordionContent {
-      display: inline;
-    }
   }
   .location-container:nth-child(even) {
     grid-template-columns: fit-content(515px) 515px;

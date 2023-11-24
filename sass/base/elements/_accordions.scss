@@ -4,15 +4,20 @@
 .accordionTitle {
   cursor: pointer;
   background-color: $primary-color;
+  padding-left: 1rem;
 }
 
 .accordionContent {
-  display: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s ease-in-out;
 }
 
 .accordionTitle.is-open ~ .accordionContent {
   display: flex;
   flex-direction: column;
+  transition: max-height 1s ease-in-out;
+  max-height: 400px;
 }
 
 /*contact*/
@@ -28,10 +33,20 @@
   .page-id-27 {
     .accordionTitle {
       cursor: auto;
+      padding-left: 0;
     }
-
     .accordionContent {
-      display: inline;
+      overflow: visible;
+      display: grid;
+      max-height: fit-content;
+    }
+    .accordionTitle.is-open ~ .accordionContent {
+      margin: 0;
+      padding: 0;
+      display: grid;
+    }
+    .accordionTitle.is-open ~ .location-address {
+      margin: 16px 0 24px;
     }
   }
 }

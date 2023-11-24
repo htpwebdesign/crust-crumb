@@ -12,6 +12,10 @@
   .site-main {
     margin: 0 $page-margin;
   }
+  .content-area {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
   #filtered-jobs {
     display: flex;
     max-width: 1024px;
