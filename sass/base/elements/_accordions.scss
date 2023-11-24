@@ -6,24 +6,27 @@
   background-color: $primary-color;
   padding-left: 1rem;
 }
-
 .accordionContent {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 1s ease-in-out;
+  display: none;
 }
-
 .accordionTitle.is-open ~ .accordionContent {
-  display: flex;
-  flex-direction: column;
-  transition: max-height 1s ease-in-out;
-  max-height: 400px;
+  display: block;
 }
-
 /*contact*/
 
 .page-id-27 {
+  .accordionContent {
+    display: flex;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s ease-in-out;
+  }
+
   .accordionTitle.is-open ~ .accordionContent {
+    display: flex;
+    flex-direction: column;
+    transition: max-height 1s ease-in-out;
+    max-height: 400px;
     max-width: 515px;
     margin: 0 auto;
     padding: 0 $page-margin;
