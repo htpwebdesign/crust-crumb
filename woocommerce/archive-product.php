@@ -30,7 +30,13 @@ get_header('shop');
 do_action('woocommerce_before_main_content');
 
 ?>
-<header class="woocommerce-products-header">
+<?php
+	
+		// Output the image and the instructions
+		if (function_exists('get_field')) {
+?>
+
+<header class="woocommerce-products-header hero-banner"> 
 	<?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
 		<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
 	<?php endif; ?>
@@ -44,23 +50,23 @@ do_action('woocommerce_before_main_content');
 	 */
 	do_action('woocommerce_archive_description');
 	?>
-</header>
-<?php
-
-	// Output the image and the instructions
-	if (function_exists('get_field')) {
+	<?php
 		$size = 'full'; // (thumbnail, medium, large, full or custom size)
 		if (get_field('hero_image', 19)) {
-			echo wp_get_attachment_image(get_field('hero_image', 19), $size);
+			echo wp_get_attachment_image(get_field('hero_image', 19), $size, false, array('class' => 'menu-hero-image'));
 		}
-		if (get_field('delivery_instruction', 19)) {
-			echo '<p class="delivery-instruction">' . esc_html(get_field('delivery_instruction', 19)) . '</p>';
-		}
-
-		if (get_field('pickup_instruction', 19)) {
-			echo '<p class="pickup-instruction">' . esc_html(get_field('pickup_instruction', 19)) . '</p>';
-		}
+		?>
+</header>
+<?php
+	if (get_field('delivery_instruction', 19)) {
+		echo '<p class="delivery-instruction">' . esc_html(get_field('delivery_instruction', 19)) . '</p>';
 	}
+
+	if (get_field('pickup_instruction', 19)) {
+		echo '<p class="pickup-instruction">' . esc_html(get_field('pickup_instruction', 19)) . '</p>';
+	} 
+}
+
 
 if (woocommerce_product_loop()) {
 	

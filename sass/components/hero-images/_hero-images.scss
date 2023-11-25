@@ -147,3 +147,30 @@
         }
     }
 }
+
+// Menu page
+
+.post-type-archive-product {
+    .hero-banner {
+        position: relative;  
+    }
+
+    .menu-hero-image {
+        height: calc(13.625rem + 15vw);
+        object-fit: cover;
+        object-position: center;
+        filter: blur(2px);
+    }
+
+    h1 {
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        transform: translate(-50%, -50%);
+        color: $text-secondary-color;
+        text-shadow: 1px 1px 2px black;
+        font-size: calc(1.9em + 1.5vw);
+        z-index: 10;
+    }
+}
+
