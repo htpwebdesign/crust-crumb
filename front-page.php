@@ -38,25 +38,25 @@ get_header();
 				?>
 
 				<p><?php the_field('first_engaging_message'); ?></p>
-				<?php
-				$link = get_field('hero_cta');
-				if ($link) :
-					$link_url = $link['url'];
-					$link_title = $link['title'];
-				?>
-					<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
-				<?php endif; ?>
+				<div class='hero-cta'>
+					<?php
+					$link = get_field('hero_cta');
+					if ($link) :
+						$link_url = $link['url'];
+						$link_title = $link['title'];
+					?>
+						<a class='cta-button' href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
+					<?php endif; ?>
 
-				<p><?php the_field('second_engaging_message'); ?></p>
-				<?php
-				$link = get_field('hero_cta_2');
-				if ($link) :
-					$link_url = $link['url'];
-					$link_title = $link['title'];
-				?>
-					<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
-				<?php endif; ?>
-
+					<?php
+					$link = get_field('hero_cta_2');
+					if ($link) :
+						$link_url = $link['url'];
+						$link_title = $link['title'];
+					?>
+						<a class='cta-button' href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
+					<?php endif; ?>
+				</div>
 			</section>
 
 			<section class="our-story">

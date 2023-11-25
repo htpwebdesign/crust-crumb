@@ -19,3 +19,11 @@ input[type="submit"] {
 		border-color: $color__border-button-focus;
 	}
 }
+
+.page-id-13 {
+	.cta-button {
+		@include button-customizable(
+			$bg-color: $button-secondary-color,
+		);
+	}
+}
