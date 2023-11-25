@@ -76,7 +76,7 @@ get_header();
 					$link_url = $link['url'];
 					$link_title = $link['title'];
 				?>
-					<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
+					<a class='about-us-cta' href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
 				<?php endif; ?>
 			</section>
 
@@ -154,7 +154,7 @@ get_header();
 					$link_url = $link['url'];
 					$link_title = $link['title'];
 				?>
-					<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
+					<a class='check-location-cta' href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
 
 				<?php endif; ?>
 			</section>

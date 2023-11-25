@@ -20,10 +20,19 @@ input[type="submit"] {
 	}
 }
 
+// all buttons on Homepage
 .page-id-13 {
-	.cta-button {
+	.cta-button,
+	.about-us-cta {
 		@include button-customizable(
 			$bg-color: $button-secondary-color,
+		);
+	}
+
+	.check-location-cta {
+		@include button-customizable(
+			$bg-color: $button-primary-color,
+			$text-color: $text-secondary-color,
 		);
 	}
 }
