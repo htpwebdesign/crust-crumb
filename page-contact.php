@@ -35,7 +35,7 @@ get_header();
                     $location_hours = get_field('location_hours');
                     $location_phone = get_field('location_phone');
                     $location_address = get_field('location_address');
-
+                    echo '<div class="wrapper">';
                     echo '<article class="location-container">';
                     echo '<h2 class="location-name accordionTitle">' . esc_html($location_name) . '</h2>';
 
@@ -54,7 +54,7 @@ get_header();
                     echo '</div>';
 
                     echo '</article>';
-
+                    echo '</div>';
                 endwhile;
                 echo '</section>';
             endif;

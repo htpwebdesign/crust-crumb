@@ -15,6 +15,14 @@
 /*contact*/
 
 .page-id-27 {
+  .accordionTitle {
+    margin: 0;
+  }
+  .wrapper {
+    border: 1px solid white;
+    border-radius: 4px;
+    margin-bottom: 50px;
+  }
   .accordionContent {
     display: flex;
     max-height: 0;
@@ -28,12 +36,18 @@
     transition: max-height 1s ease-in-out;
     max-height: 400px;
     max-width: 515px;
-    margin: 0 auto;
+    margin: 16px auto 0;
     padding: 0 $page-margin;
   }
 }
 @media (min-width: $small-screen) {
   .page-id-27 {
+    .wrapper {
+      width: 100%;
+      border-radius: 0;
+      border: none;
+      margin-bottom: 0;
+    }
     .accordionTitle {
       cursor: auto;
       padding-left: 0;
@@ -57,6 +71,11 @@
 /*careers*/
 
 .post-type-archive-cac-careers {
+  .accordion-container {
+    border: 1px solid white;
+    border-radius: 4px;
+    margin-bottom: 50px;
+  }
   .accordionTitle {
     margin: 0px;
     cursor: pointer;
