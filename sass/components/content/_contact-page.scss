@@ -43,71 +43,70 @@
     align-items: center;
   }
 
-  .store-locations {
+  .wrapper {
     .location-container {
       background-color: transparent;
+      // display: grid;
+      display: grid;
+      grid-template-rows: 50px 320px 50px;
       max-height: fit-content;
       border-radius: 0;
       border: 0;
       padding: 1rem $page-margin;
-      display: grid;
       width: 100%;
       justify-content: center;
       column-gap: 4%;
-      grid-template-rows: 50px 320px 50px;
-  
-      &:nth-child(3n) {
-        background-color: $secondary-color;
+    }
+
+    &:nth-child(odd) {
+      grid-template-columns: 515px fit-content(515px);
+
+      div {
+        grid-column: 2/2;
+        grid-row: 2/3;
       }
-  
-      &:nth-child(3n + 1) {
-        background-color: $primary-color;
-        .accordionContent,
-        .accordionTitle {
-          color: white;
-        }
+
+      .location-img {
+        grid-column: 1/2;
+        grid-row: 1/1;
       }
-  
-      &:nth-child(3n + 2) {
-        background-color: transparent;
+
+      .location-address {
+        grid-column: 1/1;
+        grid-row: 3;
       }
-  
-      &:nth-child(odd) {
-        grid-template-columns: 515px fit-content(515px);
-  
-        div {
-          grid-column: 2/2;
-          grid-row: 2/3;
-        }
-  
-        .location-img {
-          grid-column: 1/2;
-          grid-row: 1/1;
-        }
-  
-        .location-address {
-          grid-column: 1/1;
-          grid-row: 3;
-        }
+    }
+    &:nth-child(3n) {
+      background-color: $secondary-color;
+    }
+
+    &:nth-child(3n + 1) {
+      background-color: $primary-color;
+      .accordionContent,
+      .accordionTitle {
+        color: white;
       }
-  
-      &:nth-child(even) {
-        grid-template-columns: fit-content(515px) 515px;
-  
-        div {
-          grid-column: 1/1;
-          grid-row: 2/3;
-        }
-  
-        .location-img {
-          grid-column: 2/2;
-          grid-row: 1/1;
-        }
-  
-        .location-address {
-          grid-column: 2/2;
-          grid-row: 3;
-        }
+    }
+
+    &:nth-child(3n + 2) {
+      background-color: transparent;
+    }
+    &:nth-child(even) {
+      grid-template-columns: fit-content(515px) 515px;
+
+      div {
+        grid-column: 1/1;
+        grid-row: 2/3;
+      }
+
+      .location-img {
+        grid-column: 2/2;
+        grid-row: 1/1;
+      }
+
+      .location-address {
+        grid-column: 2/2;
+        grid-row: 3;
       }
     }
   }
