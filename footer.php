@@ -12,6 +12,12 @@
 ?>
 
 <footer id="colophon" class="site-footer">
+	<!-- Output the secondary logo -->
+	<?php 
+    $secondary_logo_url = get_theme_mod( 'secondary-logo' );
+    if ($secondary_logo_url )
+       echo '<img src="'.$secondary_logo_url.'" alt = "secondary logo" class="secondary-logo">';
+    ?>
 	<div class="footer-menus">
 		<nav class="footer-navigation">
 			<?php wp_nav_menu(array('theme_location' => 'footer-left')); ?>
