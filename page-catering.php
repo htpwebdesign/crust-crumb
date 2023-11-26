@@ -60,9 +60,11 @@ get_header();
         wp_reset_postdata();
         ?>
 
-        <section>
+        <section class="form-wrapper">
+        <h2> Catering Order Form</h2>
             <?php
             // Embed Gravity Form 
+            
             if ( function_exists( 'gravity_form' ) ) {
                 gravity_form( 4, false, false, false, '', false );  
             }
