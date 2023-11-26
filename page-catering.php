@@ -37,6 +37,7 @@ get_header();
             <section class="catering-packages">
                 <h2>Packages</h2>
                 <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+                <div>
                     <article class="package">
                         <?php $package_image_id = get_field( 'package_image' ); ?>
                         <?php if ( $package_image_id ) : ?>
@@ -48,14 +49,14 @@ get_header();
 
                         <h3><?php the_field( 'package_name' ); ?></h3>
                         <p><?php the_field( 'package_description' ); ?></p>
-                        
-                        <?php $orderform_link = get_field( 'orderform_link' ); ?>
-                        <?php if ( $orderform_link ) : ?>
-                            <a href="<?php echo esc_url( $orderform_link['url'] ); ?>" class="order-button">Order Now</a>
-                        <?php endif; ?>
                     </article>
                 <?php endwhile; ?>
+                </div>
             </section>
+            <?php $orderform_link = get_field( 'orderform_link' ); ?>
+                    <?php if ( $orderform_link ) : ?>
+                        <a href="<?php echo esc_url( $orderform_link['url'] ); ?>" class="order-now-button">Order Now</a>
+                    <?php endif; ?>
         <?php endif;
         wp_reset_postdata();
         ?>

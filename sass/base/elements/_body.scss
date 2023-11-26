@@ -1,3 +1,9 @@
 body {
+	background-color: white;
+}
+
+// Only apply gradient background to homepage and menu page
+body.page-id-13,
+body.post-type-archive-product {
 	background: $background-color; // Fallback for when there is no custom background color defined.
 }

@@ -45,6 +45,11 @@ get_header();
 						'order' => 'ASC',
 					)
 				);
+				?>
+				<label>
+					<input type="radio" name="location" value="All" checked> All
+				</label>
+				<?php
 				//array_unique removes all duplicates and array_map takes the post id and returns the location name 
 				if (function_exists("get_field")) {
 					$store_locations = array_unique(array_map(function ($post_id) {
@@ -58,9 +63,7 @@ get_header();
 							<?php echo esc_html($location); ?>
 						</label>
 					<?php endforeach; ?>
-					<label>
-						<input type="radio" name="location" value="All" checked> All
-					</label>
+
 
 				</form>
 
@@ -74,12 +77,15 @@ get_header();
 						$job_cta = get_field('job_cta');
 
 						// Add a class based on location to each job-information div
-						echo '<article class="job-information location-' . sanitize_title($location_name) . '">';
-						echo '<h2>' . esc_html(get_the_title()) . '</h2>';
-						echo esc_html($location_name);
+						echo '<article class="job-information accordion-container location-' . sanitize_title($location_name) . '">';
+						echo '<h2 class="accordionTitle">' . esc_html(get_the_title()) . '</h2>';
+						echo '<div class="accordionContent">';
+						echo '<b>' . esc_html($location_name) . '</b>';
 						echo $job_descriptions;
 						echo '<a href="' . esc_url($job_cta) . '">Apply Now</a>';
+						echo '</div>';
 						echo '</article>';
+
 					endwhile;
 				}
 				wp_reset_postdata();

@@ -25,7 +25,7 @@ get_header();
 			$image = get_field('hero_iamge');
 					$size = 'full'; // (thumbnail, medium, large, full or custom size)
 					if( $image ) {
-						echo wp_get_attachment_image( $image, $size );
+						echo wp_get_attachment_image( $image, $size, false, array("class" => "hero-image") );
 					}?>
 		</figure>
 
@@ -46,15 +46,19 @@ get_header();
 
 				// loop through the rows of data
 				while ( have_rows('career_timeline') ) : the_row();
+					?>
+					<span class="the-line"></span>
+					<div>
+					<h2><?php the_sub_field('milestone_title'); ?></h2>
+					<?php
 
 					$image = get_sub_field('milestone_image');
 					$size = 'full'; // (thumbnail, medium, large, full or custom size)
 					if( $image ) {
 						echo wp_get_attachment_image( $image, $size );
 					}?>
-					
-					<h2><?php the_sub_field('milestone_title'); ?></h2>
-				<?php
+					</div>
+					<?php
 				endwhile;
 	
 			endif;
@@ -62,29 +66,42 @@ get_header();
 		</section>
 
 		<section class="more-about-us">
-			<h2><?php the_field('sub_heading'); ?></h2>
-			<p><?php the_field('sub_content') ?></p>
-			<?php 
-			$image = get_field('illustration_image');
-			$size = 'full'; // (thumbnail, medium, large, full or custom size)
-			if( $image ) {
-				echo wp_get_attachment_image( $image, $size );
-			}
-	
-			$link = get_field('cta');
-			if( $link ): 
+			<div>
+				<h2><?php the_field('sub_heading'); ?></h2>
+				<p><?php the_field('sub_content') ?></p>
+				<?php
+				$link = get_field('cta');
+				if( $link ): 
 				$link_url = $link['url'];
 				$link_title = $link['title'];
 				?>
 				<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
 			<?php endif; ?>
+			</div>
+			<?php 
+			$image = get_field('illustration_image');
+			$size = 'full'; // (thumbnail, medium, large, full or custom size)
+			if( $image ) {
+				echo wp_get_attachment_image( $image, $size );
+			}?>
+	
+
 		</section>
 
 
 
-		<section class="more-about-us">
-			<h2><?php the_field('sub_heading_2'); ?></h2>
-			<p><?php the_field('sub_content_2');?></p>
+		<section class="more-about-us-2">
+			<div>
+				<h2><?php the_field('sub_heading_2'); ?></h2>
+				<p><?php the_field('sub_content_2');?></p>
+				<?php
+				$link = get_field('cta_2');
+				if( $link ): 
+					$link_url = $link['url'];
+					$link_title = $link['title'];
+					?>
+				<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
+			</div>
 	
 			<?php
 			$image = get_field('illustration_image_2');
@@ -92,15 +109,6 @@ get_header();
 			if( $image ) {
 				echo wp_get_attachment_image( $image, $size );
 			}?>
-	
-			<?php
-			$link = get_field('cta_2');
-			if( $link ): 
-				$link_url = $link['url'];
-				$link_title = $link['title'];
-				?>
-			<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
-	
 			</section>
 			<?php endif; 
 
