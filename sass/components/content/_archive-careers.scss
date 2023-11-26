@@ -1,0 +1,25 @@
+@import "sass/abstracts/variables/breakpoints-margins";
+@import "sass/abstracts/variables/colors";
+
+.job-information {
+  width: 100%;
+  color: white;
+  background-color: $secondary-color;
+  border: 2px solid $primary-color;
+  //to match the contact page margins
+  margin: 9.96px 0;
+}
+.post-type-archive-cac-careers {
+  .site-main {
+    margin: 0 $page-margin;
+  }
+  .content-area {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+  #filtered-jobs {
+    display: flex;
+    max-width: 1024px;
+    align-items: center;
+  }
+}
