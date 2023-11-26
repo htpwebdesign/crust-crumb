@@ -4,34 +4,72 @@
 .accordionTitle {
   cursor: pointer;
   background-color: $primary-color;
+  padding-left: 1rem;
 }
-
 .accordionContent {
   display: none;
 }
-
 .accordionTitle.is-open ~ .accordionContent {
-  display: flex;
-  flex-direction: column;
+  display: block;
 }
-
 /*contact*/
 
 .page-id-27 {
-  .accordionTitle.is-open ~ .accordionContent {
+  .accordionTitle {
+    margin: 0;
+  }
+  .wrapper {
+    margin: 0 $page-margin;
+    border: 1px solid white;
+    border-radius: 4px;
+    //to match the contact page margins
+    margin-bottom: 9.96px;
+  }
+  .accordionContent {
+    display: flex;
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
     max-width: 515px;
-    margin: 0 auto;
+    transition: max-height 0.3s linear;
+    margin: 16px auto 0;
+    padding: 0 $page-margin;
+  }
+
+  .accordionTitle.is-open ~ .accordionContent {
+    display: flex;
+    flex-direction: column;
+    transition: max-height 0.3s linear;
+    max-height: 400px;
+    max-width: 515px;
+    margin: 16px auto 0;
     padding: 0 $page-margin;
   }
 }
 @media (min-width: $small-screen) {
   .page-id-27 {
+    .wrapper {
+      width: 100%;
+      border-radius: 0;
+      border: none;
+      margin-bottom: 0;
+    }
     .accordionTitle {
       cursor: auto;
+      padding-left: 0;
     }
-
     .accordionContent {
-      display: inline;
+      overflow: visible;
+      display: grid;
+      max-height: fit-content;
+    }
+    .accordionTitle.is-open ~ .accordionContent {
+      margin: 0;
+      padding: 0;
+      display: grid;
+    }
+    .accordionTitle.is-open ~ .location-address {
+      margin: 16px 0 24px;
     }
   }
 }
@@ -39,9 +77,14 @@
 /*careers*/
 
 .post-type-archive-cac-careers {
+  .accordion-container {
+    border: 1px solid white;
+    border-radius: 4px;
+  }
   .accordionTitle {
     margin: 0px;
     cursor: pointer;
+    border-radius: 4px;
   }
   .accordionTitle.is-open ~ .accordionContent {
     text-align: start;
@@ -52,7 +95,11 @@
   }
   .accordionContent {
     color: black;
-    margin: 0 $page-margin;
-    padding: 8px 0;
+    // margin: 0 $page-margin;
+    margin-top: -5px;
+    padding: $page-margin;
+    border: 2px solid $primary-color;
+    border-radius: 4px;
+    width: 100%;
   }
 }

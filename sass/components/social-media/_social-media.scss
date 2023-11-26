@@ -1,0 +1,32 @@
+// Contact Page
+
+.page-id-27 {
+    .social-media-section {
+        p {
+            font-weight: 700;
+            text-align: center;
+        }
+
+        ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 1rem;
+            gap: 1rem;
+
+           img {
+            width: 50px;
+           }
+        }
+    }
+
+    @media (min-width: $small-screen) {
+        .social-media-section {
+            p {
+                font-size: calc(1.1rem + .75vw);
+                margin-bottom: 0;
+            }
+        }
+    }
+}

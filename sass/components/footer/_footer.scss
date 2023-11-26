@@ -1,0 +1,76 @@
+// Footer styles
+
+.site-footer {
+    position: relative;
+    background-color: white;
+    margin-top: 2rem;
+    .secondary-logo-link {
+        display: block;
+        margin: 0 auto;
+        width: 200px;
+        padding: 1rem;
+    }
+    .secondary-logo {
+        width: 200px;
+        display: block;
+    }
+
+    .footer-left-section {
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+    .footer-right-section {
+        display: flex;
+        justify-content: space-around;
+        padding: 1rem 0;
+        ul {
+            list-style: none;
+            margin: 0;
+            padding-left: 0;
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+
+    body.page-id-13 & {
+        background-color: transparent; // Apply styles when on page with ID 13
+        color: white;
+        a {
+            color: white;
+        }
+    }
+
+    @media (min-width: $small-screen) {
+        .secondary-logo-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+        .footer-flex-box {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            gap: 5rem;
+        }
+
+        .footer-left-section {
+            text-align: left;
+            padding: 0 1rem;
+            width: 50%;
+            
+            .about-us-brief {
+                width: 80%;
+            }
+        }
+
+        .footer-right-section {
+            width: 50%;
+            justify-content: flex-end;
+            gap: 3rem;
+            line-height: 2rem;
+     }
+    }
+}

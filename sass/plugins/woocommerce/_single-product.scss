@@ -84,12 +84,15 @@
   .entry-summary {
     margin: 0 $page-margin;
   }
+  .entry-title {
+    text-align: center;
+  }
   .gpsc--product-slider-carousel .swiper-container {
     padding-top: 100px;
   }
   .swiper-slide {
     background-color: $secondary-color;
-    // width: 212px !important;
+    width: 212px !important;
     padding: 5px;
     // padding-right:
     border-radius: 20px;
@@ -98,12 +101,41 @@
   }
   .gpsc--product-image img {
     border: 2px solid white;
-    width: 180px;
   }
   .onsale {
+    // add button styling to this?
+
     position: absolute;
+    z-index: 1;
+  }
+  .price {
+    text-align: center;
+  }
+  .cart {
+    display: flex;
+    gap: 5px;
+    align-items: flex-end;
+  }
+  .gpsc--product-image img {
+    max-width: 200px;
+    border: 5px solid white;
+  }
+  #gpsc--related {
+    h2 {
+      color: black;
+    }
   }
   @media (min-width: $small-screen) {
+    .entry-title,
+    .price {
+      text-align: left;
+    }
+    .onsale {
+      // placeholder
+      color: white;
+      left: 5rem;
+      top: 2rem;
+    }
     #gpsc--related {
       // display: contents;
       grid-column: 1 / span 2;
@@ -111,10 +143,9 @@
     }
     .swiper-slide {
       padding: $page-margin;
-      padding-right: 25px;
+      padding-right: 18px;
       border-radius: 20px;
-      // decide what to do with this
-      // height: auto;
+      height: auto;
     }
     .gpsc--product-image img {
       border: 5px solid white;
@@ -122,15 +153,6 @@
     .swiper-wrapper {
       // gap: 1%;
       align-items: baseline;
-    }
-    .gpsc--product-image img {
-      width: auto;
-      border: 5px solid white;
-    }
-    .cart {
-      display: flex;
-      gap: 5px;
-      align-items: flex-end;
     }
   }
 }
