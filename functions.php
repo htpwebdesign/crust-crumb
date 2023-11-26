@@ -152,6 +152,9 @@ function crust_crumb_scripts()
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
+
+	// enqueue hamburger menu
+	wp_enqueue_script('hamburger-menu', get_template_directory_uri() . '/js/hamburger.js', array(), _S_VERSION, true);
 }
 add_action('wp_enqueue_scripts', 'crust_crumb_scripts');
 
