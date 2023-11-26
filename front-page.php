@@ -51,25 +51,28 @@ get_header();
 		<?php endif; ?>
 	</section>
 	
+	<h1><?php the_field('slogan_message');?></h1>
 	<section class="our-story">
-		<h1><?php the_field('slogan_message');?></h1>
 		<h2><?php the_field('section_title'); ?></h2>
-		<p><?php the_field('short_introduction') ?></p>
-
-		<?php
-		$image = get_field('our_story_image');
-		$size = 'full'; // (thumbnail, medium, large, full or custom size)
-		if( $image ) {
-			echo wp_get_attachment_image( $image, $size );
-		}?>
-
-		<?php
-		$link = get_field('our_story_cta');
-		if( $link ): 
-			$link_url = $link['url'];
-			$link_title = $link['title'];
-			?>
-		<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
+		<div>
+			<?php
+			$image = get_field('our_story_image');
+			$size = 'full'; // (thumbnail, medium, large, full or custom size)
+			if( $image ) {
+				echo wp_get_attachment_image( $image, $size );
+			}?>
+	
+			<?php
+			$link = get_field('our_story_cta');
+			if( $link ): 
+				$link_url = $link['url'];
+				$link_title = $link['title'];
+				?>
+			<div class="story-intro">
+				<p><?php the_field('short_introduction') ?></p>
+				<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
+			</div>
+		</div>
 		<?php endif; ?>
 	</section>
 		

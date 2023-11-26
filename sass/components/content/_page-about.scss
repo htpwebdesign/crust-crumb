@@ -1,0 +1,37 @@
+@import "../../abstracts/variables/colors";
+
+h1 {
+    margin: 2rem 2.2rem 0rem 2.2rem;
+    font-size: 3.5rem;
+    font-weight: 500;
+}
+
+.our-story {
+    margin: 0.5rem 3rem 2rem 3rem;
+
+    h2 {
+        margin-top: 0rem;
+        font-weight: 400;
+    }
+
+    div {
+        display: flex;
+        gap: 3rem;
+    }
+
+    .story-intro {
+        display: flex;
+        flex-direction: column;
+        gap: 0rem;
+        justify-content: center;
+
+        a {
+            align-self: center;
+        }
+    }
+
+    img {
+        width: 978px;
+        height: 348px;
+    }
+}
