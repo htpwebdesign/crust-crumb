@@ -45,6 +45,11 @@ get_header();
 						'order' => 'ASC',
 					)
 				);
+				?>
+				<label>
+					<input type="radio" name="location" value="All" checked> All
+				</label>
+				<?php
 				//array_unique removes all duplicates and array_map takes the post id and returns the location name 
 				if (function_exists("get_field")) {
 					$store_locations = array_unique(array_map(function ($post_id) {
@@ -58,9 +63,7 @@ get_header();
 							<?php echo esc_html($location); ?>
 						</label>
 					<?php endforeach; ?>
-					<label>
-						<input type="radio" name="location" value="All" checked> All
-					</label>
+
 
 				</form>
 
