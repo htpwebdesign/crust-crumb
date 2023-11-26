@@ -77,7 +77,7 @@ get_header();
 					?>
 						<div class="story-intro">
 							<p><?php the_field('short_introduction') ?></p>
-							<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
+							<a class='about-us-cta' href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
 						</div>
 				</div>
 			<?php endif; ?>
@@ -97,7 +97,7 @@ get_header();
 							// Access product details using $product object
 					?>
 							<article class="product-card">
-								`<?php
+								<?php
 									// Display product image
 									$image_id = $product->get_image_id();
 									$image_url = wp_get_attachment_image_url($image_id, 'thumbnail');

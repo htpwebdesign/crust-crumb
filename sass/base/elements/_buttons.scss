@@ -23,18 +23,44 @@ input[type="submit"] {
 
 // all buttons on Homepage
 .page-id-13 {
+	// Hero Section and About Section
 	.cta-button,
 	.about-us-cta {
 		@include button-customizable(
 			$bg-color: $button-secondary-color,
 		);
 	}
-
+	// CTA Location Section
 	.check-location-cta {
 		@include button-customizable(
 			$bg-color: $button-primary-color,
 			$text-color: $text-secondary-color,
 		);
+	}
+
+	//Add-to-card in Featured Product
+	.product-card .button {
+		@include button-customizable(
+			$bg-color: $button-primary-color,
+			$text-color: $text-secondary-color,
+		);
+		width: fit-content;
+		align-self: flex-end;
+	}
+}
+
+// Buttons on About page
+
+.page-id-25 {
+	.more-about-us,
+	.more-about-us-2 {
+		.button {
+			@include button-customizable(
+				$bg-color: $button-secondary-color,
+				$text-color: $text-primary-color,
+				$padding: 0.5rem 1rem,
+			);
+		}
 	}
 }
 
@@ -77,6 +103,8 @@ input[type="submit"] {
 			$padding: 0.5rem 1rem,
 			$radius: 20px,
 		);
+		width: fit-content;
+		align-self: flex-end;
 	}
 }
 
@@ -214,6 +242,14 @@ input[type="submit"] {
 				$padding: 0.5rem 1rem,
 			);
 		}
+	}
+	.order-now-button {
+		@include button-customizable(
+			$bg-color: $button-primary-color,
+			$text-color: $text-secondary-color,
+			$padding: 0.5rem 1rem,
+		);
+	
 	}
 }
 

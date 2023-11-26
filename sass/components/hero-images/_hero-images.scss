@@ -3,7 +3,7 @@
 .page-id-13 {
     .hero-banner {
         position: relative;
-        
+        margin-bottom: 4rem;
         .hero-image-background {
             filter: blur(3px);
             
@@ -34,6 +34,7 @@
             font-size: calc(1.1rem + .75vw);
             text-shadow: 1px 1px 2px black;
             text-align: center;
+            text-transform: capitalize;
 
             @media (min-width: 31.25rem) {
                 font-size: calc(1.5rem + .75vw);
@@ -75,6 +76,7 @@
 
         // Styling for Desktop size (768px and up)
         @media (min-width: $small-screen) {
+            margin-bottom: 5rem;
             .hero-image-background {
                 height: calc(15.625rem + 15vw);
                 object-fit: cover;
