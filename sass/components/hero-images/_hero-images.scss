@@ -4,9 +4,11 @@
     .hero-banner {
         position: relative;
         margin-bottom: 4rem;
+        margin-top: -5px;
+        margin-left: -5px;
         .hero-image-background {
+            position: relative;
             filter: blur(3px);
-            
         }
     
         .hero-3d-image {
@@ -113,6 +115,7 @@
             .hero-cta {
                 justify-content: start;
                 margin-left: 2rem;
+                margin-top: 1rem;
                 gap: 2rem;
                 a {
                     font-size: 1.2rem;
@@ -126,7 +129,8 @@
 
 .page-id-25 {
     .hero-banner {
-        position: relative;  
+        position: relative;
+        margin: auto;  
     }
 
     h1 {
@@ -146,6 +150,8 @@
             object-fit: cover;
             object-position: center;
             filter: blur(3px);
+            margin-top: -5px;
+            margin-left: -5px;
         }
     }
 }
