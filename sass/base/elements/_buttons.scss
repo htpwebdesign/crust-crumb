@@ -36,3 +36,24 @@ input[type="submit"] {
 		);
 	}
 }
+
+// Filter Buttons on Menu page
+
+.post-type-archive-product {
+	.filter-button-group {
+		button {
+
+			@include button-customizable(
+				$bg-color: $button-secondary-color,
+				$text-color: $text-primary-color,
+				$padding: 0.5rem 1rem,
+				$radius: 0px,
+			);
+			border-color: $text-primary-color,
+		
+		}
+		button.is-checked {
+			box-shadow: inset 0px 0px 3px 1px $primary-color;
+		}
+	}
+}

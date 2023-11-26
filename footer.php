@@ -12,7 +12,6 @@
 ?>
 
 <footer id="colophon" class="site-footer">
-	</div>
 	<div class="footer-menus">
 		<nav class="footer-navigation">
 			<?php wp_nav_menu(array('theme_location' => 'footer-left')); ?>

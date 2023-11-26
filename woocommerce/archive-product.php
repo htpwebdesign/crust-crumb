@@ -87,7 +87,7 @@ if (woocommerce_product_loop()) {
 
 	<!-- Filter Buttons -->
 	<div class="filter-button-group">
-		<button data-filter="*">All</button>
+		<button class='is-checked' data-filter="*">All</button>
 		<?php
 		$product_categories = get_terms(array('taxonomy' => 'product_cat', 'parent' => 0));
 		foreach ($product_categories as $category) :
