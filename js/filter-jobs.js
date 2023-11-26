@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function ($) {
+document.addEventListener('DOMContentLoaded', function () {
     // Select the container that holds your job listings
     const jobContainer = document.getElementById('filtered-jobs');
 
@@ -26,11 +26,10 @@ document.addEventListener('DOMContentLoaded', function ($) {
         });
 
         // Event listener for accordion click
-        $(".accordion-container").on("click", ".accordionTitle", function () {
-            $(this).toggleClass("is-open");
-            toggleAccordionIcon($(this));
+        jQuery(".accordion-container").on("click", ".accordionTitle", function () {
+            jQuery(this).toggleClass("is-open");
             iso.layout(); // Trigger Isotope layout after changes
-
+            toggleAccordionIcon(jQuery(this));
         });
 
         // Event listener for window resize

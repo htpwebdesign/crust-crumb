@@ -1,137 +1,139 @@
 @import "../../abstracts/variables/colors";
 @import "../../abstracts/variables/breakpoints-margins";
 
-
 // Styles for Our Story Section on front-page.php
-h1 {
+.page-id-25, .page-id-13 {
+  h1 {
     margin: 2rem 2.2rem 0rem 2.2rem;
     font-size: 3.5rem;
     font-weight: 500;
+  }
 }
-
 .our-story {
-    margin: 0.5rem 3rem 2rem 3rem;
+  margin: 0.5rem 3rem 2rem 3rem;
 
-    h2 {
-        margin-top: 0rem;
-        font-weight: 400;
+  h2 {
+    margin-top: 0rem;
+    font-weight: 400;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .story-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+    justify-content: center;
+
+    a {
+      align-self: center;
     }
+  }
 
-    div {
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
-    }
-
-    .story-intro {
-        display: flex;
-        flex-direction: column;
-        gap: 0rem;
-        justify-content: center;
-
-        a {
-            align-self: center;
-        }
-    }
-
-    img {
-        height: 348px;
-    }
+  img {
+    height: 348px;
+  }
 }
 
 @media screen and (min-width: $small-screen) {
-    .our-story div {
-        flex-direction: row;
-    }
+  .our-story div {
+    flex-direction: row;
+  }
 }
 
 // Styles for Our Story Page on page-about.php
 .story-introduction {
-    margin: 2rem 2rem 5rem 2rem;
+  margin: 2rem 2rem 5rem 2rem;
 
-    h2 {
-        font-size: 2.6rem;
-        font-weight: 500;
-    }
+  h2 {
+    font-size: 2.6rem;
+    font-weight: 500;
+  }
 }
 
 .career-timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin: 0 2rem 3.8rem;
+  gap: 4rem;
+
+  .the-line {
+    position: absolute;
+    height: 100%; /* Ensures the line spans the entire height */
+    width: 2px; /* Adjust the width as needed */
+    background-color: black; /* Change the color to your preference */
+    z-index: -1;
+    left: 50%; /* Position the line in the center horizontally */
+    transform: translateX(-50%); /* Center the line precisely */
+    /* Adjust top, bottom, or margins as needed for vertical positioning */
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+
+  div {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    position: relative;
-    margin: 0 2rem 3.8rem;
-    gap: 4rem;
-
-    .the-line {
-        position: absolute;
-        height: 100%; /* Ensures the line spans the entire height */
-        width: 2px; /* Adjust the width as needed */
-        background-color: black; /* Change the color to your preference */
-        z-index: -1;
-        left: 50%; /* Position the line in the center horizontally */
-        transform: translateX(-50%); /* Center the line precisely */
-        /* Adjust top, bottom, or margins as needed for vertical positioning */
-        top: 0;
-        bottom: 0;
-        margin: auto;
+    width: 173px;
+    h2 {
+      font-size: 1rem;
     }
-
-    div {
-        display: flex;
-        flex-direction: column;
-        width: 173px;
-        h2 {
-            font-size: 1rem;
-        }
-    }
+  }
 }
 
 @media screen and (min-width: $small-screen) {
-    .career-timeline {
-        flex-direction: row;
-        justify-content: center;
-    }
-    .the-line {
-        position: absolute!important;
-        width: 100%!important; /* Ensures the line spans the entire width */
-        height: 2px!important; /* Adjust the height as needed */
-        background-color: black; /* Change the color to your preference */
-        z-index: -1!important;
-        top: 5.2rem!important;
-        left: 0%!important;
-        transform: none!important;
-    }
+  .career-timeline {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .the-line {
+    position: absolute !important;
+    width: 100% !important; /* Ensures the line spans the entire width */
+    height: 2px !important; /* Adjust the height as needed */
+    background-color: black; /* Change the color to your preference */
+    z-index: -1 !important;
+    top: 5.2rem !important;
+    left: 0% !important;
+    transform: none !important;
+  }
 }
 
-.more-about-us, .more-about-us-2 {
-    margin: 0rem 2rem 2rem 2rem;
+.more-about-us,
+.more-about-us-2 {
+  margin: 0rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 3rem;
+
+  div {
     display: flex;
-    flex-direction: column-reverse;
-    gap: 3rem;
-
-    div {
-        display: flex;
-        flex-direction: column;
-        gap: 0rem;
-        a {
-            align-self: center;
-        }
+    flex-direction: column;
+    gap: 0rem;
+    a {
+      align-self: center;
     }
+  }
 
-    img {
-        height: 348px;
-    }
+  img {
+    height: 348px;
+  }
 }
 
 @media screen and (min-width: $small-screen) {
-    .more-about-us-2 {
+  .more-about-us-2 {
     flex-direction: row-reverse;
-    }
+  }
 }
 
 @media screen and (min-width: $small-screen) {
-    .more-about-us, .more-about-us-2 {
-        flex-direction: row;
-    }
+  .more-about-us,
+  .more-about-us-2 {
+    flex-direction: row;
+  }
 }

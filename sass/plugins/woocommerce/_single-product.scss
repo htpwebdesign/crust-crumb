@@ -4,6 +4,13 @@
   #page {
     display: inline;
   }
+  .price {
+    font-weight: bold;
+    font-size: large;
+  }
+  .input-text {
+    height: 34px;
+  }
 
   .wp-post-image {
     border: 5px solid $secondary-color;
@@ -87,26 +94,11 @@
   .entry-title {
     text-align: center;
   }
-  .gpsc--product-slider-carousel .swiper-container {
-    padding-top: 100px;
-  }
-  .swiper-slide {
-    background-color: $secondary-color;
-    width: 212px !important;
-    padding: 5px;
-    // padding-right:
-    border-radius: 20px;
-    // decide what to do with this
-    // height: auto;
-  }
-  .gpsc--product-image img {
-    border: 2px solid white;
-  }
-  .onsale {
-    // add button styling to this?
-
-    position: absolute;
-    z-index: 1;
+  .product {
+    .onsale {
+      position: absolute;
+      z-index: 1;
+    }
   }
   .price {
     text-align: center;
@@ -130,30 +122,6 @@
     .price {
       text-align: left;
     }
-    .onsale {
-      // placeholder
-      color: white;
-      left: 5rem;
-      top: 2rem;
-    }
-    #gpsc--related {
-      // display: contents;
-      grid-column: 1 / span 2;
-      grid-row-start: 3;
-    }
-    .swiper-slide {
-      padding: $page-margin;
-      padding-right: 18px;
-      border-radius: 20px;
-      height: auto;
-    }
-    .gpsc--product-image img {
-      border: 5px solid white;
-    }
-    .swiper-wrapper {
-      // gap: 1%;
-      align-items: baseline;
-    }
   }
 }
 
@@ -173,8 +141,11 @@
 
 @media (min-width: $small-screen) {
   .single-product {
-    margin: 0 auto;
-    max-width: 950px;
+    .site-main {
+      margin: 0 auto;
+      max-width: 1024px;
+    }
+
     .product:not(.add_to_cart_inline) {
       margin-top: $page-margin-medium;
       display: grid;
@@ -184,13 +155,20 @@
     .related,
     .products {
       display: flex;
-      grid-row: 3/3;
+      grid-row: 4/4;
       grid-column: span 2;
     }
     .woocommerce-tabs,
     .wc-tabs-wrapper {
-      display: contents;
+      align-items: center;
+      grid-row: 2;
       grid-column: span 2;
+    }
+    ul .tabs,
+    ul.wc-tabs {
+      display: flex;
+      flex-direction: row;
+      gap: $page-margin-large;
     }
   }
   .entry-summary {

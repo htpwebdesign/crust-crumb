@@ -14,7 +14,7 @@ get_header();
         the_post();
 
         // Directly display the WordPress page title
-        the_title('<h1>', '</h1>');
+        the_title('	<h1 class="page-title">', '</h1>');
 
         if (function_exists("get_field")) {
             // Query location-CPT posts
@@ -49,8 +49,8 @@ get_header();
                     // Display other location details
                     echo '<p class="location-address accordionContent">' . esc_html($location_address) . '</p>';
                     echo '<div class="accordionContent">';
-                    echo '<p class="location-phone ">Phone: ' . esc_html($location_phone) . '</p>';
-                    echo '<p class="location-hours ">Hours:<br/>' . $location_hours . '</p>';
+                    echo '<p class="location-phone "><u>Phone:</u> ' . esc_html($location_phone) . '</p>';
+                    echo '<p class="location-hours "><u>Hours:</u><br/>' . $location_hours . '</p>';
                     echo '</div>';
 
                     echo '</article>';

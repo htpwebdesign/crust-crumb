@@ -33,7 +33,7 @@ get_header();
 
 		if ($careers_query->have_posts()): ?>
 
-			<form>
+			<form class="career-location-radio">
 				<?php
 				$store_locations = get_posts(
 					array(
@@ -81,7 +81,7 @@ get_header();
 						echo '<h2 class="accordionTitle">' . esc_html(get_the_title());
 						echo '<span class="accordion-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/></svg></span></h2>';
 						echo '<div class="accordionContent">';
-						echo '<b>' . esc_html($location_name) . '</b>';
+						echo '<b class="career-location">' . esc_html($location_name) . '</b>';
 						echo $job_descriptions;
 						echo '<a href="' . esc_url($job_cta) . '">Apply Now</a>';
 						echo '</div>';
