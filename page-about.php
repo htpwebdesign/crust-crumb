@@ -25,7 +25,7 @@ get_header();
 			$image = get_field('hero_iamge');
 					$size = 'full'; // (thumbnail, medium, large, full or custom size)
 					if( $image ) {
-						echo wp_get_attachment_image( $image, $size );
+						echo wp_get_attachment_image( $image, $size, false, array("class" => "hero-image") );
 					}?>
 		</figure>
 

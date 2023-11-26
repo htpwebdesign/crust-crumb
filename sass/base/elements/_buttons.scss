@@ -19,3 +19,116 @@ input[type="submit"] {
 		border-color: $color__border-button-focus;
 	}
 }
+
+// all buttons on Homepage
+.page-id-13 {
+	.cta-button,
+	.about-us-cta {
+		@include button-customizable(
+			$bg-color: $button-secondary-color,
+		);
+	}
+
+	.check-location-cta {
+		@include button-customizable(
+			$bg-color: $button-primary-color,
+			$text-color: $text-secondary-color,
+		);
+	}
+}
+
+// Filter Buttons on Menu page
+
+.post-type-archive-product {
+	.filter-button-group {
+		button {
+
+			@include button-customizable(
+				$bg-color: $button-secondary-color,
+				$text-color: $text-primary-color,
+				$padding: 0.5rem 1rem,
+				$radius: 0px,
+			);
+			border-color: $text-primary-color,
+		
+		}
+		button.is-checked {
+			box-shadow: inset 0px 0px 3px 1px $primary-color;
+		}
+	}
+}
+
+// Add to Cart button on Single Project page and Menu page
+
+.single-product,
+.post-type-archive-product {
+	.single_add_to_cart_button {
+		@include button-customizable(
+			$bg-color: $button-secondary-color,
+			$text-color: $text-primary-color,
+			$padding: 0.5rem 1rem,
+		);
+	}
+	.add_to_cart_button {
+		@include button-customizable(
+			$bg-color: $button-primary-color,
+			$text-color: $text-secondary-color,
+			$padding: 0.5rem 1rem,
+			$radius: 20px,
+		);
+	}
+}
+
+// Catering Page + Carrers Page (Form)
+
+.page-id-32,
+.page-id-27 {
+	form {
+		#button_5_select_all {
+			@include button-customizable(
+				$bg-color: $button-primary-color,
+				$text-color: $text-secondary-color,
+				$padding: 0.5rem 1rem,
+			);
+		}
+
+		#gform_submit_button_4,
+		#gform_submit_button_2{
+			@include button-customizable(
+				$bg-color: $button-primary-color,
+				$text-color: $text-secondary-color,
+				$padding: 0.5rem 1rem,
+			);
+		}
+	}
+}
+
+// Careers Page
+
+.post-type-archive-cac-careers {
+	form input[type="radio"] {
+		opacity: 0;
+		position: fixed;
+		width: 0;
+	}
+
+	form label {
+		@include button-customizable(
+			$bg-color: $button-secondary-color,
+			$text-color: $text-primary-color,
+			$padding: 0.5rem 1rem,
+		);
+	}
+}
+
+// FAQs Page
+
+.page-id-34 {
+	.contact-button {
+		@include button-customizable(
+				$bg-color: $button-primary-color,
+				$text-color: $text-secondary-color,
+				$padding: 0.5rem 1rem,
+			);
+	}
+}

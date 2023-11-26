@@ -59,7 +59,9 @@ get_header();
             if (get_field('store_locations_map')):
                 echo '<section class="store-locations-map">' . get_field('store_locations_map') . '</section>';
             endif;
-
+            ?>
+            <div class='social-media-section'>
+                <?php
             // Display Social Media Message
             if (get_field('social_media_message')):
                 echo '<p class="social-media-message">' . get_field('social_media_message') . '</p>';
@@ -87,6 +89,9 @@ get_header();
                 endwhile;
                 echo '</ul></nav>';
             endif;
+            ?>
+            </div>
+            <?php
         }
 
         // If comments are open or we have at least one comment, load up the comment template.
