@@ -57,3 +57,15 @@ input[type="submit"] {
 		}
 	}
 }
+
+// Add to Cart button on Single Project page
+
+.single-product {
+	.single_add_to_cart_button {
+		@include button-customizable(
+			$bg-color: $button-secondary-color,
+			$text-color: $text-primary-color,
+			$padding: 0.5rem 1rem,
+		);
+	}
+}
