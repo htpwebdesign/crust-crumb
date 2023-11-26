@@ -75,9 +75,10 @@ get_header();
 		
 	<section class="featured-products">
 		<h2><?php the_field('section_title_2'); ?></h2>
+		<section class="wrapper">
 		<?php
 		$best_selling_products = wc_get_products(array(
-			'limit'         => 5, // Number of best-selling products to display
+			'limit'         => 10, // Number of best-selling products to display
 			'status'        => 'publish',
 			'orderby'       => 'popularity',
 		));
@@ -85,11 +86,8 @@ get_header();
 			foreach ($best_selling_products as $product) {
 				// Access product details using $product object
 				?>
-				<article>
-					<h3><?php echo esc_html($product->get_name()); ?></h3>
-					<div><?php echo $product->get_price_html(); ?></div>
-		
-					<?php
+				<article class="product-card">
+				`<?php
 					// Display product image
 					$image_id = $product->get_image_id();
 					$image_url = wp_get_attachment_image_url($image_id, 'thumbnail');
@@ -97,11 +95,21 @@ get_header();
 						echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($product->get_name()) . '" />';
 					}
 					?>
+					<h3><?php echo esc_html($product->get_name()); ?></h3>
+					<div><?php echo $product->get_price_html(); ?></div>
+					<?php
+					// Add to Cart button
+					woocommerce_template_loop_add_to_cart(array(
+						'quantity'   => 1,
+						'class'      => 'button', // You can add classes to style the button
+					), $product);
+					?>
 				</article>
 					<?php
 			}
 		}
 	?>
+	</section>
 	</section>
 
 	<section class="our-locations">
