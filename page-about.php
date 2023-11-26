@@ -16,54 +16,53 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
-		<?php while ( have_posts() ) : the_post();
-		if (function_exists("get_field")) {
 		
-		?>
 		<figure class="hero-banner">
 			<?php
+			while ( have_posts() ) : the_post();
+			// Directly display the WordPress page title
+			the_title('<h1>', '</h1>');
 			$image = get_field('hero_iamge');
 					$size = 'full'; // (thumbnail, medium, large, full or custom size)
 					if( $image ) {
-						echo wp_get_attachment_image( $image, $size );
+						echo wp_get_attachment_image( $image, $size, false, array("class" => "hero-image") );
 					}?>
 		</figure>
-		
+
+				<?php
+
+			endwhile;
+			?>
+	
+		<section class="story-introduction">
+			<h2><?php the_field('section_heading');?></h2>
+			<p><?php the_field('content');?></p>
+		</section>
+
 		<section class="career-timeline">
 
 			<?php
 			if( have_rows('career_timeline') ):
 
-			// loop through the rows of data
-			while ( have_rows('career_timeline') ) : the_row();
+				// loop through the rows of data
+				while ( have_rows('career_timeline') ) : the_row();
 
-				$image = get_sub_field('milestone_image');
-				$size = 'full'; // (thumbnail, medium, large, full or custom size)
-				if( $image ) {
-					echo wp_get_attachment_image( $image, $size );
-				}?>
-				
-				<h3><?php the_sub_field('milestone_title'); ?></h3>
+					$image = get_sub_field('milestone_image');
+					$size = 'full'; // (thumbnail, medium, large, full or custom size)
+					if( $image ) {
+						echo wp_get_attachment_image( $image, $size );
+					}?>
+					
+					<h2><?php the_sub_field('milestone_title'); ?></h2>
+				<?php
+				endwhile;
+	
+			endif;
+			?>
 		</section>
 
-
-				<?php
-
-			endwhile;
-
-		else :
-
-			// no rows found
-
-		endif;
-		?>
-		<article class="story-introduction">
-			<h2><?php the_field('section_heading');?></h2>
-			<p><?php the_field('content');?></p>
-		</article>
-
-		<article class="more-about-us">
-			<h3><?php the_field('sub_heading'); ?></h3>
+		<section class="more-about-us">
+			<h2><?php the_field('sub_heading'); ?></h2>
 			<p><?php the_field('sub_content') ?></p>
 			<?php 
 			$image = get_field('illustration_image');
@@ -79,12 +78,12 @@ get_header();
 				?>
 				<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
 			<?php endif; ?>
-		</article>
+		</section>
 
 
 
-		<article class="more-about-us">
-			<h3><?php the_field('sub_heading_2'); ?></h3>
+		<section class="more-about-us">
+			<h2><?php the_field('sub_heading_2'); ?></h2>
 			<p><?php the_field('sub_content_2');?></p>
 	
 			<?php
@@ -102,13 +101,11 @@ get_header();
 				?>
 			<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
 	
-			</article>
+			</section>
 			<?php endif; 
 
 
-	}
-
-		 endwhile; // end of the loop. ?>
+		  ?>
 
 	</main><!-- #main -->
 

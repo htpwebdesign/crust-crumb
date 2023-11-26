@@ -282,3 +282,16 @@ function remove_woocommerce_sidebar()
 	remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
 }
 add_action('init', 'remove_woocommerce_sidebar');
+
+// Setting a default value for a radio button field on Checkout field
+
+function custom_override_checkout_fields($fields)
+{
+	$fields['billing']['location']['default'] = 'Vancouver';
+
+	$fields['billing']['purchase_method']['default'] = 'Local Pickup';
+
+	return $fields;
+} // End custom_override_checkout_fields()
+
+add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
