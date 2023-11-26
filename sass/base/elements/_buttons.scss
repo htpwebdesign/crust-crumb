@@ -20,6 +20,17 @@ input[type="submit"] {
 	}
 }
 
+//View Cart Button - General 
+
+.added_to_cart {
+	@include button-customizable(
+		$bg-color: white,
+		$text-color: $text-primary-color,
+		$padding: 0.5rem 1rem,
+	);
+	width: fit-content;
+}
+
 
 // all buttons on Homepage
 .page-id-13 {
@@ -291,3 +302,21 @@ input[type="submit"] {
 			);
 	}
 }
+
+// Cart Page
+
+.page-id-20 {
+    .entry-content {
+            .return-to-shop {
+                padding-top:1rem;
+                .button {
+                    @include button-customizable(
+                        $bg-color: $button-primary-color,
+                        $text-color: $text-secondary-color,
+                        $padding: 0.5rem 1rem,
+                    );
+                }
+            }
+        }
+
+    }
