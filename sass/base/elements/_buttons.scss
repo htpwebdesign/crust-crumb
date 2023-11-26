@@ -106,6 +106,15 @@ input[type="submit"] {
 		width: fit-content;
 		align-self: flex-end;
 	}
+	#commentform {
+		.submit {
+			@include button-customizable(
+				$bg-color: $button-primary-color,
+				$text-color: $text-secondary-color,
+				$padding: 0.5rem 1rem,
+			);
+		}
+	}
 }
 
 // Catering Page + Carrers Page (Form)
