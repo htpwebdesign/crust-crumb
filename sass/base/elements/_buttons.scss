@@ -79,9 +79,10 @@ input[type="submit"] {
 	}
 }
 
-// Catering Page
+// Catering Page + Carrers Page (Form)
 
-.page-id-32 {
+.page-id-32,
+.page-id-27 {
 	form {
 		#button_5_select_all {
 			@include button-customizable(
@@ -91,7 +92,8 @@ input[type="submit"] {
 			);
 		}
 
-		#gform_submit_button_4 {
+		#gform_submit_button_4,
+		#gform_submit_button_2{
 			@include button-customizable(
 				$bg-color: $button-primary-color,
 				$text-color: $text-secondary-color,
@@ -116,5 +118,17 @@ input[type="submit"] {
 			$text-color: $text-primary-color,
 			$padding: 0.5rem 1rem,
 		);
+	}
+}
+
+// FAQs Page
+
+.page-id-34 {
+	.contact-button {
+		@include button-customizable(
+				$bg-color: $button-primary-color,
+				$text-color: $text-secondary-color,
+				$padding: 0.5rem 1rem,
+			);
 	}
 }
