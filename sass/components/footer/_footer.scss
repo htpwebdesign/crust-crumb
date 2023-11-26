@@ -2,9 +2,13 @@
 
 .site-footer {
     position: relative;
-    background-color: white;
+    background-color: $primary-color;
     margin-top: 2rem;
     padding-top: 2rem;
+    color: white;
+    a {
+        color: $text-secondary-color;
+    }
     .secondary-logo-link {
         display: block;
         margin: 0 auto;
@@ -45,6 +49,7 @@
     }
 
     @media (min-width: $small-screen) {
+        background-color: white;
         padding-top: 5rem;
         .secondary-logo-link {
             position: absolute;
@@ -58,17 +63,9 @@
             padding: 1rem;
             gap: 5rem;
             background-color: $primary-color;
-            color: $text-secondary-color;
             border-top: 2px solid white;
              box-shadow: 1px -4px 4px -4px white;
-            a {
-                color: $text-secondary-color;
-            }
 
-            // body.page-id-13 &,
-            // body.post-type-archive-product & {
-            //     background-color: transparent; // Apply styles when on home and menu page
-            // }
         }
 
         .footer-left-section {
