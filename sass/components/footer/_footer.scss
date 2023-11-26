@@ -1,0 +1,34 @@
+// Footer styles
+
+.site-footer {
+    background-color: white;
+
+    .secondary-logo-link {
+        display: block;
+        margin: 0 auto;
+        width: 200px;
+        padding: 1rem;
+    }
+    .secondary-logo {
+        width: 200px;
+        display: block;
+    }
+
+    .footer-left-section {
+        text-align: center;
+    }
+
+    .footer-right-section {
+        display: flex;
+        justify-content: space-around;
+        padding: 1rem 0;
+        ul {
+            list-style: none;
+            margin: 0;
+            padding-left: 0;
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+}
