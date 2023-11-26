@@ -1,5 +1,4 @@
-// isotope.js
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function ($) {
     // Select the container that holds your job listings
     const jobContainer = document.getElementById('filtered-jobs');
 
@@ -27,9 +26,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // Event listener for accordion click
-        jQuery(".accordion-container").on("click", ".accordionTitle", function () {
-            jQuery(this).toggleClass("is-open");
+        $(".accordion-container").on("click", ".accordionTitle", function () {
+            $(this).toggleClass("is-open");
+            toggleAccordionIcon($(this));
             iso.layout(); // Trigger Isotope layout after changes
+
         });
 
         // Event listener for window resize
@@ -40,5 +41,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 iso.layout();
             }, 0);
         });
+
+        // Function to toggle the accordion icon
+        function toggleAccordionIcon($accordionTitle) {
+            if ($accordionTitle.hasClass("is-open")) {
+                $accordionTitle.find(".accordion-icon").html('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 9h24v6h-24z"/></svg>');
+            } else {
+                $accordionTitle.find(".accordion-icon").html('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/></svg>');
+            }
+        }
     }
 });

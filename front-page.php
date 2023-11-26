@@ -18,13 +18,16 @@ get_header();
 
 <main id="primary" class="site-main">
 
-	<?php while (have_posts()) : the_post();
+	<?php while (have_posts()):
+		the_post();
 
 		if (function_exists("get_field")) { ?>
 
 
 			<section class="hero-banner">
-				<h1><?php the_field('slogan_message'); ?></h1>
+				<h1>
+					<?php the_field('slogan_message'); ?>
+				</h1>
 				<?php
 				$image = get_field('hero_product_image');
 				$image3d = get_field('hero_3d_image');
@@ -37,30 +40,38 @@ get_header();
 				}
 				?>
 
-				<p><?php the_field('first_engaging_message'); ?></p>
+				<p>
+					<?php the_field('first_engaging_message'); ?>
+				</p>
 				<div class='hero-cta'>
 					<?php
 					$link = get_field('hero_cta');
-					if ($link) :
+					if ($link):
 						$link_url = $link['url'];
 						$link_title = $link['title'];
-					?>
-						<a class='cta-button' href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
+						?>
+						<a class='cta-button' href="<?php echo $link_url; ?>">
+							<?php echo $link_title; ?>
+						</a>
 					<?php endif; ?>
 
 					<?php
 					$link = get_field('hero_cta_2');
-					if ($link) :
+					if ($link):
 						$link_url = $link['url'];
 						$link_title = $link['title'];
-					?>
-						<a class='cta-button' href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
+						?>
+						<a class='cta-button' href="<?php echo $link_url; ?>">
+							<?php echo $link_title; ?>
+						</a>
 					<?php endif; ?>
 				</div>
 			</section>
 
 			<section class="our-story">
-				<h2><?php the_field('section_title'); ?></h2>
+				<h2>
+					<?php the_field('section_title'); ?>
+				</h2>
 				<div>
 					<?php
 					$image = get_field('our_story_image');
@@ -71,58 +82,73 @@ get_header();
 
 					<?php
 					$link = get_field('our_story_cta');
-					if ($link) :
+					if ($link):
 						$link_url = $link['url'];
 						$link_title = $link['title'];
-					?>
+						?>
 						<div class="story-intro">
-							<p><?php the_field('short_introduction') ?></p>
-							<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
+							<p>
+								<?php the_field('short_introduction') ?>
+							</p>
+							<a href="<?php echo $link_url; ?>">
+								<?php echo $link_title; ?>
+							</a>
 						</div>
-				</div>
-			<?php endif; ?>
+					</div>
+				<?php endif; ?>
 			</section>
 
 			<section class="featured-products">
-				<h2><?php the_field('section_title_2'); ?></h2>
+				<h2>
+					<?php the_field('section_title_2'); ?>
+				</h2>
 				<section class="wrapper">
 					<?php
-					$best_selling_products = wc_get_products(array(
-						'limit'         => 10, // Number of best-selling products to display
-						'status'        => 'publish',
-						'orderby'       => 'popularity',
-					));
+					$best_selling_products = wc_get_products(
+						array(
+							'limit' => 10, // Number of best-selling products to display
+							'status' => 'publish',
+							'orderby' => 'popularity',
+						)
+					);
 					if ($best_selling_products) {
 						foreach ($best_selling_products as $product) {
 							// Access product details using $product object
-					?>
+							?>
 							<article class="product-card">
-								`<?php
-									// Display product image
-									$image_id = $product->get_image_id();
-									$image_url = wp_get_attachment_image_url($image_id, 'thumbnail');
-									if ($image_url) {
-										echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($product->get_name()) . '" />';
-									}
-									?>
-								<h3><?php echo esc_html($product->get_name()); ?></h3>
-								<div><?php echo $product->get_price_html(); ?></div>
+								<?php
+								// Display product image
+								$image_id = $product->get_image_id();
+								$image_url = wp_get_attachment_image_url($image_id, 'thumbnail');
+								if ($image_url) {
+									echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($product->get_name()) . '" />';
+								}
+								?>
+								<h3>
+									<?php echo esc_html($product->get_name()); ?>
+								</h3>
+								<div>
+									<?php echo $product->get_price_html(); ?>
+								</div>
 								<?php
 								// Add to Cart button
-								woocommerce_template_loop_add_to_cart(array(
-									'quantity'   => 1,
-									'class'      => 'button', // You can add classes to style the button
-								), $product);
+								woocommerce_template_loop_add_to_cart(
+									array(
+										'quantity' => 1,
+										'class' => 'button', // You can add classes to style the button
+									), $product);
 								?>
 							</article>
-					<?php
+							<?php
 						}
 					}
 					?>
 				</section>
 
 				<section class="our-locations">
-					<h2><?php the_field('section_title_3'); ?></h2>
+					<h2>
+						<?php the_field('section_title_3'); ?>
+					</h2>
 					<?php
 					// Query location-CPT posts
 					$location_posts = new WP_Query(
@@ -132,13 +158,13 @@ get_header();
 						)
 					);
 
-					if ($location_posts->have_posts()) :
+					if ($location_posts->have_posts()):
 						echo '<section class="store-locations">';
-						while ($location_posts->have_posts()) :
+						while ($location_posts->have_posts()):
 							$location_posts->the_post();
 
 							// Fetch fields for each location
-
+			
 							$location_name = get_field('location_name');
 
 							echo '<article class="store">';
@@ -160,20 +186,22 @@ get_header();
 
 					<?php
 					$link = get_field('contact_page_cta');
-					if ($link) :
+					if ($link):
 						$link_url = $link['url'];
 						$link_title = $link['title'];
-					?>
-						<a class='check-location-cta' href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
+						?>
+						<a class='check-location-cta' href="<?php echo $link_url; ?>">
+							<?php echo $link_title; ?>
+						</a>
 
 					<?php endif; ?>
 				</section>
 
-		<?php
+				<?php
 		}
 
 	endwhile; // end of the loop. 
-		?>
+	?>
 
 </main><!-- #main -->
 

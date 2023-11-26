@@ -12,12 +12,26 @@
 .accordionTitle.is-open ~ .accordionContent {
   display: block;
 }
+.accordionTitle {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.accordion-icon {
+  margin-right: $page-margin;
+  //to match faq
+  svg {
+    width: 14.16px;
+    height: 18px;
+    path {
+      fill: white;
+    }
+  }
+}
 /*contact*/
 
 .page-id-27 {
-  .accordionTitle {
-    margin: 0;
-  }
   .wrapper {
     margin: 0 $page-margin;
     border: 1px solid white;
@@ -48,6 +62,10 @@
 }
 @media (min-width: $small-screen) {
   .page-id-27 {
+    .accordion-icon {
+      display: none;
+    }
+
     .wrapper {
       width: 100%;
       border-radius: 0;

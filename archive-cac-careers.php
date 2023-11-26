@@ -78,7 +78,8 @@ get_header();
 
 						// Add a class based on location to each job-information div
 						echo '<article class="job-information accordion-container location-' . sanitize_title($location_name) . '">';
-						echo '<h2 class="accordionTitle">' . esc_html(get_the_title()) . '</h2>';
+						echo '<h2 class="accordionTitle">' . esc_html(get_the_title());
+						echo '<span class="accordion-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/></svg></span></h2>';
 						echo '<div class="accordionContent">';
 						echo '<b>' . esc_html($location_name) . '</b>';
 						echo $job_descriptions;

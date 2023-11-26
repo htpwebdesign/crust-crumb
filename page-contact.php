@@ -37,10 +37,10 @@ get_header();
                     $location_address = get_field('location_address');
                     echo '<div class="wrapper">';
                     echo '<article class="location-container">';
-                    echo '<h2 class="location-name accordionTitle">' . esc_html($location_name) . '</h2>';
+                    echo '<h2 class="location-name accordionTitle">';
+                    echo esc_html($location_name);
+                    echo '<span class="accordion-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/></svg></span></h2>';
 
-                    // Display location image
-    
                     $location_image_id = get_post_meta(get_the_ID(), 'location_image', true);
                     if ($location_image_id) {
                         $location_image_url = wp_get_attachment_image_url($location_image_id, 'full');
@@ -69,34 +69,34 @@ get_header();
             ?>
             <div class='social-media-section'>
                 <?php
-            // Display Social Media Message
-            if (get_field('social_media_message')):
-                echo '<p class="social-media-message">' . get_field('social_media_message') . '</p>';
-            endif;
+                // Display Social Media Message
+                if (get_field('social_media_message')):
+                    echo '<p class="social-media-message">' . get_field('social_media_message') . '</p>';
+                endif;
 
-            // Social Media Links section
-            if (have_rows('social_media_links')):
-                echo '<nav class="social-media-links"><ul>';
-                while (have_rows('social_media_links')):
-                    the_row();
-                    $social_media_link_url = get_sub_field('social_media_link');
-                    $social_media_image_id = get_sub_field('social_media_image');
+                // Social Media Links section
+                if (have_rows('social_media_links')):
+                    echo '<nav class="social-media-links"><ul>';
+                    while (have_rows('social_media_links')):
+                        the_row();
+                        $social_media_link_url = get_sub_field('social_media_link');
+                        $social_media_image_id = get_sub_field('social_media_image');
 
-                    echo '<li class="social-media-item">';
-                    if ($social_media_link_url) {
-                        echo '<a href="' . esc_url($social_media_link_url) . '">';
-                        if ($social_media_image_id) {
-                            $social_media_image_url = wp_get_attachment_image_url($social_media_image_id, 'full');
-                            $social_media_image_alt = get_post_meta($social_media_image_id, '_wp_attachment_image_alt', true);
-                            echo '<img src="' . esc_url($social_media_image_url) . '" alt="' . esc_attr($social_media_image_alt) . '" />';
+                        echo '<li class="social-media-item">';
+                        if ($social_media_link_url) {
+                            echo '<a href="' . esc_url($social_media_link_url) . '">';
+                            if ($social_media_image_id) {
+                                $social_media_image_url = wp_get_attachment_image_url($social_media_image_id, 'full');
+                                $social_media_image_alt = get_post_meta($social_media_image_id, '_wp_attachment_image_alt', true);
+                                echo '<img src="' . esc_url($social_media_image_url) . '" alt="' . esc_attr($social_media_image_alt) . '" />';
+                            }
+                            echo '</a>';
                         }
-                        echo '</a>';
-                    }
-                    echo '</li>';
-                endwhile;
-                echo '</ul></nav>';
-            endif;
-            ?>
+                        echo '</li>';
+                    endwhile;
+                    echo '</ul></nav>';
+                endif;
+                ?>
             </div>
             <?php
         }
