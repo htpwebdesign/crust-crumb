@@ -1,17 +1,28 @@
 // Center block
 @mixin center-block {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
-	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+  width: map-get($columns, $numberColumns) -
+    (($columns__margin * ($numberColumns - 1)) / $numberColumns);
 }
 
 // Border-radius
 @mixin border-radius-card {
-	border-radius: 45deg;
-  }
-  
+  border-radius: 45deg;
+}
+
+// Mixins for form field styling
+@mixin form-field-style {
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid $color__border-input;
+  border-radius: $border__radius;
+  background-color: $color__border-input;
+  inline-size: 100% !important;
+  box-sizing: border-box;
+}
