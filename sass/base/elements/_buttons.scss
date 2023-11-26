@@ -58,9 +58,10 @@ input[type="submit"] {
 	}
 }
 
-// Add to Cart button on Single Project page
+// Add to Cart button on Single Project page and Menu page
 
-.single-product {
+.single-product,
+.post-type-archive-product {
 	.single_add_to_cart_button {
 		@include button-customizable(
 			$bg-color: $button-secondary-color,
@@ -75,5 +76,27 @@ input[type="submit"] {
 			$padding: 0.5rem 1rem,
 			$radius: 20px,
 		);
+	}
+}
+
+// Catering Page
+
+.page-id-32 {
+	form {
+		#button_5_select_all {
+			@include button-customizable(
+				$bg-color: $button-primary-color,
+				$text-color: $text-secondary-color,
+				$padding: 0.5rem 1rem,
+			);
+		}
+
+		#gform_submit_button_4 {
+			@include button-customizable(
+				$bg-color: $button-primary-color,
+				$text-color: $text-secondary-color,
+				$padding: 0.5rem 1rem,
+			);
+		}
 	}
 }
