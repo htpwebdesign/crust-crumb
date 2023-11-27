@@ -1,37 +1,42 @@
 // Homepage
 
 .page-id-13 {
-  .hero-banner {
-    position: relative;
+    .hero-banner {
+        position: relative;
+        margin-bottom: 4rem;
+        margin-top: -5px;
+        margin-left: -5px;
+        .hero-image-background {
+            position: relative;
+            filter: blur(3px);
+        }
+    
+        .hero-3d-image {
+            position: absolute;
+            top: calc(35% + 5vw);
+            right: 0;
+            left: 0;
+            transform: translateX(50%);
+            width: 50%;
+            z-index: 10;
 
-    .hero-image-background {
-      filter: blur(3px);
-    }
-
-    .hero-3d-image {
-      position: absolute;
-      top: calc(35% + 5vw);
-      right: 0;
-      left: 0;
-      transform: translateX(50%);
-      width: 50%;
-      z-index: 10;
-
-      @media (min-width: 34.375rem) {
-        top: calc(35% + 15vw);
-      }
-    }
-
-    h1 {
-      position: absolute;
-      top: 15%;
-      left: 0;
-      right: 0;
-      z-index: 10;
-      color: $text-secondary-color;
-      font-size: calc(1.1rem + 0.75vw);
-      text-shadow: 1px 1px 2px black;
-      text-align: center;
+            @media (min-width: 34.375rem) {
+                top: calc(35% + 15vw);
+            }
+        
+        }
+    
+        h1 {
+            position: absolute;
+            top: 15%;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            color: $text-secondary-color;
+            font-size: calc(1.1rem + .75vw);
+            text-shadow: 1px 1px 2px black;
+            text-align: center;
+            text-transform: capitalize;
 
       @media (min-width: 31.25rem) {
         font-size: calc(1.5rem + 0.75vw);
@@ -70,13 +75,14 @@
       }
     }
 
-    // Styling for Desktop size (768px and up)
-    @media (min-width: $small-screen) {
-      .hero-image-background {
-        height: calc(15.625rem + 15vw);
-        object-fit: cover;
-        object-position: bottom;
-      }
+        // Styling for Desktop size (768px and up)
+        @media (min-width: $small-screen) {
+            margin-bottom: 5rem;
+            .hero-image-background {
+                height: calc(15.625rem + 15vw);
+                object-fit: cover;
+                object-position: bottom;
+            }
 
       .hero-3d-image {
         left: auto;
@@ -105,24 +111,26 @@
         }
       }
 
-      .hero-cta {
-        justify-content: start;
-        margin-left: 2rem;
-        gap: 2rem;
-        a {
-          font-size: 1.2rem;
+            .hero-cta {
+                justify-content: start;
+                margin-left: 2rem;
+                margin-top: 1rem;
+                gap: 2rem;
+                a {
+                    font-size: 1.2rem;
+                }
+            }
         }
-      }
-    }
-  }
+    } 
 }
 
 // About page
 
 .page-id-25 {
-  .hero-banner {
-    position: relative;
-  }
+    .hero-banner {
+        position: relative;
+        margin: auto;  
+    }
 
   h1 {
     position: absolute;
@@ -135,14 +143,16 @@
     z-index: 10;
   }
 
-  @media (min-width: $small-screen) {
-    .hero-image {
-      height: calc(13.625rem + 15vw);
-      object-fit: cover;
-      object-position: center;
-      filter: blur(3px);
+    @media (min-width: $small-screen) {
+        .hero-image {
+            height: calc(13.625rem + 15vw);
+            object-fit: cover;
+            object-position: center;
+            filter: blur(3px);
+            margin-top: -5px;
+            margin-left: -5px;
+        }
     }
-  }
 }
 
 // Menu page

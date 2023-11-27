@@ -227,10 +227,15 @@ p.no-comments {
 	clear: both;
 }
 
+.woocommerce-message {
+	color: white;
+	margin-bottom: 1rem;
+}
+
 .woocommerce-info,
 .woocommerce-noreviews,
 p.no-comments {
-	background-color: $woocommerce__color-info;
+	background-color: $secondary-color;
 }
 
 .woocommerce-error {
