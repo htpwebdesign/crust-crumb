@@ -22,7 +22,7 @@ function crust_crumb_woocommerce_setup()
 	add_theme_support(
 		'woocommerce',
 		array(
-			'thumbnail_image_width' => 150,
+			'thumbnail_image_width' => 210,
 			'single_image_width'    => 300,
 			'product_grid'          => array(
 				'default_rows'    => 3,
@@ -235,6 +235,8 @@ if (!function_exists('crust_crumb_woocommerce_header_cart')) {
 <?php
 	}
 }
+// Remove Breadscrumb from all pages
+remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
 
 // Remove default sorting options
 remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
@@ -261,6 +263,7 @@ function woo_remove_product_tabs($tabs)
 {
 
 	unset($tabs['description']);      	// Remove the description tab
+	unset( $tabs['additional_information'] );  	// Remove the additional information tab
 
 	return $tabs;
 }
