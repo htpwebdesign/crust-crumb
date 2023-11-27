@@ -33,7 +33,7 @@ get_header();
 
 		if ($careers_query->have_posts()): ?>
 
-			<form>
+			<form class="career-location-radio">
 				<?php
 				$store_locations = get_posts(
 					array(
@@ -97,7 +97,16 @@ get_header();
 			echo 'No Careers found.';
 		endif;
 		?>
-
+<section class="form-wrapper">
+        <h2>Want to work with us?</h2>
+            <?php
+            // Embed Gravity Form 
+            
+            if ( function_exists( 'gravity_form' ) ) {
+                gravity_form( 5, false, false, false, '', false );  
+            }
+            ?>
+        </section>
 	</main><!-- #main -->
 </div><!-- #primary -->
 

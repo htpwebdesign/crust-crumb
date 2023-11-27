@@ -12,7 +12,7 @@
   display: inline-block;
 }
 
-// Contact Form Styles
+// Catering Order Form Styles
 .form-wrapper {
   background: transparent;
   padding: 20px;
@@ -55,7 +55,7 @@
       label {
         display: flex;
         margin-left: 0;
-        margin-right: 20px;
+        margin-right: 51px;
         vertical-align: bottom;
       }
     }
@@ -75,4 +75,15 @@
       }
     }
   }
+}
+
+//Job Apply form styling
+
+.job-position-select .gfield_select {
+  background-color: $primary-color;
+  color: $text-secondary-color;
+}
+
+.gfield-choice-input::before {
+  color: $primary-color !important;
 }

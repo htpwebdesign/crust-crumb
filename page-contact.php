@@ -107,8 +107,18 @@ get_header();
         endif;
 
     endwhile; // End of the loop.
-    // gravity_form(2, false, false, false, '', false);
     ?>
+    <section class="form-wrapper">
+        <h2>Contact Form</h2>
+            <?php
+            // Embed Gravity Form 
+            
+            if ( function_exists( 'gravity_form' ) ) {
+                gravity_form( 2, false, false, false, '', false );  
+            }
+            ?>
+        </section>
+   
 
 </main>
 
