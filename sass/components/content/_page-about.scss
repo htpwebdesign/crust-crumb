@@ -2,7 +2,8 @@
 @import "../../abstracts/variables/breakpoints-margins";
 
 // Styles for Our Story Section on front-page.php
-.page-id-25, .page-id-13 {
+.page-id-25,
+.page-id-13 {
   h1 {
     margin: 2rem 2.2rem 0rem 2.2rem;
     font-size: 3.5rem;
@@ -34,26 +35,26 @@
     }
   }
 
-    div {
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
-    }
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
 
-    .story-intro {
-        display: flex;
-        flex-direction: column;
-        gap: 0rem;
-        justify-content: center;
+  .story-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+    justify-content: center;
 
-        a {
-            align-self: center;
-        }
+    a {
+      align-self: center;
     }
+  }
 
-    img {
-        max-height: 348px;
-    }
+  img {
+    max-height: 348px;
+  }
 }
 
 @media screen and (min-width: $small-screen) {
@@ -103,26 +104,26 @@
     gap: 4rem;
 
     .the-line {
-        position: absolute;
-        height: 100%; /* Ensures the line spans the entire height */
-        width: 2px; /* Adjust the width as needed */
-        background-color: black; /* Change the color to your preference */
-        z-index: -1;
-        left: 50%; /* Position the line in the center horizontally */
-        transform: translateX(-50%); /* Center the line precisely */
-        /* Adjust top, bottom, or margins as needed for vertical positioning */
-        top: 0;
-        bottom: 0;
-        margin: auto;
+      position: absolute;
+      height: 100%; /* Ensures the line spans the entire height */
+      width: 2px; /* Adjust the width as needed */
+      background-color: black; /* Change the color to your preference */
+      z-index: -1;
+      left: 50%; /* Position the line in the center horizontally */
+      transform: translateX(-50%); /* Center the line precisely */
+      /* Adjust top, bottom, or margins as needed for vertical positioning */
+      top: 0;
+      bottom: 0;
+      margin: auto;
     }
 
     div {
-        display: flex;
-        flex-direction: column;
-        width: 173px;
-        h2 {
-            font-size: 1rem;
-        }
+      display: flex;
+      flex-direction: column;
+      width: 173px;
+      h2 {
+        font-size: 1rem;
+      }
     }
   }
 }
@@ -144,40 +145,37 @@
   }
 }
 
-.more-about-us, .more-about-us-2 {
-    margin: 0rem 2rem 2rem 4rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0rem;
-    a {
-      align-self: center;
-    }
+.more-about-us,
+.more-about-us-2 {
+  margin: 0rem 2rem 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+  a {
+    align-self: center;
   }
 
-    img {
-        max-height: 348px;
-        align-self: center;
-    }
+  img {
+    max-height: 348px;
+    align-self: center;
+  }
 }
 
 @media screen and (min-width: $small-screen) {
   .more-about-us-2 {
     flex-direction: row-reverse;
-    }
-    
+  }
 }
 
-
-
 @media screen and (min-width: $large-screen) {
-    .more-about-us-2 img, .more-about-us img {
-        max-width: 100%;
-    }
+  .more-about-us-2 img,
+  .more-about-us img {
+    max-width: 100%;
+  }
 }
 
 @media screen and (min-width: $small-screen) {
-    .more-about-us {
-        flex-direction: row;
-    }
-    
+  .more-about-us {
+    flex-direction: row;
+  }
 }
