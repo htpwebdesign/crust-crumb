@@ -96,6 +96,7 @@ get_header();
 						foreach ($best_selling_products as $product) {
 							// Access product details using $product object
 					?>
+						<a href="<?php echo esc_url(get_permalink($product->get_id())); ?>">
 							<article class="product-card">
 								<?php
 									// Display product image
@@ -115,6 +116,7 @@ get_header();
 								), $product);
 								?>
 							</article>
+						</a>
 					<?php
 						}
 					}

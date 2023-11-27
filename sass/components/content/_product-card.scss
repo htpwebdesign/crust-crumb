@@ -17,9 +17,11 @@
 
 // Positioning the Add to Cart Button on front-page
 .featured-products .button {
-    justify-content: flex-end;
-    display: flex;
-    margin-right: 2rem;
+    top: 19.5rem;
+    left: 2rem;
+    margin: 0.5rem 0rem 0rem 2rem;
+    text-decoration: none;
+    width: 7rem;
 }
 
 // Flexing so all the product articles are flexed inside the section container
@@ -33,7 +35,7 @@
 //Styling for the Cards
 .product-card {
     width: 17rem;
-    height: 23.5rem;
+    height: 24.5rem;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -46,7 +48,8 @@
         width: 210px;
         height: 210px;
         margin: 0 auto;
-        margin-top: 0.3rem;
+        margin-top: 2rem;
+        margin-left: 1.8rem;
         border-radius: 22px;
         border: 3px solid $color__background-body;
     }
@@ -86,7 +89,7 @@
 .isotope-container .isotope-item, .products ul .product,
 .single-product .products ul .product {
     width: 17rem;
-    height: 23.5rem;
+    height: 24.5rem;
     margin: 0.5rem;
     display: flex;
     flex-wrap: wrap;
@@ -117,10 +120,9 @@
     }
  
     .button {
-        position: absolute;
-        top: 19rem;
-        right: 0;
-        margin: 0rem 2rem 0rem 0rem;
+        top: 19.5rem;
+        left: 2rem;
+        margin: 0.5rem 0rem 0rem 2rem;
         text-decoration: none;
         width: 7rem;
     }
@@ -175,15 +177,6 @@
     width: 4rem;
     color: $text-secondary-color;
 }
-
-.single-product .products li .button {
-    justify-content: flex-end;
-    display: flex;
-    margin-right: 2rem;
-    margin: 0rem 2rem 0rem 0rem;
-    text-decoration: none;
-}
-
 
 
 // -------------------CATERING CARDS STYLES----------------------
