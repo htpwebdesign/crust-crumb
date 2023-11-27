@@ -240,6 +240,19 @@ if (!function_exists('crust_crumb_woocommerce_header_cart')) {
 		<?php
 	}
 }
+
+// This will output after the Add to Cart button and add Back to Menu link
+function cac_custom_function() {
+	echo '<a class="back-to-menu-link" href="' . esc_url(home_url('/shop')) . '">Back to Menu</a>';
+}
+
+add_action (
+	'woocommerce_before_main_content',
+	'cac_custom_function',
+	21
+);
+
+
 // Remove Breadscrumb from all pages
 remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
 
