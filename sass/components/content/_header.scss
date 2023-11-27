@@ -2,24 +2,30 @@
 #masthead {
     background: $primary-color;
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    padding-left: 2rem;
+    justify-content: start;
+    padding-left: .5rem;
     padding-right: 2rem;
 }
 
 // div of ul of nav
 .menu-menu-1-container{
-    display: flex;
-    justify-content: end;  color: white;
+    color: white;
     text-decoration: none;
 }
 
-
 // ul nav
 #primary-menu {
-    gap: .5rem;
-    font-size: 1.15rem;
+    padding: 1rem;
+    font-size: 1.25rem;
+    gap: 1rem;
+    transition: left .6s ease;
+}
+
+@media screen and (min-width: 48em) {
+    #primary-menu {
+        background-color: $primary-color;
+    }
+
 }
 
 .site-branding a img {
@@ -32,13 +38,11 @@
     color: white;
 }
 
-// HAMBURGER MENU
-
+// hamburger styles
 .hamburger {
     position: relative;
     display: block;
     width: 35px;
-
     appearance: none;
     background: none;
     outline: none;
@@ -56,6 +60,7 @@
     background-color: white;
     margin: 6px 0px;
     transition: 0.4s;
+    z-index: 1000;
 }
 
 .hamburger.is-active::before {
@@ -68,4 +73,136 @@
 
 .hamburger.is-active .bar {
     opacity: 0;
+}
+
+
+
+// Logo
+img .custom-logo {
+    position: absolute;
+    top: -5.5rem;
+	left: .5rem;
+}
+@media screen and (min-width: 48em) {
+    .custom-logo {
+        justify-content: start;
+    }
+}
+
+.main-navigation {
+	display: block;
+	width: 100%;
+	position: absolute;
+	top: 6.5rem;
+	right: 0;
+	z-index: 1000;
+}
+
+.main-navigation ul {
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+	background-color: $secondary-color;
+    
+}
+
+.main-navigation li {
+	position: relative;
+}
+
+.main-navigation li.current-menu-item > a,
+.main-navigation li.current_page_item > a,
+.main-navigation li:hover > a,
+.main-navigation li:visited > a,
+.main-navigation li.focus > a {
+	text-decoration: underline;
+	text-decoration-color: #ffffff;
+    color: white;
+
+}
+
+
+.main-navigation a {
+	display: block;
+	text-align: center;
+    gap: 1rem;
+}
+
+@media screen and (min-width: 48em) {
+    .main-navigation a {
+        gap: none;
+    }
+
+}
+
+
+.main-navigation.toggled ul {
+	display: block;
+}
+
+.hamburger {
+	position: absolute;
+	top: -5.5rem;
+	right: .5rem;
+	z-index: 1100;
+	display: block;
+	width: 3.75rem;
+	padding: 1rem;
+	margin: 0;
+	border: none;
+	background: transparent;
+	color: #fff;
+}
+
+@media screen and (min-width: 48em) {
+    .hamburger {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 48em) {
+	
+	.main-navigation {
+		width: auto;
+		position: relative;
+		top: 0;
+		align-self: center;
+		margin-left: auto;
+	}
+
+	.main-navigation ul,
+	.main-navigation.toggled ul {
+		display: flex;
+		justify-content: center;
+	}
+
+	.main-navigation ul ul {
+		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+		float: left;
+		position: absolute;
+		top: 100%;
+		left: -999em;
+		z-index: 99999;
+		background-color: #111;
+		flex-direction: column;
+	}
+	
+	.main-navigation ul ul a {
+		left: -999em;
+		top: 0;
+		width: 200px;
+		text-align: left;
+	}
+
+	.main-navigation ul ul li:hover > ul,
+	.main-navigation ul ul li.focus > ul {
+		left: 100%;
+		top: 0;
+	}
+	
+	.main-navigation ul li:hover > ul,
+	.main-navigation ul li.focus > ul {
+		left: auto;
+	}
 }
