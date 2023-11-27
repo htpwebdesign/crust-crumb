@@ -25,17 +25,31 @@
 
   div.product {
     position: relative;
-    margin: 0 $page-margin;
+    margin: $page-margin-medium $page-margin;
 
     .woocommerce-product-gallery {
       position: relative;
       // float: left;
-      width: 100%;
+      width: fit-content;
+      margin: 0 auto;
+      .onsale {
+        position: absolute;
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: center;
+        border-radius: 22px;
+        border-bottom-right-radius: 0px;
+        background-color: red;
+        width: 4rem;
+        color: $text-secondary-color;
+      }
 
       .woocommerce-product-gallery__trigger {
         position: absolute;
-        top: 2em;
-        right: 1em;
+        top: 16em;
+        right: 2em;
         display: block;
         z-index: 99;
       }
@@ -94,12 +108,7 @@
   .entry-title {
     text-align: center;
   }
-  .product {
-    .onsale {
-      position: absolute;
-      z-index: 1;
-    }
-  }
+
   .price {
     text-align: center;
   }
