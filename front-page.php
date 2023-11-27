@@ -96,8 +96,9 @@ get_header();
 						foreach ($best_selling_products as $product) {
 							// Access product details using $product object
 					?>
+						<a href="<?php echo esc_url(get_permalink($product->get_id())); ?>">
 							<article class="product-card">
-								`<?php
+								<?php
 									// Display product image
 									$image_id = $product->get_image_id();
 									$image_url = wp_get_attachment_image_url($image_id, 'thumbnail');
@@ -115,6 +116,7 @@ get_header();
 								), $product);
 								?>
 							</article>
+						</a>
 					<?php
 						}
 					}
