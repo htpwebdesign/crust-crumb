@@ -23,13 +23,13 @@ function crust_crumb_woocommerce_setup()
 		'woocommerce',
 		array(
 			'thumbnail_image_width' => 150,
-			'single_image_width'    => 300,
-			'product_grid'          => array(
-				'default_rows'    => 3,
-				'min_rows'        => 1,
+			'single_image_width' => 300,
+			'product_grid' => array(
+				'default_rows' => 3,
+				'min_rows' => 1,
 				'default_columns' => 4,
-				'min_columns'     => 1,
-				'max_columns'     => 6,
+				'min_columns' => 1,
+				'max_columns' => 6,
 			),
 		)
 	);
@@ -48,7 +48,7 @@ function crust_crumb_woocommerce_scripts()
 {
 	wp_enqueue_style('crust-crumb-woocommerce-style', get_template_directory_uri() . '/woocommerce.css', array(), _S_VERSION);
 
-	$font_path   = WC()->plugin_url() . '/assets/fonts/';
+	$font_path = WC()->plugin_url() . '/assets/fonts/';
 	$inline_font = '@font-face {
 			font-family: "star";
 			src: url("' . $font_path . 'star.eot");
@@ -98,7 +98,7 @@ function crust_crumb_woocommerce_related_products_args($args)
 {
 	$defaults = array(
 		'posts_per_page' => 3,
-		'columns'        => 3,
+		'columns' => 3,
 	);
 
 	$args = wp_parse_args($defaults, $args);
@@ -123,9 +123,9 @@ if (!function_exists('crust_crumb_woocommerce_wrapper_before')) {
 	 */
 	function crust_crumb_woocommerce_wrapper_before()
 	{
-?>
+		?>
 		<main id="primary" class="site-main">
-		<?php
+			<?php
 	}
 }
 add_action('woocommerce_before_main_content', 'crust_crumb_woocommerce_wrapper_before');
@@ -142,7 +142,7 @@ if (!function_exists('crust_crumb_woocommerce_wrapper_after')) {
 	{
 		?>
 		</main><!-- #main -->
-	<?php
+		<?php
 	}
 }
 add_action('woocommerce_after_main_content', 'crust_crumb_woocommerce_wrapper_after');
@@ -189,8 +189,9 @@ if (!function_exists('crust_crumb_woocommerce_cart_link')) {
 	 */
 	function crust_crumb_woocommerce_cart_link()
 	{
-	?>
-		<a class="cart-contents" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php esc_attr_e('View your shopping cart', 'crust-crumb'); ?>">
+		?>
+		<a class="cart-contents" href="<?php echo esc_url(wc_get_cart_url()); ?>"
+			title="<?php esc_attr_e('View your shopping cart', 'crust-crumb'); ?>">
 			<?php
 			$item_count_text = sprintf(
 				/* translators: number of items in the mini cart. */
@@ -198,9 +199,13 @@ if (!function_exists('crust_crumb_woocommerce_cart_link')) {
 				WC()->cart->get_cart_contents_count()
 			);
 			?>
-			<span class="amount"><?php echo wp_kses_data(WC()->cart->get_cart_subtotal()); ?></span> <span class="count"><?php echo esc_html($item_count_text); ?></span>
+			<span class="amount">
+				<?php echo wp_kses_data(WC()->cart->get_cart_subtotal()); ?>
+			</span> <span class="count">
+				<?php echo esc_html($item_count_text); ?>
+			</span>
 		</a>
-	<?php
+		<?php
 	}
 }
 
@@ -217,7 +222,7 @@ if (!function_exists('crust_crumb_woocommerce_header_cart')) {
 		} else {
 			$class = '';
 		}
-	?>
+		?>
 		<ul id="site-header-cart" class="site-header-cart">
 			<li class="<?php echo esc_attr($class); ?>">
 				<?php crust_crumb_woocommerce_cart_link(); ?>
@@ -232,7 +237,7 @@ if (!function_exists('crust_crumb_woocommerce_header_cart')) {
 				?>
 			</li>
 		</ul>
-<?php
+		<?php
 	}
 }
 
@@ -295,3 +300,5 @@ function custom_override_checkout_fields($fields)
 } // End custom_override_checkout_fields()
 
 add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
+remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10);
+add_action('woocommerce_product_thumbnails', 'woocommerce_show_product_sale_flash', 10);
