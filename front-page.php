@@ -164,8 +164,9 @@ get_header();
 						$link_url = $link['url'];
 						$link_title = $link['title'];
 					?>
+					<div class="location-more-info">
 						<a class='check-location-cta' href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
-
+						</div>
 					<?php endif; ?>
 				</section>
 
