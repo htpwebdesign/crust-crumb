@@ -70,7 +70,12 @@
     }
 
 // Flex the Related Product Container
-    .products ul {
+    .related {
+        display: flex;
+        flex-direction: column;
+    }
+
+    single-product .products ul {
         margin: 0rem;
         display: flex;
         flex-direction: row;
@@ -161,8 +166,8 @@
 
 .single-product .products li .onsale {
     position: absolute;
-    top: 35px;
-    right: 0;
+    top: 0px!important;
+    left: 206px;
     text-align: center;
     border-radius: 22px;
     border-bottom-right-radius: 0px;
