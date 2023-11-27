@@ -25,7 +25,7 @@
 
   div.product {
     position: relative;
-    margin: $page-margin-medium $page-margin;
+    margin: 3rem $page-margin 0;
 
     .woocommerce-product-gallery {
       position: relative;
@@ -156,7 +156,6 @@
     }
 
     .product:not(.add_to_cart_inline) {
-      margin-top: $page-margin-medium;
       display: grid;
       grid-template-columns: 400px 1fr;
       grid-template-rows: 400px auto 1fr;

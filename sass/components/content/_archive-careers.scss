@@ -26,11 +26,13 @@
     margin: 0 auto;
   }
   .career-location-radio {
-    margin-bottom: $page-margin-medium;
     display: flex;
     gap: $page-margin;
+
+    margin: $page-margin-medium $page-margin;
   }
   #filtered-jobs {
+    margin: 0 $page-margin;
     display: flex;
     max-width: 1024px;
     align-items: center;
