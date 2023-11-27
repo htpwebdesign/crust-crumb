@@ -1,13 +1,90 @@
 .page-content .wp-smiley,
 .entry-content .wp-smiley,
 .comment-content .wp-smiley {
-	border: none;
-	margin-bottom: 0;
-	margin-top: 0;
-	padding: 0;
+  border: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
 }
 
 /* Make sure logo link wraps around logo image. */
 .custom-logo-link {
-	display: inline-block;
+  display: inline-block;
+}
+
+// Catering Order Form Styles
+.form-wrapper {
+  background: transparent;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  h2 {
+    color: $text-primary-color;
+    text-shadow: 1px 1px 2px black;
+    margin-bottom: 20px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      @include form-field-style;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 10px;
+    }
+
+    .gfield_checkbox {
+      display: flex;
+      flex-direction: row !important;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+
+      label {
+        display: flex;
+        margin-left: 0;
+        margin-right: 51px;
+        vertical-align: bottom;
+      }
+    }
+
+    button[type="button"],
+    input[type="submit"] {
+      background-color: $button-primary-color !important;
+      color: $text-secondary-color !important;
+      border: none;
+      padding: 10px 15px !important;
+      border-radius: $border__radius !important;
+      cursor: pointer;
+      margin-top: 15px;
+      justify-content: center;
+      &:hover {
+        background: darken($button-primary-color, 10%);
+      }
+    }
+  }
+}
+
+//Job Apply form styling
+
+.job-position-select .gfield_select {
+  background-color: $primary-color;
+  color: $text-secondary-color;
+}
+
+.gfield-choice-input::before {
+  color: $primary-color !important;
 }

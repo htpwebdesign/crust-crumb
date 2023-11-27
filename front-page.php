@@ -104,13 +104,11 @@ get_header();
 				</h2>
 				<section class="wrapper">
 					<?php
-					$best_selling_products = wc_get_products(
-						array(
-							'limit' => 10, // Number of best-selling products to display
-							'status' => 'publish',
-							'orderby' => 'popularity',
-						)
-					);
+					$best_selling_products = wc_get_products(array(
+						'limit'         => 12, // Number of best-selling products to display
+						'status'        => 'publish',
+						'orderby'       => 'popularity',
+					));
 					if ($best_selling_products) {
 						foreach ($best_selling_products as $product) {
 							// Access product details using $product object
@@ -189,11 +187,10 @@ get_header();
 					if ($link):
 						$link_url = $link['url'];
 						$link_title = $link['title'];
-						?>
-						<a class='check-location-cta' href="<?php echo $link_url; ?>">
-							<?php echo $link_title; ?>
-						</a>
-
+					?>
+					<div class="location-more-info">
+						<a class='check-location-cta' href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
+						</div>
 					<?php endif; ?>
 				</section>
 

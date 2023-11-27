@@ -1,0 +1,48 @@
+.our-locations {
+  h2 {
+    font: $font__main;
+    color: $text-primary-color;
+    text-shadow: 1px 1px 2px black;
+    font-size: calc(1em + 1.2vw);
+    @media (max-width: $small-screen) {
+      font-size: calc(1.6rem + 1.75vw);
+    }
+  }
+  .store-locations {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+    padding: 1em;
+
+    .store {
+      width: 17rem;
+
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      flex-shrink: 0;
+      @media (max-width: $medium-screen) {
+        flex-direction: row;
+        width: 20rem;
+      }
+      h3 {
+        font-family: $font__main;
+        color: $color__text-main;
+
+        font-size: calc(1em + 1vw);
+        margin-top: 0;
+      }
+    }
+  }
+  .location-more-info {
+    justify-content: center;
+    a {
+      padding: 0.7rem 3rem;
+    }
+    @media (max-width: $small-screen) {
+      margin-left: 0;
+    }
+  }
+}
