@@ -13,7 +13,7 @@ get_header();
     // Page loop
     while ( have_posts() ) : the_post(); ?>
 
-        <section>
+        <section class="catering-title">
             <h1><?php the_title(); ?></h1>
             <?php 
             // Display the Opening Paragraph ACF field
@@ -61,9 +61,11 @@ get_header();
         wp_reset_postdata();
         ?>
 
-        <section>
+        <section class="form-wrapper">
+        <h2> Catering Order Form</h2>
             <?php
             // Embed Gravity Form 
+            
             if ( function_exists( 'gravity_form' ) ) {
                 gravity_form( 4, false, false, false, '', false );  
             }
