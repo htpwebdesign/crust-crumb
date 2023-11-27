@@ -1,0 +1,21 @@
+.pickup-instruction {
+  font: $font__main;
+  color: $text-primary-color;
+  font-size: calc(0.6rem + 0.75vw);
+  margin: 1em 5.5em;
+  @media (max-width: $small-screen) {
+    font-size: calc(0.9rem + 0.7vw);
+    margin: 1em 2em;
+  }
+}
+
+.delivery-instruction {
+  font: $font__main;
+  color: $text-primary-color;
+  font-size: calc(0.6rem + 0.75vw);
+  margin: 1em 5.5em;
+  @media (max-width: $small-screen) {
+    font-size: calc(0.9rem + 0.7vw);
+    margin: 1em 2em;
+  }
+}
