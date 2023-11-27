@@ -41,10 +41,10 @@
 			$crust_crumb_description = get_bloginfo( 'description', 'display' );
 		?>
 		</div><!-- .site-branding -->
-		<button class="hamburger is-active">
-			<div class="bar"></div>
-		</button>
 		<nav id="site-navigation" class="main-navigation">
+			<button class="hamburger">
+				<div class="bar"></div>
+			</button>
 			<?php
 			wp_nav_menu(
 				array(
@@ -54,4 +54,5 @@
 			);
 			?>
 		</nav><!-- #site-navigation -->
+		
 	</header><!-- #masthead -->
