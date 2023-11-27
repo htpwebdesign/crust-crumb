@@ -3,21 +3,22 @@
     background: $primary-color;
     display: flex;
     justify-content: start;
-    padding-left: 1rem;
+    padding-left: .5rem;
     padding-right: 2rem;
 }
 
 // div of ul of nav
 .menu-menu-1-container{
-    display: flex;
-    justify-content: end;  color: white;
+    color: white;
     text-decoration: none;
 }
 
 // ul nav
 #primary-menu {
-    gap: .5rem;
+    padding: 1rem;
     font-size: 1.25rem;
+    gap: 1rem;
+    transition: left .6s ease;
 }
 
 @media screen and (min-width: 48em) {
@@ -42,7 +43,6 @@
     position: relative;
     display: block;
     width: 35px;
-
     appearance: none;
     background: none;
     outline: none;
@@ -78,7 +78,6 @@
 
 
 // Logo
-
 img .custom-logo {
     position: absolute;
     top: -5.5rem;
@@ -89,8 +88,7 @@ img .custom-logo {
         justify-content: start;
     }
 }
-/* Navigation
---------------------------------------------- */
+
 .main-navigation {
 	display: block;
 	width: 100%;
@@ -106,6 +104,7 @@ img .custom-logo {
 	margin: 0;
 	padding-left: 0;
 	background-color: $secondary-color;
+    
 }
 
 .main-navigation li {
