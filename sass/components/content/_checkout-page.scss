@@ -1,0 +1,35 @@
+// Checkout Page
+
+.page-id-21 {
+    .entry-content {
+        .woocommerce {
+            margin: 2rem;
+        }
+        fieldset {
+            background-color: $secondary-color;
+
+            legend {
+                font-weight: 700;
+            }
+            label:not(:first-child) {
+                padding-left: 1rem;
+            }
+        }
+
+        .woocommerce-additional-fields {
+            h3 {
+                padding-top: 1rem;
+            }
+        }
+
+        .woocommerce-billing-fields {
+            h3 {
+                border-bottom: 2px solid gray;
+            }
+        }
+        #order_review_heading {
+            border-bottom: 2px solid gray;
+        }
+
+    }
+}

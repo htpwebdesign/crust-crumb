@@ -320,3 +320,17 @@ input[type="submit"] {
         }
 
     }
+
+// Checkout Page
+
+.page-id-21 {
+	.place-order {
+		button {
+			@include button-customizable(
+				$bg-color: $button-primary-color,
+				$text-color: $text-secondary-color,
+				$padding: 0.5rem 1rem,
+			);
+		}
+	}
+}
