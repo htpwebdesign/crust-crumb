@@ -1,7 +1,8 @@
 // Layout for page with short content (not enough to fill the whole page): Empty Cart page
 
 .page-id-20, 
-.post-type-archive-cac-careers{
+.post-type-archive-cac-careers,
+.error404 {
     #page {
         display: flex;
         flex-direction: column;

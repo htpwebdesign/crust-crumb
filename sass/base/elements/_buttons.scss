@@ -328,3 +328,15 @@ input[type="submit"] {
 		}
 	}
 }
+
+// 404 page
+
+.error404 {
+	input[type='submit'] {
+		@include button-customizable(
+			$bg-color: $button-primary-color,
+			$text-color: $text-secondary-color,
+			$padding: 0.5rem 1rem,
+		);
+	}
+}
