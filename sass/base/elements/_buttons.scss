@@ -20,19 +20,59 @@ input[type="submit"] {
   }
 }
 
+//View Cart Button - General 
+
+.added_to_cart {
+	@include button-customizable(
+		$bg-color: white,
+		$text-color: $text-primary-color,
+		$padding: 0.5rem 1rem,
+	);
+	width: fit-content;
+}
+
+
 // all buttons on Homepage
 .page-id-13 {
-  .cta-button,
-  .about-us-cta {
-    @include button-customizable($bg-color: $button-secondary-color);
-  }
+	// Hero Section and About Section
+	.cta-button,
+	.about-us-cta {
+		@include button-customizable(
+			$bg-color: $button-secondary-color,
+		);
+	}
+	// CTA Location Section
+	.check-location-cta {
+		@include button-customizable(
+			$bg-color: $button-primary-color,
+			$text-color: $text-secondary-color,
+		);
+	}
 
-  .check-location-cta {
-    @include button-customizable(
-      $bg-color: $button-primary-color,
-      $text-color: $text-secondary-color
-    );
-  }
+	//Add-to-card in Featured Product
+	.product-card .button {
+		@include button-customizable(
+			$bg-color: $button-primary-color,
+			$text-color: $text-secondary-color,
+		);
+		width: fit-content;
+		align-self: flex-end;
+	}
+}
+
+// Buttons on About page
+
+.page-id-25 {
+	.more-about-us,
+	.more-about-us-2 {
+		.button {
+			@include button-customizable(
+				$bg-color: $button-secondary-color,
+				$text-color: $text-primary-color,
+				$padding: 0.5rem 1rem,
+			);
+		}
+	}
 }
 
 // Filter Buttons on Menu page
@@ -58,21 +98,32 @@ input[type="submit"] {
 
 .single-product,
 .post-type-archive-product {
-  .single_add_to_cart_button {
-    @include button-customizable(
-      $bg-color: $button-secondary-color,
-      $text-color: $text-primary-color,
-      $padding: 0.5rem 1rem
-    );
-  }
-  .add_to_cart_button {
-    @include button-customizable(
-      $bg-color: $button-primary-color,
-      $text-color: $text-secondary-color,
-      $padding: 0.5rem 1rem,
-      $radius: 20px
-    );
-  }
+	.single_add_to_cart_button {
+		@include button-customizable(
+			$bg-color: $button-secondary-color,
+			$text-color: $text-primary-color,
+			$padding: 0.5rem 1rem,
+		);
+	}
+	.add_to_cart_button {
+		@include button-customizable(
+			$bg-color: $button-primary-color,
+			$text-color: $text-secondary-color,
+			$padding: 0.5rem 1rem,
+			$radius: 20px,
+		);
+		width: fit-content;
+		align-self: flex-end;
+	}
+	#commentform {
+		.submit {
+			@include button-customizable(
+				$bg-color: $button-primary-color,
+				$text-color: $text-secondary-color,
+				$padding: 0.5rem 1rem,
+			);
+		}
+	}
 }
 
 // Catering Page + Carrers Page (Form)
@@ -197,15 +248,23 @@ input[type="submit"] {
       );
     }
 
-    #gform_submit_button_4,
-    #gform_submit_button_2 {
-      @include button-customizable(
-        $bg-color: $button-primary-color,
-        $text-color: $text-secondary-color,
-        $padding: 0.5rem 1rem
-      );
-    }
-  }
+		#gform_submit_button_4,
+		#gform_submit_button_2{
+			@include button-customizable(
+				$bg-color: $button-primary-color,
+				$text-color: $text-secondary-color,
+				$padding: 0.5rem 1rem,
+			);
+		}
+	}
+	.order-now-button {
+		@include button-customizable(
+			$bg-color: $button-primary-color,
+			$text-color: $text-secondary-color,
+			$padding: 0.5rem 1rem,
+		);
+	
+	}
 }
 
 // Careers Page
@@ -236,4 +295,36 @@ input[type="submit"] {
       $padding: 0.5rem 1rem
     );
   }
+}
+
+// Cart Page
+
+.page-id-20 {
+    .entry-content {
+            .return-to-shop {
+                padding-top:1rem;
+                .button {
+                    @include button-customizable(
+                        $bg-color: $button-primary-color,
+                        $text-color: $text-secondary-color,
+                        $padding: 0.5rem 1rem,
+                    );
+                }
+            }
+        }
+
+    }
+
+// Checkout Page
+
+.page-id-21 {
+	.place-order {
+		button {
+			@include button-customizable(
+				$bg-color: $button-primary-color,
+				$text-color: $text-secondary-color,
+				$padding: 0.5rem 1rem,
+			);
+		}
+	}
 }

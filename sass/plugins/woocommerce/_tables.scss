@@ -22,6 +22,12 @@ table.shop_table_responsive {
 				content: attr(data-title) ": ";
 				float: left;
 			}
+			&.product-thumbnail {
+				.page-id-20 &::before {
+					content: none;
+					float: left;
+				}
+			}
 
 			&.product-remove {
 

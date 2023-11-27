@@ -87,12 +87,8 @@ get_header();
 						$link_title = $link['title'];
 						?>
 						<div class="story-intro">
-							<p>
-								<?php the_field('short_introduction') ?>
-							</p>
-							<a href="<?php echo $link_url; ?>">
-								<?php echo $link_title; ?>
-							</a>
+							<p><?php the_field('short_introduction') ?></p>
+							<a class='about-us-cta' href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
 						</div>
 					</div>
 				<?php endif; ?>
@@ -112,22 +108,19 @@ get_header();
 					if ($best_selling_products) {
 						foreach ($best_selling_products as $product) {
 							// Access product details using $product object
-							?>
+					?>
+						<a href="<?php echo esc_url(get_permalink($product->get_id())); ?>">
 							<article class="product-card">
 								<?php
-								// Display product image
-								$image_id = $product->get_image_id();
-								$image_url = wp_get_attachment_image_url($image_id, 'thumbnail');
-								if ($image_url) {
-									echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($product->get_name()) . '" />';
-								}
-								?>
-								<h3>
-									<?php echo esc_html($product->get_name()); ?>
-								</h3>
-								<div>
-									<?php echo $product->get_price_html(); ?>
-								</div>
+									// Display product image
+									$image_id = $product->get_image_id();
+									$image_url = wp_get_attachment_image_url($image_id, 'thumbnail');
+									if ($image_url) {
+										echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($product->get_name()) . '" />';
+									}
+									?>
+								<h3><?php echo esc_html($product->get_name()); ?></h3>
+								<div><?php echo $product->get_price_html(); ?></div>
 								<?php
 								// Add to Cart button
 								woocommerce_template_loop_add_to_cart(
@@ -137,7 +130,8 @@ get_header();
 									), $product);
 								?>
 							</article>
-							<?php
+						</a>
+					<?php
 						}
 					}
 					?>

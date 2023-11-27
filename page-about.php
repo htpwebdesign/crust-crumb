@@ -75,7 +75,7 @@ get_header();
 				$link_url = $link['url'];
 				$link_title = $link['title'];
 				?>
-				<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
+				<a class='button' href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
 			<?php endif; ?>
 			</div>
 			<?php 
@@ -100,7 +100,7 @@ get_header();
 					$link_url = $link['url'];
 					$link_title = $link['title'];
 					?>
-				<a href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
+				<a class='button' href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
 			</div>
 	
 			<?php
