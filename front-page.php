@@ -88,7 +88,7 @@ get_header();
 				<section class="wrapper">
 					<?php
 					$best_selling_products = wc_get_products(array(
-						'limit'         => 10, // Number of best-selling products to display
+						'limit'         => 12, // Number of best-selling products to display
 						'status'        => 'publish',
 						'orderby'       => 'popularity',
 					));

@@ -78,7 +78,8 @@
     }
 
 // Styles for the Menu Product Card
-.isotope-container .isotope-item, .products ul .product {
+.isotope-container .isotope-item, .products ul .product,
+.single-product .products ul .product {
     width: 17rem;
     height: 23.5rem;
     margin: 0.5rem;
@@ -111,11 +112,12 @@
     }
  
     .button {
-        justify-content: flex-end;
-        display: flex;
-        margin-right: 2rem;
+        position: absolute;
+        top: 19rem;
+        right: 0;
         margin: 0rem 2rem 0rem 0rem;
         text-decoration: none;
+        width: 7rem;
     }
 
     .price {
@@ -152,15 +154,54 @@
     margin-left: 2rem;
 }
 
+// For Single Product Page Overrides
+.single-product .products li {
+    position: relative;
+}
+
+.single-product .products li .onsale {
+    position: absolute;
+    top: 35px;
+    right: 0;
+    text-align: center;
+    border-radius: 22px;
+    border-bottom-right-radius: 0px;
+    background-color: red;
+    width: 4rem;
+    color: $text-secondary-color;
+}
+
+.single-product .products li .button {
+    justify-content: flex-end;
+    display: flex;
+    margin-right: 2rem;
+    margin: 0rem 2rem 0rem 0rem;
+    text-decoration: none;
+}
+
+
 
 // -------------------CATERING CARDS STYLES----------------------
 
 // Flex on the container holding all the Catering Articles
 .catering-packages div {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 1rem;
-    justify-content: center; 
+    
 }
+
+@media screen and (min-width: $small-screen) {
+
+    .catering-packages div {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center; 
+    }
+}
+    
+
 
 // Styling for Catering Cards
 .package {
