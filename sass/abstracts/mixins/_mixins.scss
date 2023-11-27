@@ -52,6 +52,8 @@
 @mixin form-field-style {
   padding: 10px;
   margin-bottom: 5px;
+  color: $color__text-input-focus;
+
   border: 1px solid $color__border-input;
   border-radius: $border__radius;
   background-color: $color__border-input;

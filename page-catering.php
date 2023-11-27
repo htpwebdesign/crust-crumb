@@ -13,7 +13,7 @@ get_header();
     // Page loop
     while ( have_posts() ) : the_post(); ?>
 
-        <section>
+        <section class="catering-title">
             <h1><?php the_title(); ?></h1>
             <?php 
             // Display the Opening Paragraph ACF field
