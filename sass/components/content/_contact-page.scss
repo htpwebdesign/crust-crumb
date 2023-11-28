@@ -45,17 +45,7 @@
     .location-address {
       margin-top: $page-margin;
     }
-    // Hover effect for Social Media Icons
-    .social-media-links {
-      .social-media-item {
-          img {
-            transition: transform 0.3s ease; /* Adjust the duration and timing function as needed */
-        }
-          img:hover {
-              transform: scale(1.2);
-          }
-      }
-  }
+   
   }
   .store-locations {
     display: flex;

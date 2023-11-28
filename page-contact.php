@@ -86,9 +86,7 @@ get_header();
                         if ($social_media_link_url) {
                             echo '<a href="' . esc_url($social_media_link_url) . '">';
                             if ($social_media_image_id) {
-                                $social_media_image_url = wp_get_attachment_image_url($social_media_image_id, 'full');
-                                $social_media_image_alt = get_post_meta($social_media_image_id, '_wp_attachment_image_alt', true);
-                                echo '<img src="' . esc_url($social_media_image_url) . '" alt="' . esc_attr($social_media_image_alt) . '" />';
+                                echo $social_media_image_id;
                             }
                             echo '</a>';
                         }
@@ -98,6 +96,10 @@ get_header();
                 endif;
                 ?>
             </div>
+            <!-- Output Google Map -->
+            <?php
+            echo do_shortcode( '[mappress mapid="1"]' );
+            ?>
             <?php
         }
 
