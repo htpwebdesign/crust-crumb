@@ -61,6 +61,25 @@
   .our-story div {
     flex-direction: row;
   }
+
+  .our-story img {
+    width: 340px;
+    height: 191px;
+  }
+}
+
+@media screen and (min-width: $medium-screen) {
+    .our-story img {
+        width: 500px;
+        height: 280px;
+      }
+}
+
+@media screen and (min-width: $medium-screen) {
+    .our-story img {
+        width: 621.05px;
+        height: 348px;
+      }
 }
 
 // Styles for Our Story Page on page-about.php
