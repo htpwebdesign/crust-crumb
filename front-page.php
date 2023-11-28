@@ -109,8 +109,8 @@ get_header();
 						foreach ($best_selling_products as $product) {
 							// Access product details using $product object
 					?>
-						<a href="<?php echo esc_url(get_permalink($product->get_id())); ?>">
 							<article class="product-card">
+								<a href="<?php echo esc_url(get_permalink($product->get_id())); ?>">
 								<?php
 									// Displa`y product image
 									$image_id = $product->get_image_id();
@@ -129,8 +129,8 @@ get_header();
 										'class' => 'button', // You can add classes to style the button
 									), $product);
 								?>
+								</a>
 							</article>
-						</a>
 					<?php
 						}
 					}
@@ -197,5 +197,4 @@ get_header();
 </main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();
