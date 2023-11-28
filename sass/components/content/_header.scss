@@ -35,10 +35,15 @@
     padding: 1rem;
 }
 
-// can't get the color to change probably browser issues
-.menu-menu-1-container ul li a:visited {
+.menu-menu-1-container #primary-menu li a{
     color: white;
+    color: #ffffff; /* White color */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+    &:hover {
+        color: #fed8b1; 
+    }
 }
+
 
 // hamburger styles
 .hamburger {
@@ -111,17 +116,6 @@ img .custom-logo {
 
 .main-navigation li {
 	position: relative;
-}
-
-.main-navigation li.current-menu-item > a,
-.main-navigation li.current_page_item > a,
-.main-navigation li:hover > a,
-.main-navigation li:visited > a,
-.main-navigation li.focus > a {
-	text-decoration: underline;
-	text-decoration-color: #ffffff;
-    color: white;
-
 }
 
 
