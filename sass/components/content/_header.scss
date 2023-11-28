@@ -19,7 +19,7 @@
 #primary-menu {
     padding: 1rem;
     font-size: 1.25rem;
-    gap: 1rem;
+    // gap: 1rem;
     transition: left .6s ease;
 }
 
@@ -107,6 +107,7 @@ img .custom-logo {
 
 .main-navigation ul {
 	display: flex;
+	flex-direction: column;
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
@@ -178,6 +179,8 @@ img .custom-logo {
 	.main-navigation ul,
 	.main-navigation.toggled ul {
 		display: flex;
+		flex-direction: row;
+		gap: 1rem;
 		justify-content: center;
 		position: relative;
 		left: auto;
