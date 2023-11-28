@@ -308,13 +308,17 @@ add_action('init', 'remove_woocommerce_sidebar');
 
 function custom_override_checkout_fields($fields)
 {
-	$fields['billing']['location']['default'] = 'Vancouver';
+	var_dump($fields);
+	$fields['billing']['pickup_location']['default'] = array_values($fields['billing']['pickup_location']['options'])[0];
 
-	$fields['billing']['purchase_method']['default'] = 'Local Pickup';
-
+	$fields['billing']['purchase_method']['default'] = array_values($fields['billing']['purchase_method']['options'])[0];
+	
 	return $fields;
-} // End custom_override_checkout_fields()
+	
+} 
 
 add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
+
 remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10);
 add_action('woocommerce_product_thumbnails', 'woocommerce_show_product_sale_flash', 10);
+

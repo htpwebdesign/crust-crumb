@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var delivery = document.querySelector('input[name="purchase_method"][value="Delivery"]');
 
     // Get the location field
-    var locationField = document.getElementById('location_field');
+    var locationField = document.getElementById('pickup_location_field');
 
     // Initial check for default selected method
     toggleLocationField();
