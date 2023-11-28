@@ -108,6 +108,9 @@ get_header();
 
     endwhile; // End of the loop.
     ?>
+    <?php
+            echo do_shortcode( '[mappress mapid="1"]' );
+ ?>
     <section class="form-wrapper">
         <h2>Contact Form</h2>
             <?php
@@ -118,6 +121,7 @@ get_header();
             }
             ?>
         </section>
+        
    
 
 </main>

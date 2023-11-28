@@ -1,67 +1,90 @@
 // Style for Cart Page
 
 .page-id-20 {
-    .entry-content {
-        .woocommerce {
-            margin: 0 2rem;
-            .cart-empty {
-                padding: 0.2rem 0;
-            }
-
-            .button { // Apply coupon & Update cart buttons
-                @include button-customizable(
-                    $bg-color: $button-secondary-color,
-                    $text-color: $text-primary-color,
-                    $padding: 0.5rem 1rem,
-                );
-            }
-            .wc-proceed-to-checkout { // Proceed to Checkout button
-                .button {
-                    @include button-customizable(
-                        $bg-color: $button-primary-color,
-                        $text-color: $text-secondary-color,
-                        $padding: 0.5rem 1rem,
-                    );
-                }
-            }
-
-            table {
-                border-collapse:collapse;
-                thead {
-                    border-bottom: 2px solid gray;
-                }
-                tbody {
-                    .woocommerce-cart-form__cart-item {
-                        border-bottom: 1px solid gray;
-                    }
-                    tr {
-                        .product-remove,
-                        .product-thumbnail {
-                            text-align: left;
-                        }
-                        
-                    }
-
-                    tr:nth-last-child(1) {
-                        .actions {
-                            margin-top: 1rem;
-                            .button {
-                                margin-top: .5rem;
-                            }
-                        }
-                    }
-                }
-            }
-            .cart-collaterals {
-                padding-top: 1rem;
-                .cart_totals {
-                    h2 {
-                        border-bottom: 2px solid gray;
-                        border-top: 2px solid gray;
-                    }
-                }
-            }
+  .entry-title {
+    display: flex;
+    justify-content: center;
+  }
+  .entry-content {
+    .woocommerce {
+      margin: 0 2rem;
+      .cart-empty {
+        padding: 0.2rem 0;
+      }
+      .coupon .input-text {
+        width: -webkit-fill-available;
+      }
+      .button {
+        // Apply coupon & Update cart buttons
+        @include button-customizable(
+          $bg-color: $button-secondary-color,
+          $text-color: $text-primary-color,
+          $padding: 0.5rem 1rem
+        );
+      }
+      .wc-proceed-to-checkout {
+        // Proceed to Checkout button
+        .button {
+          @include button-customizable(
+            $bg-color: $button-primary-color,
+            $text-color: $text-secondary-color,
+            $padding: 0.5rem 1rem
+          );
         }
+      }
 
+      table {
+        border-collapse: separate;
+        border-spacing: 0 10px;
+        thead {
+          border-bottom: 2px solid gray;
+        }
+        tbody {
+          .woocommerce-cart-form__cart-item {
+            border-bottom: 1px solid gray;
+
+            background-color: $color__background-ins;
+          }
+          tr {
+            .product-remove,
+            .product-thumbnail {
+              text-align: left;
+              a {
+                font-size: 1.5rem;
+              }
+            }
+          }
+
+          tr:nth-last-child(1) {
+            .actions {
+              margin-top: 1rem;
+              .button {
+                margin-top: 0.5rem;
+              }
+            }
+          }
+          td {
+            padding: 0 1rem;
+          }
+        }
+        .cart-collaterals {
+          padding-top: 1rem;
+          .cart_totals {
+            h2 {
+              border-bottom: 2px solid gray;
+              border-top: 2px solid gray;
+            }
+          }
+        }
+      }
     }
+  }
+}
+
+.cart_totals .shop_table_responsive tbody {
+  background-color: antiquewhite;
+}
+.wc-proceed-to-checkout {
+  display: flex;
+  justify-content: center;
 }
