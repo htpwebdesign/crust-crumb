@@ -61,6 +61,8 @@ get_header();
         wp_reset_postdata();
         ?>
 
+    <div>
+
         <section class="form-wrapper">
         <h2> Catering Order Form</h2>
             <?php
@@ -71,6 +73,7 @@ get_header();
             }
             ?>
         </section>
+    </div>
 
     <?php endwhile; ?>
 </main>

@@ -53,6 +53,11 @@
 				)
 			);
 			?>
+			<?php
+		if ( function_exists( 'crust_crumb_woocommerce_header_cart' ) ) {
+			crust_crumb_woocommerce_header_cart();
+		}
+	?>
 		</nav><!-- #site-navigation -->
 		
 	</header><!-- #masthead -->
