@@ -23,10 +23,10 @@ function crust_crumb_woocommerce_setup()
 		'woocommerce',
 		array(
 			'thumbnail_image_width' => 210,
-			'single_image_width'    => 300,
-			'product_grid'          => array(
-				'default_rows'    => 3,
-				'min_rows'        => 1,
+			'single_image_width' => 300,
+			'product_grid' => array(
+				'default_rows' => 3,
+				'min_rows' => 1,
 				'default_columns' => 4,
 				'min_columns' => 1,
 				'max_columns' => 6,
@@ -242,11 +242,12 @@ if (!function_exists('crust_crumb_woocommerce_header_cart')) {
 }
 
 // This will output after the Add to Cart button and add Back to Menu link
-function cac_custom_function() {
+function cac_custom_function()
+{
 	echo '<a class="back-to-menu-link" href="' . esc_url(home_url('/shop')) . '">Back to Menu</a>';
 }
 
-add_action (
+add_action(
 	'woocommerce_before_main_content',
 	'cac_custom_function',
 	21
@@ -281,7 +282,7 @@ function woo_remove_product_tabs($tabs)
 {
 
 	unset($tabs['description']);      	// Remove the description tab
-	unset( $tabs['additional_information'] );  	// Remove the additional information tab
+	unset($tabs['additional_information']);  	// Remove the additional information tab
 
 	return $tabs;
 }
@@ -308,14 +309,14 @@ add_action('init', 'remove_woocommerce_sidebar');
 
 function custom_override_checkout_fields($fields)
 {
-	var_dump($fields);
+
 	$fields['billing']['pickup_location']['default'] = array_values($fields['billing']['pickup_location']['options'])[0];
 
 	$fields['billing']['purchase_method']['default'] = array_values($fields['billing']['purchase_method']['options'])[0];
-	
+
 	return $fields;
-	
-} 
+
+}
 
 add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
 

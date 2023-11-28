@@ -1,4 +1,4 @@
-// Default Variables 
+// Default Variables
 
 $color__background-body: #fff;
 $color__background-screen: #f1f1f1;
@@ -10,8 +10,8 @@ $color__background-ins: #fff9c0;
 $color__text-screen: #21759b;
 $color__text-input: #666;
 $color__text-input-focus: #111;
-$color__link: #ffffff; //royalblue
-$color__link-visited: #A67B5B; //purple
+$color__link: #000000; //royalblue
+$color__link-visited: #a67b5b; //purple
 $color__link-hover: #191970; //midnightblue
 $color__text-main: #404040;
 
@@ -25,12 +25,15 @@ $color__border-abbr: #666;
 // General
 $primary-color: #6f4e37; //coffee -used for header and footer and buttons
 $secondary-color: #fed8b1; //light orange -used for cards and other banners
-$tertiary-color: #A67B5B; //chamoisse
+$tertiary-color: #a67b5b; //chamoisse
 
 // Components
-$background-color: linear-gradient(0deg, rgba(111,78,55,1) 0%, rgba(255,255,255,1) 100%); //gradient
+$background-color: linear-gradient(
+  0deg,
+  rgba(111, 78, 55, 1) 0%,
+  rgba(255, 255, 255, 1) 100%
+); //gradient
 $text-primary-color: black;
 $text-secondary-color: white;
 $button-primary-color: #6f4e37;
-$button-secondary-color:  #fed8b1;
-
+$button-secondary-color: #fed8b1;
