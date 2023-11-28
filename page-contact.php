@@ -94,13 +94,12 @@ get_header();
                     endwhile;
                     echo '</ul></nav>';
                 endif;
-
-                // Testing SVG link
-                if (get_field('svg_link_test')) {
-                    echo get_field('svg_link_test');
-                }
                 ?>
             </div>
+            <!-- Output Google Map -->
+            <?php
+            echo do_shortcode( '[mappress mapid="1"]' );
+            ?>
             <?php
         }
 
