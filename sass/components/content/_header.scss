@@ -101,11 +101,15 @@ img .custom-logo {
 }
 
 .main-navigation ul {
-	display: none;
+	display: flex;
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
 	background-color: $secondary-color;
+	position: fixed;
+	left: -200%;
+	top: 5.8937rem;
+	
     
 }
 
@@ -141,6 +145,10 @@ img .custom-logo {
 
 .main-navigation.toggled ul {
 	display: block;
+	left: 0!important;
+	width: 100%;
+	
+
 }
 
 .hamburger {
@@ -177,6 +185,9 @@ img .custom-logo {
 	.main-navigation.toggled ul {
 		display: flex;
 		justify-content: center;
+		position: relative;
+		left: auto;
+		top: auto;
 	}
 
 	.main-navigation ul ul {
