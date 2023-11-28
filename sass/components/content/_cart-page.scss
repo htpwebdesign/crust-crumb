@@ -8,7 +8,7 @@
                 padding: 0.2rem 0;
             }
 
-            .button { // Apply coupon & Update cart buttons
+            button[type='submit'] { // Apply coupon & Update cart buttons
                 @include button-customizable(
                     $bg-color: $button-secondary-color,
                     $text-color: $text-primary-color,

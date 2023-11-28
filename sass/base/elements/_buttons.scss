@@ -23,12 +23,13 @@ input[type="submit"] {
 //View Cart Button - General
 
 .added_to_cart {
-  @include button-customizable(
-    $bg-color: white,
-    $text-color: $text-primary-color,
-    $padding: 0.5rem 1rem
-  );
-  width: fit-content;
+	@include button-customizable(
+		$bg-color: white,
+		$text-color: $text-primary-color,
+		$padding: 0.5rem 1rem,
+		$radius: 20px,
+	);
+	width: fit-content;
 }
 
 // all buttons on Homepage

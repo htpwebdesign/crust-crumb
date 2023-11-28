@@ -10,5 +10,30 @@ textarea {
 	line-height: $font__line-height-body;
 }
 
+// Home Headings
+.section-text-heading-home-1 {
+    font-size: 2rem;
+    color: $primary-color;
+    background-image: url('https://crustandcrumb.bcitwebdeveloper.ca/wp-content/uploads/2023/11/squiggle-1.svg');
+    background-repeat: no-repeat;
+    background-position: -30%;
+    background-size: 200px 150px;
+    width: 250px;
+}
+
+.section-text-heading-home-2 {
+    font-size: 2rem;
+    color: $primary-color;
+    background-image: url('https://crustandcrumb.bcitwebdeveloper.ca/wp-content/uploads/2023/11/squiggle-1.svg');
+    background-repeat: no-repeat;
+    background-position: -5%;
+    background-size: 170px 150px;
+    width: fit-content;
+	font-weight: 200;
+}
+
+
+
+
 @import "headings";
 @import "copy";
