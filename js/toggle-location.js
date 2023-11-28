@@ -2,9 +2,9 @@
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    
+
     // Get the purchase method radio buttons
-    var localPickup = document.querySelector('input[name="purchase_method"][value="Local Pickup"]');
+    var localPickup = document.querySelector('input[name="purchase_method"][value="Pickup"]');
     var delivery = document.querySelector('input[name="purchase_method"][value="Delivery"]');
 
     // Get the location field

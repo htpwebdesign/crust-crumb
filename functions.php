@@ -135,7 +135,7 @@ function crust_crumb_scripts()
 	wp_enqueue_script('filter-menu', get_template_directory_uri() . '/js/filter-menu.js', array('jquery', 'isotope'), '1.0', true);
 	wp_enqueue_script('crust-crumb-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
 
-	
+
 	// enqueue Isotope only on Menu and Careers pages	
 	if (is_post_type_archive(array('product', 'cac-careers'))) {
 		wp_enqueue_script('isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js', array('jquery'), '3.0.6', true);
@@ -147,14 +147,14 @@ function crust_crumb_scripts()
 	}
 	// enqueue filter-jobs.js only on Careers page
 	if (is_post_type_archive('cac-careers')) {
-        wp_enqueue_script('filter-jobs', get_template_directory_uri() . '/js/filter-jobs.js', array('jquery'), null, true);
-    }
+		wp_enqueue_script('filter-jobs', get_template_directory_uri() . '/js/filter-jobs.js', array('jquery'), null, true);
+	}
 
 	// enqueue toggle-location.js only on Checkout page
 	if (is_page('checkout')) {
 		wp_enqueue_script('toggle-location', get_template_directory_uri() . '/js/toggle-location.js', array('jquery'), null, true);
-		}
-	
+	}
+
 
 	wp_enqueue_script('custom-accordion', get_template_directory_uri() . '/js/custom-accordion.js', array('jquery'), _S_VERSION, true);
 
@@ -169,6 +169,11 @@ function crust_crumb_scripts()
 	if (is_post_type_archive('cac-careers')) {
 		wp_enqueue_script('filter-jobs', get_template_directory_uri() . '/js/filter-jobs.js', array('jquery'), null, true);
 	}
+
+	if (is_checkout()) {
+		wp_enqueue_script('toggle-shipping', get_template_directory_uri() . '/js/toggle-shipping.js', array('jquery'), null, true);
+	}
+
 
 }
 add_action('wp_enqueue_scripts', 'crust_crumb_scripts');

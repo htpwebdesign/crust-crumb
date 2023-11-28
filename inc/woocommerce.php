@@ -323,3 +323,25 @@ add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
 remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10);
 add_action('woocommerce_product_thumbnails', 'woocommerce_show_product_sale_flash', 10);
 
+// Remove the filter that hides shipping on both cart and checkout pages
+remove_filter('woocommerce_cart_needs_shipping', '__return_false');
+
+// Show shipping on the cart page
+function show_shipping_on_cart_page($needs_shipping)
+{
+	if (is_cart()) {
+		return true;
+	}
+	return $needs_shipping;
+}
+add_filter('woocommerce_cart_needs_shipping', 'show_shipping_on_cart_page');
+
+// Show shipping on the checkout page (excluding order received page)
+function show_shipping_on_checkout_page($needs_shipping)
+{
+	if (is_checkout() && !is_wc_endpoint_url('order-received')) {
+		return true;
+	}
+	return $needs_shipping;
+}
+add_filter('woocommerce_cart_needs_shipping', 'show_shipping_on_checkout_page');
