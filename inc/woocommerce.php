@@ -244,7 +244,9 @@ if (!function_exists('crust_crumb_woocommerce_header_cart')) {
 // This will output after the Add to Cart button and add Back to Menu link
 function cac_custom_function()
 {
-	echo '<a class="back-to-menu-link" href="' . esc_url(home_url('/shop')) . '">Back to Menu</a>';
+	if (is_product()) {
+		echo '<a class="back-to-menu-link" href="' . esc_url(home_url('/shop')) . '">Back to Menu</a>';
+	}
 }
 
 add_action(
