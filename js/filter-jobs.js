@@ -18,13 +18,21 @@ document.addEventListener('DOMContentLoaded', function () {
             radio.addEventListener('change', function () {
                 // Get the value of the selected radio button
                 const selectedLocation = document.querySelector('input[name="location"]:checked').value.toLowerCase();
+
+                // Remove 'is-checked' class from all radio buttons
+                radioButtons.forEach(function (r) {
+                    r.classList.remove('is-checked');
+                });
+
+                // Add 'is-checked' class to the selected radio button
+                radio.classList.add('is-checked');
+
                 // Filter using Isotope
                 iso.arrange({
                     filter: selectedLocation === 'all' ? '*' : `.location-${selectedLocation}`,
                 });
             });
         });
-
         // Event listener for accordion click
         jQuery(".accordion-container").on("click", ".accordionTitle", function () {
             jQuery(this).toggleClass("is-open");
