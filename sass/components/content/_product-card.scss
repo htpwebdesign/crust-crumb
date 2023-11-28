@@ -94,7 +94,7 @@ single-product .products ul {
 .products ul .product,
 .single-product .products ul .product {
   width: 17rem;
-  height: 24.5rem;
+  height: 27rem;
   margin: 0.5rem;
   display: flex;
   flex-wrap: wrap;
@@ -125,11 +125,17 @@ single-product .products ul {
   }
 
   .button {
-    top: 19.5rem;
-    left: 2rem;
+    // top: 19.5rem;
+    // left: 2rem;
     margin: 0.5rem 0rem 0rem 2rem;
     text-decoration: none;
-    width: 7rem;
+    // width: 7rem;
+    width: fit-content;
+    align-self: self-start;
+  }
+
+  .added_to_cart {
+    margin: 0.5rem 0rem 0rem 2rem;
   }
 
   .price {
