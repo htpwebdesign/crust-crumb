@@ -15,7 +15,7 @@ jQuery(document).ready(function ($) {
     }
 
     // Attach click event to accordionTitle
-    $(".location-container").on("click", ".accordionTitle", function () {
+    $(".accordion-container").on("click", ".accordionTitle", function () {
         toggleAccordion($(this));
     });
 
