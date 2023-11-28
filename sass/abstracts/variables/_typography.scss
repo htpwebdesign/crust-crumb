@@ -1,5 +1,5 @@
 // Our TYPOGRAPHY
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Manrope&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Coustard:wght@400;900&family=Lato&family=Manrope&display=swap');
 
 // stylelint-disable value-keyword-case
 $font__main: 'Manrope', sans-serif;
@@ -9,3 +9,7 @@ $font__pre: "Courier 10 Pitch", courier, monospace;
 $font__line-height-body: 1.5;
 $font__line-height-pre: 1.6;
 
+.cart-contents {
+    background-color: none;
+    background: none;
+}

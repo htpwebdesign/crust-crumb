@@ -11,6 +11,9 @@ textarea {
 }
 
 // Home Headings
+.hero-banner h1 {
+    font-family: 'Coustard', serif;
+}
 .section-text-heading-home-1 {
     font-size: 2rem;
     color: $primary-color;
@@ -26,11 +29,26 @@ textarea {
     color: $primary-color;
     background-image: url('https://crustandcrumb.bcitwebdeveloper.ca/wp-content/uploads/2023/11/squiggle-1.svg');
     background-repeat: no-repeat;
-    background-position: -5%;
+    background-position: center;
     background-size: 170px 150px;
     width: fit-content;
 	font-weight: 200;
+	margin-left: 2.8rem
 }
+
+.our-locations .section-text-heading-home-3 {
+    font-size: 2rem;
+    color: $secondary-color;
+    background-image: url('https://crustandcrumb.bcitwebdeveloper.ca/wp-content/uploads/2023/11/squiggle-2.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 150px 80px;
+    width: fit-content;
+	font-weight: 200;
+	margin-left: 2.8rem
+}
+
+
 
 
 

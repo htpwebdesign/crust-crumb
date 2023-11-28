@@ -189,57 +189,18 @@ if (!function_exists('crust_crumb_woocommerce_cart_link')) {
 	 */
 	function crust_crumb_woocommerce_cart_link()
 	{
-		?>
-		<a class="cart-contents" href="<?php echo esc_url(wc_get_cart_url()); ?>"
-			title="<?php esc_attr_e('View your shopping cart', 'crust-crumb'); ?>">
-			<?php
-			$item_count_text = sprintf(
-				/* translators: number of items in the mini cart. */
-				_n('%d item', '%d items', WC()->cart->get_cart_contents_count(), 'crust-crumb'),
-				WC()->cart->get_cart_contents_count()
-			);
-			?>
-			<span class="amount">
-				<?php echo wp_kses_data(WC()->cart->get_cart_subtotal()); ?>
-			</span> <span class="count">
-				<?php echo esc_html($item_count_text); ?>
-			</span>
-		</a>
-		<?php
+		$item_count = WC()->cart->get_cart_contents_count();
+
+		$item_count_text = sprintf(
+			/* translators: number of items in the mini cart. */
+			_n('%d item', '%d', $item_count, 'crust-crumb'),
+			$item_count
+		);
+
+		echo '<span class="count">' . esc_html($item_count_text) . '</span>';
 	}
 }
 
-if (!function_exists('crust_crumb_woocommerce_header_cart')) {
-	/**
-	 * Display Header Cart.
-	 *
-	 * @return void
-	 */
-	function crust_crumb_woocommerce_header_cart()
-	{
-		if (is_cart()) {
-			$class = 'current-menu-item';
-		} else {
-			$class = '';
-		}
-		?>
-		<ul id="site-header-cart" class="site-header-cart">
-			<li class="<?php echo esc_attr($class); ?>">
-				<?php crust_crumb_woocommerce_cart_link(); ?>
-			</li>
-			<li>
-				<?php
-				$instance = array(
-					'title' => '',
-				);
-
-				the_widget('WC_Widget_Cart', $instance);
-				?>
-			</li>
-		</ul>
-		<?php
-	}
-}
 
 // This will output after the Add to Cart button and add Back to Menu link
 function cac_custom_function()
