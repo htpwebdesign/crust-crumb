@@ -283,3 +283,62 @@ function my_toolbars( $toolbars )
     return $toolbars;
 }
 
+
+// remove default dashboards outside of using screen options
+
+function remove_dashboard_meta() {
+	remove_meta_box('dashboard_incoming_links', 'dashboard', 'normal');
+    remove_meta_box('dashboard_primary', 'dashboard', 'normal'); 
+    remove_meta_box('dashboard_right_now', 'dashboard', 'normal'); 
+	remove_meta_box('dashboard_quick_press', 'dashboard', 'normal'); 
+	remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal'); 
+	remove_meta_box('wc_admin_dashboard_setup', 'dashboard', 'normal'); 
+}
+
+add_action('admin_init', 'remove_dashboard_meta');
+
+function fwd_remove_admin_links() {
+	if ( !current_user_can( 'manage_options' ) ) {
+		remove_menu_page( 'edit.php' );           // Remove Posts link
+    		remove_menu_page( 'edit-comments.php' );  // Remove Comments link
+	}
+}
+add_action( 'admin_menu', 'fwd_remove_admin_links' );
+
+// Custom Widget for PDF Tutorial
+function custom_pdf_widget() {
+    ?>
+    <div class="pdf-widget">
+        <h2>Website Tutorial</h2>
+        <p>Download this PDF to know how to use the site</p>
+        <?php
+        $pdf_url = esc_url('https://crustandcrumb.bcitwebdeveloper.ca/wp-content/uploads/2023/11/Crust-and-Crumb-Client-Tutorial.pdf');
+        ?>
+        <iframe src="<?php echo $pdf_url; ?>" width="100%" height="600px" frameborder="0"></iframe>
+    </div>
+    <?php
+}
+
+function register_custom_pdf_widget() {
+    wp_add_dashboard_widget('custom_pdf_widget', 'Website Tutorial', 'custom_pdf_widget');
+}
+
+add_action('wp_dashboard_setup', 'register_custom_pdf_widget');
+
+// Login Page Styles
+function my_login_logo() { ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(https://crustandcrumb.bcitwebdeveloper.ca/wp-content/uploads/2023/11/cc-logo-2.png);
+			height: 151.5px;
+			width: 151.5px;
+		background-size: 151.5px 151.5px;
+		background-repeat: no-repeat;
+        	padding-bottom: 30px;
+        }
+		.login {
+            background-color: #FED8B1
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
