@@ -25,7 +25,7 @@ get_header();
 
 			if (function_exists('get_field')) {
 				if (get_field('contact_us_engaging_message')) {
-					echo '<p>' . get_field('contact_us_engaging_message') . '</p>';
+					echo '<p class="contact-engaging-message">' . get_field('contact_us_engaging_message') . '</p>';
 				}
 			
 				$link = get_field('contact_us_link');
