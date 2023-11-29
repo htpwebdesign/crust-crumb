@@ -241,12 +241,32 @@ function cac_custom_function()
 	if (is_product()) {
 		echo '<a class="back-to-menu-link" href="' . esc_url(home_url('/shop')) . '">Back to Menu</a>';
 	}
+
+	if (is_page('checkout')) {
+		?>
+		<div class="shipping-info-checkout">
+		<p>Shipping Info:</p>
+			<ul> 
+				<li>Zone 1: Richmond, Burnaby, Vancouver ($5.00 - flat rate).</li>
+				<li>Zone 2: Surrey, Langley, Delta ($10.00 - flat rate).</li>
+				<li>Zone 3: Whistler, North Vancouver, Chilliwack ($15.00 - flat rate).</li>
+				<li>Free shipping for order of $80 and up.</li>
+			</ul>
+		</div>
+		<?php
+	}
 }
 
 add_action(
 	'woocommerce_before_main_content',
 	'cac_custom_function',
 	21
+);
+
+add_action (
+	'woocommerce_checkout_after_customer_details',
+	'cac_custom_function',
+	22
 );
 
 

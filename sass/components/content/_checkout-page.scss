@@ -19,9 +19,35 @@
     .woocommerce {
       margin: 2rem;
       .woocommerce-checkout {
-        background-color: $secondary-color;
+        // background-color: $secondary-color;
         padding: 1rem;
         margin-top: 1rem;
+      }
+      .shipping-info-checkout {
+        border: .0625rem solid rgba($primary-color, 0.5);
+        padding-left: 0.5rem;
+        p {
+          font-weight: 700;
+          text-decoration: underline;
+        }
+        ul {
+          margin-left: 0;
+        }
+      }
+      .woocommerce-checkout-review-order-table {
+        border-collapse: collapse;
+        thead {
+          border-bottom: 1px solid rgba($primary-color, 0.5);
+          tr {
+            text-align: left;
+          }
+        }
+        tbody {
+          border-bottom: 1px solid rgba($primary-color, 0.5);
+        }
+        #shipping_method { 
+            list-style: none;
+        }
       }
     }
     fieldset {
@@ -64,7 +90,7 @@
     .woocommerce-checkout-review-order {
       .cart_item {
         .product-total {
-          padding-left: 3rem;
+          // padding-left: 3rem;
         }
       }
     }
