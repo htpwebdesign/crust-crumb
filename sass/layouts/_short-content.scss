@@ -1,27 +1,25 @@
 // Layout for page with short content (not enough to fill the whole page): Empty Cart page
 
-.page-id-20, 
-.post-type-archive-cac-careers,
+.page-id-20,
 .error404 {
-    #page {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    
-        .site-main {
-            flex-grow: 1;
-        }
-    }
+  #page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 
+    .site-main {
+      flex-grow: 1;
+    }
+  }
 }
 
 .post-type-archive-cac-careers {
-    #page {
-        .site-main {
-            max-width: 64rem;
-            margin: 0 auto;
-            margin-top: 5.9rem;
-            width: 100%;
-        }
+  #page {
+    .site-main {
+      max-width: 64rem;
+      margin: 0 auto;
+      margin-top: 5.9rem;
+      width: 100%;
     }
+  }
 }

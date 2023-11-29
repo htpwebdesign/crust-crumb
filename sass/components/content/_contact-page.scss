@@ -1,9 +1,3 @@
-@import "sass/abstracts/variables/breakpoints-margins";
-@import "sass/abstracts/variables/colors";
-/*contact*/
-
-/* Style the buttons that are used to open and close the accordion panel */
-
 .page-id-27 {
   .page-title {
     text-align: center;
@@ -26,10 +20,8 @@
   .location-img {
     width: 100%;
   }
-}
 
-@media (min-width: $small-screen) {
-  .page-id-27 {
+  @media (min-width: $small-screen) {
     .accordionTitle {
       background-color: transparent;
     }
@@ -45,7 +37,6 @@
     .location-address {
       margin-top: $page-margin;
     }
-   
   }
   .store-locations {
     display: flex;
@@ -55,6 +46,7 @@
 
   .wrapper {
     .location-container {
+      margin: 3rem 0;
       background-color: transparent;
       display: grid;
       grid-template-rows: 50px 320px 50px;

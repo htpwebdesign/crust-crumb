@@ -78,6 +78,10 @@
           }
         }
       }
+
+      .order-total {
+        display: none;
+      }
       .cart-collaterals {
         padding-top: 1rem;
         .cart_totals {
@@ -112,9 +116,6 @@
   }
 }
 
-// .cart_totals .shop_table_responsive tbody {
-//   background-color: $color__background-ins;
-// }
 .wc-proceed-to-checkout {
   display: flex;
   justify-content: center;

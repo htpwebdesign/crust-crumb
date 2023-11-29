@@ -36,7 +36,7 @@ get_header();
                     $location_phone = get_field('location_phone');
                     $location_address = get_field('location_address');
                     echo '<div class="wrapper">';
-                    echo '<article class="accordion-container location-container">';
+                    echo '<article tabindex="0" class="accordion-container location-container">';
                     echo '<h2 class="location-name accordionTitle">';
                     echo esc_html($location_name);
                     echo '<span class="accordion-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/></svg></span></h2>';
@@ -62,12 +62,11 @@ get_header();
 
 
             // Display Store Locations Map
-            //need to add in the google maps 
             if (get_field('')):
                 echo '<section class="store-locations-map">' . get_field('location_map') . '</section>';
             endif;
             ?>
-            <div class='social-media-section'>
+            <section class='social-media-section'>
                 <?php
                 // Display Social Media Message
                 if (get_field('social_media_message')):
@@ -95,29 +94,29 @@ get_header();
                     echo '</ul></nav>';
                 endif;
                 ?>
-            </div>
-            
+            </section>
+
             <?php
         }
-        
+
     endwhile; // End of the loop.
     ?>
     <!-- Output Google Map -->
     <?php
-            echo do_shortcode( '[mappress mapid="1"]' );
- ?>
+    echo do_shortcode('[mappress mapid="1"]');
+    ?>
     <section class="form-wrapper">
         <h2>Contact Form</h2>
-            <?php
-            // Embed Gravity Form 
-            
-            if ( function_exists( 'gravity_form' ) ) {
-                gravity_form( 2, false, false, false, '', false );  
-            }
-            ?>
-        </section>
+        <?php
+        // Embed Gravity Form 
         
-   
+        if (function_exists('gravity_form')) {
+            gravity_form(2, false, false, false, '', false);
+        }
+        ?>
+    </section>
+
+
 
 </main>
 
