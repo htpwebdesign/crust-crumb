@@ -1,12 +1,18 @@
 // header element
 #masthead {
+    position: fixed;
+    top: 0;
+    width: 100%;
     background: $primary-color;
     display: flex;
     justify-content: start;
     padding-left: .5rem;
     padding-right: 2rem;
-	position: relative;
-	z-index: 100;
+    z-index: 100;
+}
+
+#primary {
+    margin-top: 5.9rem;
 }
 
 // div of ul of nav
@@ -36,11 +42,16 @@
 }
 
 .menu-menu-1-container #primary-menu li a{
-    color: white;
-    color: #ffffff; /* White color */
+    color: rgb(0, 0, 0);
     transition: color 0.3s ease; /* Smooth transition for color change */
-    &:hover {
-        color: #fed8b1; 
+}
+
+@media screen and (min-width: $small-screen){
+    .menu-menu-1-container #primary-menu li a{
+        color: white;
+        &:hover {
+            color: $secondary-color;
+        }
     }
 }
 
@@ -49,64 +60,13 @@
 }
 
 
-// hamburger styles
-.hamburger {
-    position: relative;
-    display: block;
-    width: 35px;
-    appearance: none;
-    background: none;
-    outline: none;
-    border: none;
-    cursor: pointer;
-}
-
-.hamburger .bar,
-.hamburger:after,
-.hamburger:before {
-    content: '';
-    display: block;
-    width: 2rem;
-    height: 5px;
-    background-color: white;
-    margin: 6px 0px;
-    transition: 0.4s;
-    z-index: 1000;
-}
-
-.hamburger.is-active::before {
-    transform: rotate(-45deg) translate(-8px, 6px);
-}
-
-.hamburger.is-active::after {
-    transform: rotate(45deg) translate(-9px, -8px);
-}
-
-.hamburger.is-active .bar {
-    opacity: 0;
-}
-
-
-
-// Logo
-img .custom-logo {
-    position: absolute;
-    top: -5.5rem;
-	left: .5rem;
-}
-@media screen and (min-width: 48em) {
-    .custom-logo {
-        justify-content: start;
-    }
-}
-
 .main-navigation {
-	display: block;
-	width: 100%;
-	position: absolute;
-	top: 6.5rem;
-	right: 0;
-	z-index: 1000;
+    display: block;
+    width: 100%;
+    position: fixed;
+    top: 6.5rem; /* Adjust as needed */
+    right: 0;
+    z-index: 1000;
 }
 
 .main-navigation ul {
@@ -148,26 +108,6 @@ img .custom-logo {
 	width: 100%;
 	
 
-}
-
-.hamburger {
-	position: absolute;
-	top: -5.5rem;
-	right: .5rem;
-	z-index: 1100;
-	display: block;
-	width: 3.75rem;
-	padding: 1rem;
-	margin: 0;
-	border: none;
-	background: transparent;
-	color: #fff;
-}
-
-@media screen and (min-width: 48em) {
-    .hamburger {
-		display: none;
-	}
 }
 
 @media screen and (min-width: 48em) {
@@ -221,11 +161,74 @@ img .custom-logo {
 	}
 }
 
+
+// HAMBURGER
+
+.hamburger {
+	position: absolute;
+	top: -5.5rem;
+	right: .5rem;
+	z-index: 1100;
+	display: block;
+	width: 3.75rem;
+	padding: 1rem;
+	margin: 0;
+	border: none;
+	background: transparent;
+	color: #fff;
+}
+
+@media screen and (min-width: 48em) {
+    .hamburger {
+		display: none;
+	}
+}
+
+.hamburger .bar,
+.hamburger:after,
+.hamburger:before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0px;
+    transition: 0.4s;
+    z-index: 1000;
+}
+
+.hamburger.is-active::before {
+    transform: rotate(-45deg) translate(-8px, 6px);
+}
+
+.hamburger.is-active::after {
+    transform: rotate(45deg) translate(-9px, -8px);
+}
+
+.hamburger.is-active .bar {
+    opacity: 0;
+}
+
+// LOGO
+img .custom-logo {
+    position: absolute;
+    top: -5.5rem;
+	left: .5rem;
+}
+@media screen and (min-width: 48em) {
+    .custom-logo {
+        justify-content: start;
+    }
+}
+
+
+// CART ICON
+
 #primary-menu li .cart-icon {
     position: relative;
     width: 30px;
     height: 30px;
-    fill: white;
+    fill: rgb(0, 0, 0);
 }
 
 
@@ -243,14 +246,22 @@ img .custom-logo {
         z-index: 9999;
         position: absolute;
         display: inline-block;
-        width: 30px; /* Adjust the width and height as needed */
-        height: 30px;
-        line-height: 30px; /* Aligns the text vertically */
+        width: 20px; /* Adjust the width and height as needed */
+        height: 20px;
+        line-height: 20px; /* Aligns the text vertically */
         text-align: center; /* Aligns the text horizontally */
         border-radius: 50%;
         background-color: rgba(255, 255, 255, 0.5); /* Adjust the alpha value (0 to 1) */
-        color: green; /* Choose your desired text color */
-    top: 15%;
-    right: 0;
+        color: white; /* Choose your desired text color */
+    top: 20%;
+    right: .3125rem;
     }
+
+    #primary-menu li .cart-icon {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        fill: white;
+    }
+
 }
