@@ -245,12 +245,12 @@ function cac_custom_function()
 	if (is_page('checkout')) {
 		?>
 		<div class="shipping-info-checkout">
-		<p>Shipping Info:</p>
-			<ul> 
+			<p>Delivery Info:</p>
+			<ul>
 				<li>Zone 1: Richmond, Burnaby, Vancouver ($5.00 - flat rate).</li>
 				<li>Zone 2: Surrey, Langley, Delta ($10.00 - flat rate).</li>
 				<li>Zone 3: Whistler, North Vancouver, Chilliwack ($15.00 - flat rate).</li>
-				<li>Free shipping: Order of $80 and up Or Local Pickup (Please specify which location).</li>
+				<li>Free Delivery: Order of $80 and up Or Local Pickup (Please specify which location).</li>
 			</ul>
 		</div>
 		<?php
@@ -263,7 +263,7 @@ add_action(
 	21
 );
 
-add_action (
+add_action(
 	'woocommerce_checkout_after_customer_details',
 	'cac_custom_function',
 	22
@@ -362,3 +362,27 @@ function show_shipping_on_checkout_page($needs_shipping)
 	return $needs_shipping;
 }
 add_filter('woocommerce_cart_needs_shipping', 'show_shipping_on_checkout_page');
+
+
+
+
+function shipchange($translated_text, $text, $domain)
+{
+	switch ($translated_text) {
+		case 'Ship to a different address?':
+			$translated_text = __('Deliver to a different address?', 'woocommerce');
+			break;
+	}
+	return $translated_text;
+}
+
+add_filter('gettext', 'shipchange', 20, 3);
+
+
+
+
+add_filter('woocommerce_shipping_package_name', 'custom_shipping_package_name');
+function custom_shipping_package_name($name)
+{
+	return 'Delivery';
+}

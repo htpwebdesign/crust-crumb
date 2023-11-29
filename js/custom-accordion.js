@@ -1,5 +1,4 @@
 jQuery(document).ready(function ($) {
-    console.log("loaded");
 
     // Function to toggle the accordion and update the icon
     function toggleAccordion($accordionTitle) {

@@ -29,8 +29,8 @@
     }
   }
 }
-/*contact*/
 
+/*contact*/
 .page-id-27 {
   .wrapper {
     margin: 0 $page-margin;
@@ -65,7 +65,6 @@
     .accordion-icon {
       display: none;
     }
-
     .wrapper {
       width: 100%;
       border-radius: 0;
@@ -93,18 +92,17 @@
 }
 
 /*careers*/
-
 .post-type-archive-cac-careers {
   #filtered-jobs {
     display: flex;
     flex-direction: column;
   }
+  // animation to mimic aos
   .fade-up {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   }
-
   .fade-up.fade-up-visible {
     opacity: 1;
     transform: translateY(0);
@@ -119,26 +117,22 @@
     cursor: pointer;
     border-radius: 4px;
   }
-  .accordionTitle.is-open ~ .accordionContent {
-    text-align: start;
-    display: block;
-
-    transition: max-height 0.8s ease-in-out;
-    max-height: 1000px;
-  }
   .accordionContent {
     color: black;
-    margin-top: -4px;
-
+    margin-top: -5px;
     border: 2px solid $primary-color;
     border-radius: 4px;
     width: 100%;
-
     padding: 0 $page-margin;
     display: block;
-    // flex-direction: column;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.8s ease-in-out;
+  }
+  .accordionTitle.is-open ~ .accordionContent {
+    text-align: start;
+    display: block;
+    transition: max-height 0.8s ease-in-out;
+    max-height: 1000px;
   }
 }

@@ -1,7 +1,6 @@
 jQuery(document).ready(function ($) {
     // Function to toggle shipping options based on the selected purchase method
     function toggleShippingOptions() {
-        console.log('js loaded for checkout');
         var purchaseMethod = $('input[name="purchase_method"]:checked').val();
 
         // If Local Pickup is selected,
@@ -16,8 +15,6 @@ jQuery(document).ready(function ($) {
             //show ship to different address
             $('#ship-to-different-address').show();
         }
-
-
     }
 
     // Initial call to set up based on the initial state
