@@ -1,6 +1,3 @@
-@import "sass/abstracts/variables/breakpoints-margins";
-@import "sass/abstracts/variables/colors";
-
 .page-id-27 {
   .page-title {
     text-align: center;
@@ -23,10 +20,8 @@
   .location-img {
     width: 100%;
   }
-}
 
-@media (min-width: $small-screen) {
-  .page-id-27 {
+  @media (min-width: $small-screen) {
     .accordionTitle {
       background-color: transparent;
     }

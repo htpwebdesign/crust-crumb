@@ -37,7 +37,9 @@
 			}
 			?>
 			<?php $year = (new DateTime)->format("Y"); ?>
-			<p class='copy-right'>&copy; <?php echo $year; ?> Made by U.B.w.C</p>
+			<p class='copy-right'>&copy;
+				<?php echo $year; ?> Made by U.B.w.C
+			</p>
 		</div>
 		<div class="footer-right-section">
 			<nav class="footer-navigation">
@@ -51,7 +53,6 @@
 		</div>
 	</div>
 </footer><!-- #colophon -->
-</div><!-- #page -->
 
 <?php wp_footer(); ?>
 

@@ -87,8 +87,12 @@ get_header();
 						$link_title = $link['title'];
 						?>
 						<div class="story-intro">
-							<p><?php the_field('short_introduction') ?></p>
-							<a class='about-us-cta' href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
+							<p>
+								<?php the_field('short_introduction') ?>
+							</p>
+							<a class='about-us-cta' href="<?php echo $link_url; ?>">
+								<?php echo $link_title; ?>
+							</a>
 						</div>
 					</div>
 				<?php endif; ?>
@@ -100,18 +104,20 @@ get_header();
 				</h2>
 				<section class="wrapper">
 					<?php
-					$best_selling_products = wc_get_products(array(
-						'limit'         => 12, // Number of best-selling products to display
-						'status'        => 'publish',
-						'orderby'       => 'popularity',
-					));
+					$best_selling_products = wc_get_products(
+						array(
+							'limit' => 12, // Number of best-selling products to display
+							'status' => 'publish',
+							'orderby' => 'popularity',
+						)
+					);
 					if ($best_selling_products) {
 						foreach ($best_selling_products as $product) {
 							// Access product details using $product object
-					?>
+							?>
 							<article class="product-card">
 								<a href="<?php echo esc_url(get_permalink($product->get_id())); ?>">
-								<?php
+									<?php
 									// Displa`y product image
 									$image_id = $product->get_image_id();
 									$image_url = wp_get_attachment_image_url($image_id, 'thumbnail');
@@ -119,77 +125,85 @@ get_header();
 										echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($product->get_name()) . '" />';
 									}
 									?>
-								<h3><?php echo esc_html($product->get_name()); ?></h3>
-								<div><?php echo $product->get_price_html(); ?></div>
-								<?php
-								// Add to Cart button
-								woocommerce_template_loop_add_to_cart(
-									array(
-										'quantity' => 1,
-										'class' => 'button', // You can add classes to style the button
-									), $product);
-								?>
+									<h3>
+										<?php echo esc_html($product->get_name()); ?>
+									</h3>
+									<div>
+										<?php echo $product->get_price_html(); ?>
+									</div>
+									<?php
+									// Add to Cart button
+									woocommerce_template_loop_add_to_cart(
+										array(
+											'quantity' => 1,
+											'class' => 'button', // You can add classes to style the button
+										),
+										$product
+									);
+									?>
 								</a>
 							</article>
-					<?php
+							<?php
 						}
 					}
 					?>
 				</section>
 			</section>
 
-				<section data-aos="fade-up" data-aos-duration="1500"  class="our-locations">
-					<h2 class="section-text-heading-home-3">
-						<?php the_field('section_title_3'); ?>
-					</h2>
-					<?php
-					// Query location-CPT posts
-					$location_posts = new WP_Query(
-						array(
-							'post_type' => 'cac-store-locations',
-							'posts_per_page' => -1
-						)
-					);
+			<section data-aos="fade-up" data-aos-duration="1500" class="our-locations">
+				<h2 class="section-text-heading-home-3">
+					<?php the_field('section_title_3'); ?>
+				</h2>
+				<?php
+				// Query location-CPT posts
+				$location_posts = new WP_Query(
+					array(
+						'post_type' => 'cac-store-locations',
+						'posts_per_page' => -1
+					)
+				);
 
-					if ($location_posts->have_posts()):
-						echo '<section class="store-locations">';
-						while ($location_posts->have_posts()):
-							$location_posts->the_post();
+				if ($location_posts->have_posts()):
+					echo '<section class="store-locations">';
+					while ($location_posts->have_posts()):
+						$location_posts->the_post();
 
-							// Fetch fields for each location
-			
-							$location_name = get_field('location_name');
+						// Fetch fields for each location
+		
+						$location_name = get_field('location_name');
 
-							echo '<article class="store">';
-							// Display location image
-							$location_image_id = get_post_meta(get_the_ID(), 'location_image', true);
-							if ($location_image_id) {
-								$location_image_url = wp_get_attachment_image_url($location_image_id, 'full');
-								echo '<img src="' . esc_url($location_image_url) . '" alt="' . esc_attr(get_the_title()) . '" />';
-							}
-							// Display other location details
-							echo '<h3>' . esc_html($location_name) . '</h3>';
-							echo '</article>';
+						echo '<article class="store">';
+						// Display location image
+						$location_image_id = get_post_meta(get_the_ID(), 'location_image', true);
+						if ($location_image_id) {
+							$location_image_url = wp_get_attachment_image_url($location_image_id, 'full');
+							echo '<img src="' . esc_url($location_image_url) . '" alt="' . esc_attr(get_the_title()) . '" />';
+						}
+						// Display other location details
+						echo '<p>' . esc_html($location_name) . '</p>';
+						echo '</article>';
 
-						endwhile;
-						echo '</section>';
-					endif;
-					wp_reset_postdata();
-					?>
-
-					<?php
-					$link = get_field('contact_page_cta');
-					if ($link):
-						$link_url = $link['url'];
-						$link_title = $link['title'];
-					?>
-					<div class="location-more-info">
-						<a class='check-location-cta' href="<?php echo $link_url; ?>"><?php echo $link_title; ?></a>
-						</div>
-					<?php endif; ?>
-				</section>
+					endwhile;
+					echo '</section>';
+				endif;
+				wp_reset_postdata();
+				?>
 
 				<?php
+				$link = get_field('contact_page_cta');
+				if ($link):
+					$link_url = $link['url'];
+					$link_title = $link['title'];
+					?>
+					<div class="location-more-info">
+						<a class='check-location-cta' href="<?php echo $link_url; ?>">
+							<?php echo $link_title; ?>
+						</a>
+					</div>
+				<?php endif; ?>
+			</section>
+
+			<?php
 		}
 
 	endwhile; // end of the loop. 

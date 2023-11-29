@@ -1,7 +1,7 @@
-@import "sass/abstracts/variables/breakpoints-margins";
-@import "sass/abstracts/variables/colors";
-
 .post-type-archive-cac-careers {
+  .page-header {
+    margin-top: 7.7rem;
+  }
   .page-title {
     text-align: center;
     margin-bottom: $page-margin-large;
@@ -17,18 +17,19 @@
     display: flex;
     flex-wrap: wrap;
     gap: $page-margin;
-
-    margin: $page-margin-medium $page-margin;
+    margin: $page-margin-medium 0;
   }
-  #filtered-jobs {
-    margin: 0 $page-margin;
+  .job-postings {
     display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+
     max-width: 1024px;
-    align-items: center;
     p {
       margin: 0 0 $page-margin;
     }
   }
+
   .job-information {
     width: 100%;
     color: white;

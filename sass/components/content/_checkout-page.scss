@@ -1,23 +1,6 @@
 // Checkout Page
 
 .page-id-21 {
-  @media (min-width: $small-screen) {
-    #order_comments_field {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-    }
-  }
-  @media (min-width: $large-screen) {
-    .site-main {
-      display: flex;
-      justify-content: center;
-
-      .post-21 {
-        width: 60%;
-      }
-    }
-  }
   .entry-title {
     display: flex;
     justify-content: center;
@@ -119,6 +102,23 @@
           margin-left: 30%;
           margin-right: 30%;
         }
+      }
+    }
+  }
+  @media (min-width: $small-screen) {
+    #order_comments_field {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+  @media (min-width: $large-screen) {
+    .site-main {
+      display: flex;
+      justify-content: center;
+
+      .post-21 {
+        width: 60%;
       }
     }
   }

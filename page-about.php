@@ -28,10 +28,9 @@ get_header();
 			if ($image) {
 				echo wp_get_attachment_image($image, $size, false, array("class" => "hero-image"));
 			} ?>
-		</figure>
+	</figure>
 
 		<?php
-
 		endwhile;
 		?>
 

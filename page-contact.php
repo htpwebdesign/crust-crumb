@@ -66,7 +66,7 @@ get_header();
                 echo '<section class="store-locations-map">' . get_field('location_map') . '</section>';
             endif;
             ?>
-            <div class='social-media-section'>
+            <section class='social-media-section'>
                 <?php
                 // Display Social Media Message
                 if (get_field('social_media_message')):
@@ -94,7 +94,7 @@ get_header();
                     echo '</ul></nav>';
                 endif;
                 ?>
-            </div>
+            </section>
 
             <?php
         }
