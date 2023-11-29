@@ -6,8 +6,11 @@ jQuery(document).ready(function ($) {
 
         // Delay the reapplication of AOS classes
         setTimeout(function () {
-            // Apply AOS classes to the visible elements
-            $('[data-aos]:visible').addClass('aos-init aos-animate');
+            // Apply AOS classes to all elements
+            $('[data-aos]').addClass('aos-init aos-animate');
+
+            // Manually refresh AOS to trigger animations
+            AOS.refresh();
         }, 100); // You can adjust the delay as needed
     });
 });
