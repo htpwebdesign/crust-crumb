@@ -6,15 +6,16 @@ window.onload = function () {
 
 	menu_btn.addEventListener('click', function () {
 		menu_btn.classList.toggle('is-active');
+        siteNavigation.classList.toggle('toggled');
 	});
 
 // add toggle and accessibility
-button.addEventListener( 'click', function() {
+menu_btn.addEventListener( 'click', function() {
     siteNavigation.classList.toggle( 'toggled' );
-    if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
-        button.setAttribute( 'aria-expanded', 'false' );
+    if ( menu_btn.getAttribute( 'aria-expanded' ) === 'true' ) {
+        menu_btn.setAttribute( 'aria-expanded', 'false' );
     } else {
-        button.setAttribute( 'aria-expanded', 'true' );
+        menu_btn.setAttribute( 'aria-expanded', 'true' );
     }
 } );
 
@@ -23,7 +24,9 @@ document.addEventListener( 'click', function( event ) {
     const isClickInside = siteNavigation.contains( event.target );
     if ( ! isClickInside ) {
         siteNavigation.classList.remove( 'toggled' );
-        button.setAttribute( 'aria-expanded', 'false' );
+        menu_btn.setAttribute( 'aria-expanded', 'false' );
     }
 } );
 }
+
+

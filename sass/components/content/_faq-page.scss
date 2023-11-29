@@ -1,6 +1,20 @@
 .page-id-34 {
   .site-main {
     margin: 0 $page-margin;
+    ul {
+      margin-left: 0;
+      margin-top: 1.5rem;
+    }
+    .contact-button {
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+      font-size: calc(0.6rem + 0.75vw);
+    }
+    .contact-engaging-message {
+      text-align: center;
+      font-size: calc(0.8rem + 0.75vw);
+    }
   }
   .post-34 {
     max-width: 1024px;
