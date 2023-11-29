@@ -73,6 +73,10 @@
           }
         }
       }
+
+      .order-total {
+        display: none;
+      }
       .cart-collaterals {
         padding-top: 1rem;
         .cart_totals {
@@ -85,7 +89,8 @@
             tbody {
               tr {
                 border-bottom: 1px solid rgba($primary-color, 0.5);
-                td, th {
+                td,
+                th {
                   padding: 1rem 0;
                 }
               }
@@ -94,7 +99,7 @@
                 padding-left: 0;
                 margin-left: 0;
               }
-          }
+            }
           }
           h2 {
             border-bottom: 2px solid gray;
@@ -106,9 +111,6 @@
   }
 }
 
-// .cart_totals .shop_table_responsive tbody {
-//   background-color: $color__background-ins;
-// }
 .wc-proceed-to-checkout {
   display: flex;
   justify-content: center;
