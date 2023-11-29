@@ -77,7 +77,7 @@ get_header();
 					$job_cta = get_field('job_cta');
 
 					// Add a class based on location to each job-information div
-					echo '<article data-aos="fade-in" data-aos-duration="1000" class="job-information accordion-container location-' . sanitize_title($location_name) . '">';
+					echo '<article class="job-information accordion-container location-' . sanitize_title($location_name) . ' fade-up ">';
 					echo '<h2 class="accordionTitle">' . esc_html(get_the_title());
 					echo '<span class="accordion-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/></svg></span></h2>';
 					echo '<div class="accordionContent">';

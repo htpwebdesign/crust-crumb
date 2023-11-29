@@ -147,7 +147,7 @@ function crust_crumb_scripts()
 	}
 	// enqueue filter-jobs.js only on Careers page
 	if (is_post_type_archive('cac-careers')) {
-		wp_enqueue_script('aos-careers', get_template_directory_uri() . '/js/aos-careers.js', array('jquery'), _S_VERSION, true);
+		wp_enqueue_script('animation-careers', get_template_directory_uri() . '/js/animation-careers.js', array('jquery'), _S_VERSION, true);
 
 		wp_enqueue_script('filter-jobs', get_template_directory_uri() . '/js/filter-jobs.js', array('jquery'), null, true);
 	}
