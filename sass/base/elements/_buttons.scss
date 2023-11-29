@@ -175,7 +175,7 @@ input[type="submit"] {
       margin-top: .5rem;
     }
     button.is-checked {
-      background-color: darken($bg-color, 10%)!important;
+      background-color: darken($secondary-color, 10%)!important;
       box-shadow: none;
     }
   }
