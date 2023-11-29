@@ -20,8 +20,9 @@
   .location-img {
     width: 100%;
   }
-
-  @media (min-width: $small-screen) {
+}
+@media (min-width: $small-screen) {
+  .page-id-27 {
     .accordionTitle {
       background-color: transparent;
     }
