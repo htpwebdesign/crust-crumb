@@ -1,15 +1,16 @@
 // Checkout Page
-@media (min-width: $large-screen) {
-  .site-main {
-    display: flex;
-    justify-content: center;
 
-    .post-21 {
-      width: 60%;
+.page-id-21 {
+  @media (min-width: $large-screen) {
+    .site-main {
+      display: flex;
+      justify-content: center;
+
+      .post-21 {
+        width: 60%;
+      }
     }
   }
-}
-.page-id-21 {
   .entry-title {
     display: flex;
     justify-content: center;
