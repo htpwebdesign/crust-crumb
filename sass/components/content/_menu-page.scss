@@ -6,27 +6,21 @@
         text-align: center;
         width: 80%;
         margin: 0 auto;
-        .pickup-instruction {
-          // font: $font__main;
+        p {
           color: $text-primary-color;
-          font-size: calc(0.5rem + 0.75vw);
-          // margin: 1em 5.5em;
+          font-size: calc(0.7rem + 0.75vw);
+          margin: 2rem 0;
+          .imp_text{
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+          }
           @media (max-width: $small-screen) {
-            font-size: calc(0.7rem + 0.7vw);
-            // margin: 1em 2em;
+            font-size: calc(0.9rem + 0.7vw);
           }
         }
         
-        .delivery-instruction {
-          // font: $font__main;
-          color: $text-primary-color;
-          font-size: calc(0.5rem + 0.75vw);
-          // margin: 1em 5.5em;
-          @media (max-width: $small-screen) {
-            font-size: calc(0.7rem + 0.7vw);
-            // margin: 1em 2em;
-          }
-        }
+        
       }
     
   
