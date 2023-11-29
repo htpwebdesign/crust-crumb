@@ -27,6 +27,7 @@
   }
   .career-location-radio {
     display: flex;
+    flex-wrap: wrap;
     gap: $page-margin;
 
     margin: $page-margin-medium $page-margin;

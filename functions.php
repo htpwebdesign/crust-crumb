@@ -203,6 +203,9 @@ function crust_crumb_scripts()
 
 
 }
+
+
+
 add_action('wp_enqueue_scripts', 'crust_crumb_scripts');
 
 /**
@@ -243,3 +246,5 @@ if (defined('JETPACK__VERSION')) {
 if (class_exists('WooCommerce')) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+

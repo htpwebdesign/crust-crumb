@@ -45,7 +45,6 @@
     .location-address {
       margin-top: $page-margin;
     }
-   
   }
   .store-locations {
     display: flex;
@@ -55,6 +54,7 @@
 
   .wrapper {
     .location-container {
+      margin: 3rem 0;
       background-color: transparent;
       display: grid;
       grid-template-rows: 50px 320px 50px;
