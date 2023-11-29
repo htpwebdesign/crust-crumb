@@ -42,7 +42,7 @@
 		?>
 		</div><!-- .site-branding -->
 		<nav id="site-navigation" class="main-navigation">
-			<button class="hamburger">
+			<button type="button" role="button" aria-disabled="false" aria-label="Hamburger Button"class="hamburger">
 				<div class="bar"></div>
 			</button>
 			<?php
