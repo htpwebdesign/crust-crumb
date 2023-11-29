@@ -189,18 +189,51 @@ if (!function_exists('crust_crumb_woocommerce_cart_link')) {
 	 */
 	function crust_crumb_woocommerce_cart_link()
 	{
-		$item_count = WC()->cart->get_cart_contents_count();
-
-		$item_count_text = sprintf(
-			/* translators: number of items in the mini cart. */
-			_n('%d item', '%d', $item_count, 'crust-crumb'),
-			$item_count
-		);
-
-		echo '<span class="count">' . esc_html($item_count_text) . '</span>';
+		?>
+		<a class="cart-contents" href="<?php echo esc_url(wc_get_cart_url()); ?>"
+			title="<?php esc_attr_e('View your shopping cart', 'crust-crumb'); ?>">
+			<?php
+			$item_count = WC()->cart->get_cart_contents_count();
+	
+			$item_count_text = sprintf(
+				/* translators: number of items in the mini cart. */
+				_n('%d', '%d', $item_count, 'crust-crumb'),
+				$item_count
+			);
+			?>
+			<span class="count">
+				<?php echo esc_html($item_count_text); ?>
+			</span>
+		</a>
+		<?php
 	}
+	
+
 }
 
+if (!function_exists('crust_crumb_woocommerce_header_cart')) {
+	/**
+	 * Display Header Cart.
+	 *
+	 * @return void
+	 */
+	function crust_crumb_woocommerce_header_cart()
+	{
+		if (is_cart()) {
+			$class = 'current-menu-item';
+		} else {
+			$class = '';
+		}
+		?>
+		<ul id="site-header-cart" class="site-header-cart">
+			<li class="<?php echo esc_attr($class); ?>">
+				<?php crust_crumb_woocommerce_cart_link(); ?>
+			</li>
+	
+		</ul>
+		<?php
+	}
+}
 
 // This will output after the Add to Cart button and add Back to Menu link
 function cac_custom_function()
@@ -286,3 +319,25 @@ add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
 remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10);
 add_action('woocommerce_product_thumbnails', 'woocommerce_show_product_sale_flash', 10);
 
+// Remove the filter that hides shipping on both cart and checkout pages
+remove_filter('woocommerce_cart_needs_shipping', '__return_false');
+
+// Show shipping on the cart page
+// function show_shipping_on_cart_page($needs_shipping)
+// {
+// 	if (is_cart()) {
+// 		return true;
+// 	}
+// 	return $needs_shipping;
+// }
+// add_filter('woocommerce_cart_needs_shipping', 'show_shipping_on_cart_page');
+
+// Show shipping on the checkout page (excluding order received page)
+function show_shipping_on_checkout_page($needs_shipping)
+{
+	if (is_checkout() && !is_wc_endpoint_url('order-received')) {
+		return true;
+	}
+	return $needs_shipping;
+}
+add_filter('woocommerce_cart_needs_shipping', 'show_shipping_on_checkout_page');

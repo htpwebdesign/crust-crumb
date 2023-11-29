@@ -1,35 +1,100 @@
 // Checkout Page
 
 .page-id-21 {
-    .entry-content {
-        .woocommerce {
-            margin: 2rem;
-        }
-        fieldset {
-            background-color: $secondary-color;
+  @media (min-width: $large-screen) {
+    .site-main {
+      display: flex;
+      justify-content: center;
 
-            legend {
-                font-weight: 700;
-            }
-            label:not(:first-child) {
-                padding-left: 1rem;
-            }
-        }
-
-        .woocommerce-additional-fields {
-            h3 {
-                padding-top: 1rem;
-            }
-        }
-
-        .woocommerce-billing-fields {
-            h3 {
-                border-bottom: 2px solid gray;
-            }
-        }
-        #order_review_heading {
-            border-bottom: 2px solid gray;
-        }
-
+      .post-21 {
+        width: 60%;
+      }
     }
+  }
+  .entry-title {
+    display: flex;
+    justify-content: center;
+  }
+  .entry-content {
+    .woocommerce {
+      margin: 2rem;
+      .woocommerce-checkout {
+        background-color: $secondary-color;
+        padding: 1rem;
+        margin-top: 1rem;
+      }
+    }
+    fieldset {
+      background-color: $secondary-color;
+
+      legend {
+        font-weight: 700;
+      }
+      label:not(:first-child) {
+        padding-left: 1rem;
+        display: block;
+      }
+    }
+
+    .woocommerce-additional-fields {
+      h3 {
+        padding-top: 1rem;
+      }
+    }
+
+    .woocommerce-billing-fields {
+      h3 {
+        border-bottom: 2px solid gray;
+      }
+      .woocommerce-billing-fields__field-wrapper {
+        p {
+          display: flex;
+          flex-direction: column;
+          float: none;
+        }
+        #billing_state_field {
+          display: inline-block;
+        }
+      }
+    }
+    #order_review_heading {
+      border-bottom: 2px solid gray;
+    }
+
+    .woocommerce-checkout-review-order {
+      .cart_item {
+        .product-total {
+          padding-left: 3rem;
+        }
+      }
+    }
+    .woocommerce-checkout-review-order {
+      .order-total {
+        background-color: black;
+        color: $text-secondary-color;
+      }
+    }
+    .woocommerce-shipping-methods {
+      margin-left: 0;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+    .woocommerce-checkout-payment {
+      @media (max-width: $small-screen) {
+        ul {
+          padding-left: 0;
+          margin-left: 0;
+        }
+      }
+      .place-order {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        button {
+          margin-left: 30%;
+          margin-right: 30%;
+        }
+      }
+    }
+  }
 }

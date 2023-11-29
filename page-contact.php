@@ -36,7 +36,7 @@ get_header();
                     $location_phone = get_field('location_phone');
                     $location_address = get_field('location_address');
                     echo '<div class="wrapper">';
-                    echo '<article class="location-container">';
+                    echo '<article class="accordion-container location-container">';
                     echo '<h2 class="location-name accordionTitle">';
                     echo esc_html($location_name);
                     echo '<span class="accordion-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/></svg></span></h2>';
@@ -96,20 +96,16 @@ get_header();
                 endif;
                 ?>
             </div>
-            <!-- Output Google Map -->
-            <?php
-            echo do_shortcode( '[mappress mapid="1"]' );
-            ?>
+            
             <?php
         }
-
-        // If comments are open or we have at least one comment, load up the comment template.
-        if (comments_open() || get_comments_number()):
-            comments_template();
-        endif;
-
+        
     endwhile; // End of the loop.
     ?>
+    <!-- Output Google Map -->
+    <?php
+            echo do_shortcode( '[mappress mapid="1"]' );
+ ?>
     <section class="form-wrapper">
         <h2>Contact Form</h2>
             <?php
@@ -120,6 +116,7 @@ get_header();
             }
             ?>
         </section>
+        
    
 
 </main>

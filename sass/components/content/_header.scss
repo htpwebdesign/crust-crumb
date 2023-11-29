@@ -44,6 +44,10 @@
     }
 }
 
+#primary-menu ul li:last-child {
+    margin-top: 3px;
+}
+
 
 // hamburger styles
 .hamburger {
@@ -215,4 +219,38 @@ img .custom-logo {
 	.main-navigation ul li.focus > ul {
 		left: auto;
 	}
+}
+
+#primary-menu li .cart-icon {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    fill: white;
+}
+
+
+#site-header-cart li a span {
+    display: none;
+}
+
+
+#site-header-cart {
+    list-style-type: none;
+}
+
+@media screen and (min-width: $small-screen) {
+    #site-header-cart li a span {
+        z-index: 9999;
+        position: absolute;
+        display: inline-block;
+        width: 30px; /* Adjust the width and height as needed */
+        height: 30px;
+        line-height: 30px; /* Aligns the text vertically */
+        text-align: center; /* Aligns the text horizontally */
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5); /* Adjust the alpha value (0 to 1) */
+        color: green; /* Choose your desired text color */
+    top: 15%;
+    right: 0;
+    }
 }
