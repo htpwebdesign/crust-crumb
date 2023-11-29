@@ -1,0 +1,53 @@
+// Catering page 
+
+.page-id-32 {
+
+    .catering-title {
+        h1 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        color: $text-primary-color;
+        }
+    }
+    
+    .opening-paragraph {
+        // padding: 2rem 11vw 1rem 10vw;
+        padding: 2rem;
+        background-color: $secondary-color;
+        p {
+        color: $text-primary-color;
+        width: 75%;
+        margin: 0 auto;
+        padding: 0.5rem 0;
+        }
+       div:nth-child(2) {
+            width: 75%;
+            margin: 0 auto;
+        }
+        ol, ul {
+            margin-left: 0;
+            li {
+                padding: 0.5rem 0;
+            }
+        }
+    
+        @media (max-width: $small-screen) {
+        padding: 2rem 6vw 1rem 6vw;
+        }
+    }
+
+    .catering-packages {
+        display: flex;
+        flex-direction: column;
+        h2 {
+            align-self: center;
+            margin: 2rem 0;
+        }
+        a.order-now-button {
+            width: fit-content;
+            align-self: center;
+            margin: 2rem 0;
+        }
+    }
+}

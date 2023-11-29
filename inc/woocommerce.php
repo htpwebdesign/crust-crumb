@@ -194,7 +194,7 @@ if (!function_exists('crust_crumb_woocommerce_cart_link')) {
 			title="<?php esc_attr_e('View your shopping cart', 'crust-crumb'); ?>">
 			<?php
 			$item_count = WC()->cart->get_cart_contents_count();
-	
+
 			$item_count_text = sprintf(
 				/* translators: number of items in the mini cart. */
 				_n('%d', '%d', $item_count, 'crust-crumb'),
@@ -207,7 +207,7 @@ if (!function_exists('crust_crumb_woocommerce_cart_link')) {
 		</a>
 		<?php
 	}
-	
+
 
 }
 
@@ -229,7 +229,7 @@ if (!function_exists('crust_crumb_woocommerce_header_cart')) {
 			<li class="<?php echo esc_attr($class); ?>">
 				<?php crust_crumb_woocommerce_cart_link(); ?>
 			</li>
-	
+
 		</ul>
 		<?php
 	}
@@ -241,12 +241,32 @@ function cac_custom_function()
 	if (is_product()) {
 		echo '<a class="back-to-menu-link" href="' . esc_url(home_url('/shop')) . '">Back to Menu</a>';
 	}
+
+	if (is_page('checkout')) {
+		?>
+		<div class="shipping-info-checkout">
+		<p>Shipping Info:</p>
+			<ul> 
+				<li>Zone 1: Richmond, Burnaby, Vancouver ($5.00 - flat rate).</li>
+				<li>Zone 2: Surrey, Langley, Delta ($10.00 - flat rate).</li>
+				<li>Zone 3: Whistler, North Vancouver, Chilliwack ($15.00 - flat rate).</li>
+				<li>Free shipping: Order of $80 and up Or Local Pickup (Please specify which location).</li>
+			</ul>
+		</div>
+		<?php
+	}
 }
 
 add_action(
 	'woocommerce_before_main_content',
 	'cac_custom_function',
 	21
+);
+
+add_action (
+	'woocommerce_checkout_after_customer_details',
+	'cac_custom_function',
+	22
 );
 
 
@@ -322,15 +342,16 @@ add_action('woocommerce_product_thumbnails', 'woocommerce_show_product_sale_flas
 // Remove the filter that hides shipping on both cart and checkout pages
 remove_filter('woocommerce_cart_needs_shipping', '__return_false');
 
+
 // Show shipping on the cart page
-// function show_shipping_on_cart_page($needs_shipping)
-// {
-// 	if (is_cart()) {
-// 		return true;
-// 	}
-// 	return $needs_shipping;
-// }
-// add_filter('woocommerce_cart_needs_shipping', 'show_shipping_on_cart_page');
+function show_shipping_on_cart_page($needs_shipping)
+{
+	if (is_cart()) {
+		return false; // Hide shipping on the cart page
+	}
+	return $needs_shipping;
+}
+add_filter('woocommerce_cart_needs_shipping', 'show_shipping_on_cart_page');
 
 // Show shipping on the checkout page (excluding order received page)
 function show_shipping_on_checkout_page($needs_shipping)
