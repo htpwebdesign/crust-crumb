@@ -1,6 +1,10 @@
 // Style for Cart Page
 
 .page-id-20 {
+  .entry-title {
+    display: flex;
+    justify-content: center;
+  }
   .entry-content {
     .woocommerce {
       margin: 0 2rem;
@@ -55,7 +59,7 @@
 
           tr:nth-last-child(1) {
             .actions {
-              margin-top: 1rem;
+              margin-top: 3rem;
               .button {
                 margin-top: 0.5rem;
               }
@@ -63,6 +67,9 @@
           }
           td {
             padding: 0 1rem;
+            .actions {
+              text-align: right;
+            }
           }
         }
       }
