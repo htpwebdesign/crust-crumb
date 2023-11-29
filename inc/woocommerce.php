@@ -194,7 +194,7 @@ if (!function_exists('crust_crumb_woocommerce_cart_link')) {
 			title="<?php esc_attr_e('View your shopping cart', 'crust-crumb'); ?>">
 			<?php
 			$item_count = WC()->cart->get_cart_contents_count();
-	
+
 			$item_count_text = sprintf(
 				/* translators: number of items in the mini cart. */
 				_n('%d', '%d', $item_count, 'crust-crumb'),
@@ -207,7 +207,7 @@ if (!function_exists('crust_crumb_woocommerce_cart_link')) {
 		</a>
 		<?php
 	}
-	
+
 
 }
 
@@ -229,7 +229,7 @@ if (!function_exists('crust_crumb_woocommerce_header_cart')) {
 			<li class="<?php echo esc_attr($class); ?>">
 				<?php crust_crumb_woocommerce_cart_link(); ?>
 			</li>
-	
+
 		</ul>
 		<?php
 	}
@@ -322,15 +322,16 @@ add_action('woocommerce_product_thumbnails', 'woocommerce_show_product_sale_flas
 // Remove the filter that hides shipping on both cart and checkout pages
 remove_filter('woocommerce_cart_needs_shipping', '__return_false');
 
+
 // Show shipping on the cart page
-// function show_shipping_on_cart_page($needs_shipping)
-// {
-// 	if (is_cart()) {
-// 		return true;
-// 	}
-// 	return $needs_shipping;
-// }
-// add_filter('woocommerce_cart_needs_shipping', 'show_shipping_on_cart_page');
+function show_shipping_on_cart_page($needs_shipping)
+{
+	if (is_cart()) {
+		return false; // Hide shipping on the cart page
+	}
+	return $needs_shipping;
+}
+add_filter('woocommerce_cart_needs_shipping', 'show_shipping_on_cart_page');
 
 // Show shipping on the checkout page (excluding order received page)
 function show_shipping_on_checkout_page($needs_shipping)
