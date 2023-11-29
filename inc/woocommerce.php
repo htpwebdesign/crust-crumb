@@ -329,14 +329,14 @@ add_action('woocommerce_product_thumbnails', 'woocommerce_show_product_sale_flas
 remove_filter('woocommerce_cart_needs_shipping', '__return_false');
 
 // Show shipping on the cart page
-function show_shipping_on_cart_page($needs_shipping)
-{
-	if (is_cart()) {
-		return true;
-	}
-	return $needs_shipping;
-}
-add_filter('woocommerce_cart_needs_shipping', 'show_shipping_on_cart_page');
+// function show_shipping_on_cart_page($needs_shipping)
+// {
+// 	if (is_cart()) {
+// 		return true;
+// 	}
+// 	return $needs_shipping;
+// }
+// add_filter('woocommerce_cart_needs_shipping', 'show_shipping_on_cart_page');
 
 // Show shipping on the checkout page (excluding order received page)
 function show_shipping_on_checkout_page($needs_shipping)

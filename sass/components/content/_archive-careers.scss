@@ -36,5 +36,11 @@
     display: flex;
     max-width: 1024px;
     align-items: center;
+    p {
+      margin: 0 0 $page-margin;
+    }
+  }
+  .career-location {
+    line-height: 3;
   }
 }

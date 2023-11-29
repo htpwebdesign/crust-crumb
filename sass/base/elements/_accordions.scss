@@ -95,6 +95,10 @@
 /*careers*/
 
 .post-type-archive-cac-careers {
+  #filtered-jobs {
+    display: flex;
+    flex-direction: column;
+  }
   .accordion-container {
     border: 1px solid white;
     border-radius: 4px;
@@ -106,18 +110,24 @@
   }
   .accordionTitle.is-open ~ .accordionContent {
     text-align: start;
-    display: inline-block;
-    & > * {
-      margin-bottom: 20px;
-    }
+    display: block;
+
+    transition: max-height 0.5s linear;
+    max-height: 1000px;
   }
   .accordionContent {
     color: black;
-    // margin: 0 $page-margin;
-    margin-top: -5px;
-    padding: $page-margin;
+    margin-top: -4px;
+
     border: 2px solid $primary-color;
     border-radius: 4px;
     width: 100%;
+
+    padding: 0 $page-margin;
+    display: block;
+    // flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s linear;
   }
 }
