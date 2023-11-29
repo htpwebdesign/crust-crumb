@@ -250,7 +250,7 @@ function cac_custom_function()
 				<li>Zone 1: Richmond, Burnaby, Vancouver ($5.00 - flat rate).</li>
 				<li>Zone 2: Surrey, Langley, Delta ($10.00 - flat rate).</li>
 				<li>Zone 3: Whistler, North Vancouver, Chilliwack ($15.00 - flat rate).</li>
-				<li>Free shipping for order of $80 and up.</li>
+				<li>Free shipping: Order of $80 and up Or Local Pickup (Please specify which location).</li>
 			</ul>
 		</div>
 		<?php
