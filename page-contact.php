@@ -98,7 +98,7 @@ get_header();
             </div>
             <!-- Output Google Map -->
             <?php
-            echo do_shortcode( '[mappress mapid="1"]' );
+            // echo do_shortcode( '[mappress mapid="1"]' );
             ?>
             <?php
         }
