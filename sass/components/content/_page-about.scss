@@ -29,22 +29,10 @@
     gap: 0rem;
     justify-content: center;
 
-    a {
-      align-self: center;
+    p {
+      font-size: 1.5rem;
+      line-height: 1.8em;
     }
-  }
-
-  div {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-  }
-
-  .story-intro {
-    display: flex;
-    flex-direction: column;
-    gap: 0rem;
-    justify-content: center;
 
     a {
       align-self: center;
@@ -61,6 +49,13 @@
     flex-direction: row;
   }
 
+  .story-intro {
+    p {
+      font-size: 1rem!important;
+      line-height: 1.8em;
+    }
+  }
+
   .our-story img {
     width: 340px;
     height: 191px;
@@ -72,6 +67,12 @@
         width: 500px;
         height: 280px;
       }
+      .story-intro {
+        p {
+          font-size: 1.1rem!important;
+          line-height: 1.8em;
+        }
+      }
 }
 
 @media screen and (min-width: $medium-screen) {
@@ -80,6 +81,16 @@
         height: 348px;
       }
 }
+
+@media screen and (min-width: $large-screen) {
+  .story-intro {
+    p {
+      font-size: 1.5rem!important;
+      line-height: 1.8em;
+    }
+  }
+}
+
 
 // Styles for Our Story Page on page-about.php
 .story-introduction {
@@ -195,9 +206,9 @@
 
 .more-about-us,
 .more-about-us-2 {
-  margin: 0rem 2rem 2rem 4rem;
+  margin: 0rem 2rem 4rem 2rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 2rem;
   a {
     align-self: center;
@@ -206,6 +217,10 @@
   img {
     max-height: 348px;
     align-self: center;
+  }
+
+  p {
+    font-size: 1.35rem!important
   }
 }
 
@@ -218,6 +233,12 @@
       width: 377px;
       height: 227px;
   }
+
+  .more-about-us, .more-about-us-2 {
+    p {
+      font-size: 1.1rem!important
+    }
+  }
 }
 
 @media screen and (min-width: $medium-screen) {
@@ -229,6 +250,11 @@
         width: 477px;
         height: 288px;
     }
+    .more-about-us, .more-about-us-2 {
+      p {
+        font-size: 1.3rem!important
+      }
+    }
   }
 
 @media screen and (min-width: $large-screen) {
@@ -236,6 +262,11 @@
   .more-about-us img {
     width: 577.333px;
     height: 348px;
+  }
+  .more-about-us, .more-about-us-2 {
+    p {
+      font-size: 1.5rem!important
+    }
   }
 }
 

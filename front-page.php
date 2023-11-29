@@ -122,12 +122,15 @@ get_header();
 								<h3><?php echo esc_html($product->get_name()); ?></h3>
 								<div><?php echo $product->get_price_html(); ?></div>
 								<?php
-								// Add to Cart button
-								woocommerce_template_loop_add_to_cart(
-									array(
-										'quantity' => 1,
-										'class' => 'button', // You can add classes to style the button
-									), $product);
+								echo apply_filters('woocommerce_loop_add_to_cart_link',
+								sprintf('<a href="%s" data-product_id="%s" data-product_sku="%s" class="button %s ajax_add_to_cart">%s</a>',
+									esc_url($product->add_to_cart_url()),
+									esc_attr($product->get_id()),
+									esc_attr($product->get_sku()),
+									$product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
+									esc_html($product->add_to_cart_text())
+								),
+								$product);
 								?>
 								</a>
 							</article>
