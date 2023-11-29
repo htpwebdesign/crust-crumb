@@ -58,6 +58,7 @@ do_action('woocommerce_before_main_content');
 		?>
 </header>
 <?php
+	echo '<div class="menu-introductions">';
 	if (get_field('delivery_instruction', 19)) {
 		echo '<p class="delivery-instruction">' . esc_html(get_field('delivery_instruction', 19)) . '</p>';
 	}
@@ -65,6 +66,7 @@ do_action('woocommerce_before_main_content');
 	if (get_field('pickup_instruction', 19)) {
 		echo '<p class="pickup-instruction">' . esc_html(get_field('pickup_instruction', 19)) . '</p>';
 	} 
+	echo '</div>';
 }
 
 
