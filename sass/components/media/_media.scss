@@ -88,3 +88,26 @@
 .gfield-choice-input::before {
   color: $primary-color !important;
 }
+
+.gform-theme--foundation .gform_footer {
+  justify-content: center;
+}
+
+.ginput_container {
+  input:focus {
+    background-color: whitesmoke !important;
+  }
+  textarea:focus {
+    background-color: whitesmoke !important;
+  }
+  .gfield_select {
+    background-color: $button-primary-color !important;
+    color: $color__background-body !important;
+  }
+}
+
+.job-position-select {
+  .ginput_container_select {
+    display: inline-block !important;
+  }
+}

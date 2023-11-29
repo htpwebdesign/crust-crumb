@@ -43,10 +43,12 @@
       padding: 0.7rem 3rem;
       background-color: $button-secondary-color;
       color: black;
+      &:hover {
+        color: $color__background-body;
+      }
     }
     @media (max-width: $small-screen) {
       margin-left: 0;
     }
   }
 }
-

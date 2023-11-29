@@ -53,6 +53,10 @@
               text-align: left;
               a {
                 font-size: 1.5rem;
+                img {
+                  margin-bottom: 0.4rem;
+                  height: auto;
+                }
               }
             }
           }
@@ -67,6 +71,7 @@
           }
           td {
             padding: 0 1rem;
+            padding-bottom: 1rem;
             .actions {
               text-align: right;
             }
@@ -85,7 +90,8 @@
             tbody {
               tr {
                 border-bottom: 1px solid rgba($primary-color, 0.5);
-                td, th {
+                td,
+                th {
                   padding: 1rem 0;
                 }
               }
@@ -94,7 +100,7 @@
                 padding-left: 0;
                 margin-left: 0;
               }
-          }
+            }
           }
           h2 {
             border-bottom: 2px solid gray;

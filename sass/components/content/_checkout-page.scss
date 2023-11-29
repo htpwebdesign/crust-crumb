@@ -24,7 +24,7 @@
         margin-top: 1rem;
       }
       .shipping-info-checkout {
-        border: .0625rem solid rgba($primary-color, 0.5);
+        border: 0.0625rem solid rgba($primary-color, 0.5);
         padding-left: 0.5rem;
         p {
           font-weight: 700;
@@ -45,8 +45,8 @@
         tbody {
           border-bottom: 1px solid rgba($primary-color, 0.5);
         }
-        #shipping_method { 
-            list-style: none;
+        #shipping_method {
+          list-style: none;
         }
       }
     }
@@ -68,6 +68,8 @@
       }
     }
 
+    .woocommerce-additional-fields__field-wrapper {
+    }
     .woocommerce-billing-fields {
       h3 {
         border-bottom: 2px solid gray;
