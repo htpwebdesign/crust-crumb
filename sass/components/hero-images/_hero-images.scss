@@ -181,26 +181,4 @@
   }
 }
 
-//Catering Page
 
-.catering-title {
-  h1 {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    color: $text-primary-color;
-  }
-}
-
-.opening-paragraph {
-  padding: 2rem 11vw 1rem 10vw;
-  justify-content: right;
-  background-color: $secondary-color;
-  p {
-    color: $text-primary-color;
-  }
-
-  @media (max-width: $small-screen) {
-    padding: 2rem 6vw 1rem 6vw;
-  }
-}
