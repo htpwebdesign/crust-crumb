@@ -30,6 +30,10 @@
       table {
         border-collapse: separate;
         border-spacing: 0 10px;
+        @media (min-width: $large-screen) {
+          padding-left: 20%;
+          padding-right: 20%;
+        }
         thead {
           border-bottom: 2px solid gray;
         }
@@ -37,7 +41,7 @@
           .woocommerce-cart-form__cart-item {
             border-bottom: 1px solid gray;
 
-            background-color: $color__background-ins;
+            background-color: $secondary-color;
           }
           tr {
             .product-remove,
@@ -61,13 +65,18 @@
             padding: 0 1rem;
           }
         }
-        .cart-collaterals {
-          padding-top: 1rem;
-          .cart_totals {
-            h2 {
-              border-bottom: 2px solid gray;
-              border-top: 2px solid gray;
-            }
+      }
+      .cart-collaterals {
+        padding-top: 1rem;
+        .cart_totals {
+          @media (min-width: $large-screen) {
+            padding-left: 20%;
+            padding-right: 20%;
+          }
+
+          h2 {
+            border-bottom: 2px solid gray;
+            border-top: 2px solid gray;
           }
         }
       }
@@ -76,9 +85,13 @@
 }
 
 .cart_totals .shop_table_responsive tbody {
-  background-color: antiquewhite;
+  background-color: $color__background-ins;
 }
 .wc-proceed-to-checkout {
   display: flex;
   justify-content: center;
+}
+
+.woocommerce-message {
+  background-color: $button-secondary-color;
 }
