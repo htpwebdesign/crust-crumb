@@ -96,20 +96,13 @@ get_header();
                 endif;
                 ?>
             </div>
-            <!-- Output Google Map -->
-            <?php
-            echo do_shortcode( '[mappress mapid="1"]' );
-            ?>
+            
             <?php
         }
-
-        // If comments are open or we have at least one comment, load up the comment template.
-        if (comments_open() || get_comments_number()):
-            comments_template();
-        endif;
-
+        
     endwhile; // End of the loop.
     ?>
+    <!-- Output Google Map -->
     <?php
             echo do_shortcode( '[mappress mapid="1"]' );
  ?>

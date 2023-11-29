@@ -136,6 +136,7 @@ get_header();
 					}
 					?>
 				</section>
+			</section>
 
 				<section data-aos="fade-up" data-aos-duration="1500"  class="our-locations">
 					<h2 class="section-text-heading-home-3">
