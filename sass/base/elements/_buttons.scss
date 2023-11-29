@@ -27,6 +27,7 @@ input[type="submit"] {
 		$bg-color: white,
 		$text-color: $text-primary-color,
 		$padding: 0.5rem 1rem,
+		$radius: 20px,
 	);
 	width: fit-content;
 }
@@ -47,6 +48,7 @@ input[type="submit"] {
 			$bg-color: $button-primary-color,
 			$text-color: $text-secondary-color,
 		);
+    
 	}
 
 	//Add-to-card in Featured Product

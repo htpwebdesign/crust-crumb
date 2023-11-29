@@ -170,6 +170,31 @@ function crust_crumb_scripts()
 		wp_enqueue_script('filter-jobs', get_template_directory_uri() . '/js/filter-jobs.js', array('jquery'), null, true);
 	}
 
+
+	// add animate on scroll effect
+		wp_enqueue_style(
+			'aos-style',
+			get_template_directory_uri() .'/css/aos.css',
+			array(),
+			'2.3.1'
+		);
+		wp_enqueue_script(
+			'aos-script',
+			get_template_directory_uri() .'/js/aos.js',
+			array(),
+			'2.3.1',
+			array('strategy' => 'defer')
+		);
+		wp_enqueue_script(
+			'aos-settings',
+			get_template_directory_uri() .'/js/aos-settings.js',
+			array('aos-script'),
+			_S_VERSION,
+			array('strategy' => 'defer')
+		);
+	
+	
+
 }
 add_action('wp_enqueue_scripts', 'crust_crumb_scripts');
 

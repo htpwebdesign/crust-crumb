@@ -69,7 +69,7 @@ get_header();
 			</section>
 
 			<section class="our-story">
-				<h2>
+				<h2 class="section-text-heading-home-1">
 					<?php the_field('section_title'); ?>
 				</h2>
 				<div>
@@ -94,8 +94,8 @@ get_header();
 				<?php endif; ?>
 			</section>
 
-			<section class="featured-products">
-				<h2>
+			<section data-aos="fade-up" data-aos-duration="1500" class="featured-products">
+				<h2 class="section-text-heading-home-2">
 					<?php the_field('section_title_2'); ?>
 				</h2>
 				<section class="wrapper">
@@ -109,10 +109,10 @@ get_header();
 						foreach ($best_selling_products as $product) {
 							// Access product details using $product object
 					?>
-						<a href="<?php echo esc_url(get_permalink($product->get_id())); ?>">
 							<article class="product-card">
+								<a href="<?php echo esc_url(get_permalink($product->get_id())); ?>">
 								<?php
-									// Display product image
+									// Displa`y product image
 									$image_id = $product->get_image_id();
 									$image_url = wp_get_attachment_image_url($image_id, 'thumbnail');
 									if ($image_url) {
@@ -129,16 +129,16 @@ get_header();
 										'class' => 'button', // You can add classes to style the button
 									), $product);
 								?>
+								</a>
 							</article>
-						</a>
 					<?php
 						}
 					}
 					?>
 				</section>
 
-				<section class="our-locations">
-					<h2>
+				<section data-aos="fade-up" data-aos-duration="1500"  class="our-locations">
+					<h2 class="section-text-heading-home-3">
 						<?php the_field('section_title_3'); ?>
 					</h2>
 					<?php
@@ -197,5 +197,4 @@ get_header();
 </main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

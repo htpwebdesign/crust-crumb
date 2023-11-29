@@ -1,12 +1,14 @@
 .our-locations {
   h2 {
     font: $font__main;
-    color: $text-primary-color;
-    text-shadow: 1px 1px 2px black;
+    color: white;
     font-size: calc(1em + 1.2vw);
     @media (max-width: $small-screen) {
       font-size: calc(1.6rem + 1.75vw);
     }
+    margin-top: 3rem;
+    margin-left: 0;
+    
   }
   .store-locations {
     display: flex;

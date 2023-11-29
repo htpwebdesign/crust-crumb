@@ -39,7 +39,7 @@ get_header();
 			<p><?php the_field('content');?></p>
 		</section>
 
-		<section class="career-timeline">
+		<section data-aos="fade-up" class="career-timeline">
 
 			<?php
 			if( have_rows('career_timeline') ):
@@ -65,7 +65,7 @@ get_header();
 			?>
 		</section>
 
-		<section class="more-about-us">
+		<section data-aos="fade-up" class="more-about-us">
 			<div>
 				<h2><?php the_field('sub_heading'); ?></h2>
 				<p><?php the_field('sub_content') ?></p>
@@ -90,7 +90,7 @@ get_header();
 
 
 
-		<section class="more-about-us-2">
+		<section data-aos="fade-up" class="more-about-us-2">
 			<div>
 				<h2><?php the_field('sub_heading_2'); ?></h2>
 				<p><?php the_field('sub_content_2');?></p>
@@ -118,5 +118,4 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

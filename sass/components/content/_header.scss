@@ -5,6 +5,8 @@
     justify-content: start;
     padding-left: .5rem;
     padding-right: 2rem;
+	position: relative;
+	z-index: 100;
 }
 
 // div of ul of nav
@@ -17,7 +19,7 @@
 #primary-menu {
     padding: 1rem;
     font-size: 1.25rem;
-    gap: 1rem;
+    // gap: 1rem;
     transition: left .6s ease;
 }
 
@@ -33,10 +35,15 @@
     padding: 1rem;
 }
 
-// can't get the color to change probably browser issues
-.menu-menu-1-container ul li a:visited {
+.menu-menu-1-container #primary-menu li a{
     color: white;
+    color: #ffffff; /* White color */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+    &:hover {
+        color: #fed8b1; 
+    }
 }
+
 
 // hamburger styles
 .hamburger {
@@ -99,27 +106,21 @@ img .custom-logo {
 }
 
 .main-navigation ul {
-	display: none;
+	display: flex;
+	flex-direction: column;
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
 	background-color: $secondary-color;
+	position: fixed;
+	left: -200%;
+	top: 5.8937rem;
+	
     
 }
 
 .main-navigation li {
 	position: relative;
-}
-
-.main-navigation li.current-menu-item > a,
-.main-navigation li.current_page_item > a,
-.main-navigation li:hover > a,
-.main-navigation li:visited > a,
-.main-navigation li.focus > a {
-	text-decoration: underline;
-	text-decoration-color: #ffffff;
-    color: white;
-
 }
 
 
@@ -139,6 +140,10 @@ img .custom-logo {
 
 .main-navigation.toggled ul {
 	display: block;
+	left: 0!important;
+	width: 100%;
+	
+
 }
 
 .hamburger {
@@ -174,7 +179,12 @@ img .custom-logo {
 	.main-navigation ul,
 	.main-navigation.toggled ul {
 		display: flex;
+		flex-direction: row;
+		gap: 1rem;
 		justify-content: center;
+		position: relative;
+		left: auto;
+		top: auto;
 	}
 
 	.main-navigation ul ul {

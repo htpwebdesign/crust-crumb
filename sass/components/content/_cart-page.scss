@@ -1,19 +1,13 @@
 // Style for Cart Page
 
 .page-id-20 {
-  .entry-title {
-    display: flex;
-    justify-content: center;
-  }
   .entry-content {
     .woocommerce {
       margin: 0 2rem;
       .cart-empty {
         padding: 0.2rem 0;
       }
-      .coupon .input-text {
-        width: -webkit-fill-available;
-      }
+
       .button {
         // Apply coupon & Update cart buttons
         @include button-customizable(
