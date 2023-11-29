@@ -132,16 +132,16 @@
         margin: auto;  
     }
 
-  h1 {
-    position: absolute;
-    left: 50%;
-    top: 40%;
-    transform: translate(-50%, -50%);
-    color: $text-secondary-color;
-    text-shadow: 1px 1px 2px black;
-    font-size: calc(1.9em + 1.5vw);
-    z-index: 10;
-  }
+    h1 {
+      position: absolute;
+      left: 45%;
+      top: 40%;
+      transform: translate(-50%, -50%);
+      color: $text-secondary-color;
+      text-shadow: 1px 1px 2px black;
+      font-size: calc(1.9em + 1.5vw);
+      z-index: 10;
+    }
 
     @media (min-width: $small-screen) {
         .hero-image {
@@ -189,8 +189,6 @@
     display: flex;
     justify-content: center;
     color: $text-primary-color;
-    text-shadow: 1px 1px 2px black;
-    font-size: calc(1.9em + 1.5vw);
   }
 }
 

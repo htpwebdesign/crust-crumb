@@ -19,7 +19,7 @@
 #primary-menu {
     padding: 1rem;
     font-size: 1.25rem;
-    gap: 1rem;
+    // gap: 1rem;
     transition: left .6s ease;
 }
 
@@ -35,10 +35,19 @@
     padding: 1rem;
 }
 
-// can't get the color to change probably browser issues
-.menu-menu-1-container ul li a:visited {
+.menu-menu-1-container #primary-menu li a{
     color: white;
+    color: #ffffff; /* White color */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+    &:hover {
+        color: #fed8b1; 
+    }
 }
+
+#primary-menu ul li:last-child {
+    margin-top: 3px;
+}
+
 
 // hamburger styles
 .hamburger {
@@ -101,27 +110,21 @@ img .custom-logo {
 }
 
 .main-navigation ul {
-	display: none;
+	display: flex;
+	flex-direction: column;
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
 	background-color: $secondary-color;
+	position: fixed;
+	left: -200%;
+	top: 5.8937rem;
+	
     
 }
 
 .main-navigation li {
 	position: relative;
-}
-
-.main-navigation li.current-menu-item > a,
-.main-navigation li.current_page_item > a,
-.main-navigation li:hover > a,
-.main-navigation li:visited > a,
-.main-navigation li.focus > a {
-	text-decoration: underline;
-	text-decoration-color: #ffffff;
-    color: white;
-
 }
 
 
@@ -141,6 +144,10 @@ img .custom-logo {
 
 .main-navigation.toggled ul {
 	display: block;
+	left: 0!important;
+	width: 100%;
+	
+
 }
 
 .hamburger {
@@ -176,7 +183,12 @@ img .custom-logo {
 	.main-navigation ul,
 	.main-navigation.toggled ul {
 		display: flex;
+		flex-direction: row;
+		gap: 1rem;
 		justify-content: center;
+		position: relative;
+		left: auto;
+		top: auto;
 	}
 
 	.main-navigation ul ul {
@@ -207,4 +219,38 @@ img .custom-logo {
 	.main-navigation ul li.focus > ul {
 		left: auto;
 	}
+}
+
+#primary-menu li .cart-icon {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    fill: white;
+}
+
+
+#site-header-cart li a span {
+    display: none;
+}
+
+
+#site-header-cart {
+    list-style-type: none;
+}
+
+@media screen and (min-width: $small-screen) {
+    #site-header-cart li a span {
+        z-index: 9999;
+        position: absolute;
+        display: inline-block;
+        width: 30px; /* Adjust the width and height as needed */
+        height: 30px;
+        line-height: 30px; /* Aligns the text vertically */
+        text-align: center; /* Aligns the text horizontally */
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5); /* Adjust the alpha value (0 to 1) */
+        color: green; /* Choose your desired text color */
+    top: 15%;
+    right: 0;
+    }
 }

@@ -110,17 +110,21 @@ get_header();
 
     endwhile; // End of the loop.
     ?>
+    <?php
+            echo do_shortcode( '[mappress mapid="1"]' );
+ ?>
     <section class="form-wrapper">
         <h2>Contact Form</h2>
-        <?php
-        // Embed Gravity Form 
+            <?php
+            // Embed Gravity Form 
+            
+            if ( function_exists( 'gravity_form' ) ) {
+                gravity_form( 2, false, false, false, '', false );  
+            }
+            ?>
+        </section>
         
-        if (function_exists('gravity_form')) {
-            gravity_form(2, false, false, false, '', false);
-        }
-        ?>
-    </section>
-
+   
 
 </main>
 

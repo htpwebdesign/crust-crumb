@@ -6,7 +6,6 @@
 .page-id-13 {
   h1 {
     margin: 2rem 2.2rem 0rem 2.2rem;
-    font-size: 3.5rem;
     font-weight: 500;
   }
 }
@@ -108,7 +107,7 @@
     position: absolute;
     height: 100%; /* Ensures the line spans the entire height */
     width: 2px; /* Adjust the width as needed */
-    background-color: black; /* Change the color to your preference */
+    background-color: $secondary-color; /* Change the color to your preference */
     z-index: -1;
     left: 50%; /* Position the line in the center horizontally */
     transform: translateX(-50%); /* Center the line precisely */

@@ -193,20 +193,22 @@ if (!function_exists('crust_crumb_woocommerce_cart_link')) {
 		<a class="cart-contents" href="<?php echo esc_url(wc_get_cart_url()); ?>"
 			title="<?php esc_attr_e('View your shopping cart', 'crust-crumb'); ?>">
 			<?php
+			$item_count = WC()->cart->get_cart_contents_count();
+	
 			$item_count_text = sprintf(
 				/* translators: number of items in the mini cart. */
-				_n('%d item', '%d items', WC()->cart->get_cart_contents_count(), 'crust-crumb'),
-				WC()->cart->get_cart_contents_count()
+				_n('%d', '%d', $item_count, 'crust-crumb'),
+				$item_count
 			);
 			?>
-			<span class="amount">
-				<?php echo wp_kses_data(WC()->cart->get_cart_subtotal()); ?>
-			</span> <span class="count">
+			<span class="count">
 				<?php echo esc_html($item_count_text); ?>
 			</span>
 		</a>
 		<?php
 	}
+	
+
 }
 
 if (!function_exists('crust_crumb_woocommerce_header_cart')) {
@@ -227,15 +229,7 @@ if (!function_exists('crust_crumb_woocommerce_header_cart')) {
 			<li class="<?php echo esc_attr($class); ?>">
 				<?php crust_crumb_woocommerce_cart_link(); ?>
 			</li>
-			<li>
-				<?php
-				$instance = array(
-					'title' => '',
-				);
-
-				the_widget('WC_Widget_Cart', $instance);
-				?>
-			</li>
+	
 		</ul>
 		<?php
 	}
