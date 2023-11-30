@@ -52,10 +52,6 @@ get_header();
                     </article>
                     <?php endwhile; ?>
                 </div>
-                <?php $orderform_link = get_field( 'orderform_link' ); ?>
-                        <?php if ( $orderform_link ) : ?>
-                            <a href="<?php echo esc_url( $orderform_link['url'] ); ?>" class="order-now-button">Order Now</a>
-                        <?php endif; ?>
             </section>
         <?php endif;
         wp_reset_postdata();
@@ -63,7 +59,7 @@ get_header();
 
     <div>
 
-        <section class="form-wrapper">
+        <section id="catering-form-wrapper" class="form-wrapper">
         <h2> Catering Order Form</h2>
             <?php
             // Embed Gravity Form 
