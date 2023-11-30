@@ -7,3 +7,9 @@ body.page-id-13,
 body.post-type-archive-product {
 	background: $background-color; // Fallback for when there is no custom background color defined.
 }
+
+main {
+	width: 100%;
+	max-width: 1920px!important;
+	margin: 0 auto!important;
+}
