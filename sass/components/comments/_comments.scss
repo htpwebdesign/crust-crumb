@@ -1,7 +1,53 @@
 .comment-content a {
-	word-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .bypostauthor {
-	display: block;
+  display: block;
+}
+
+.comment-form-comment {
+  textarea {
+    background-color: $color__background-hr;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    &:focus {
+      background-color: $color__background-pre;
+    }
+  }
+}
+
+.comment-form-author {
+  input {
+    background-color: $color__background-hr;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 250px;
+    &:focus {
+      background-color: $color__background-pre;
+    }
+  }
+}
+
+.comment-form-email {
+  input {
+    background-color: $color__background-hr;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 250px;
+    &:focus {
+      background-color: $color__background-pre;
+    }
+  }
+}
+
+.woocommerce-Reviews {
+  .comment-respond {
+    .comment-form {
+      .form-submit {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
 }
