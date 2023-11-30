@@ -222,6 +222,20 @@ function cac_remove_admin_links()
 }
 add_action('admin_menu', 'cac_remove_admin_links');
 
+// Enable the Classic Editor 
+
+function fwd_post_filter( $use_block_editor, $post ) {
+    // About (25), Careers (30), Catering (32), Home (13), Contact (27), Menu (19)
+    $page_ids = array( 25, 30, 32, 13, 27, 19 );
+    if ( in_array( $post->ID, $page_ids ) ) {
+        return false;
+    } else {
+        return $use_block_editor;
+    }
+}
+add_filter( 'use_block_editor_for_post', 'fwd_post_filter', 10, 2 );
+
+
 /**
  * Implement the Custom Header feature.
  */
