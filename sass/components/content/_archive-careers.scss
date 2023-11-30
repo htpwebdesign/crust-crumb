@@ -19,6 +19,10 @@
     gap: $page-margin;
     margin: $page-margin-medium 0;
   }
+  .job-wrapper {
+    display: flex;
+    justify-content: center;
+  }
   .job-postings {
     display: flex;
     flex-direction: column;
