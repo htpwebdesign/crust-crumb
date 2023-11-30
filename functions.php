@@ -200,10 +200,18 @@ function crust_crumb_scripts()
 	if (is_checkout()) {
 		wp_enqueue_script('toggle-shipping', get_template_directory_uri() . '/js/toggle-shipping.js', array('jquery'), null, true);
 	}
-
-
 }
 add_action('wp_enqueue_scripts', 'crust_crumb_scripts');
+
+
+// Remove admin menu links for non-Administrator accounts
+function cac_remove_admin_links()
+{
+	if (!current_user_can('manage_options')) {
+		remove_menu_page('edit.php');           // Remove Posts link
+	}
+}
+add_action('admin_menu', 'cac_remove_admin_links');
 
 /**
  * Implement the Custom Header feature.
