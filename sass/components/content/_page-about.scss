@@ -5,9 +5,16 @@
     margin: 2rem 2.2rem 0rem 2.2rem;
     font-weight: 500;
   }
+
+  .more-about-us, .more-about-us-2 {
+    img {
+      box-shadow: 0px 0px 5px 0px black;
+    }
+  }
 }
 .our-story {
-  margin: 0.5rem 3rem 2rem 3rem;
+  margin: 0.5rem 3rem 4rem 3rem;
+  
 
   h2 {
     margin-top: 0rem;
@@ -27,8 +34,9 @@
     justify-content: center;
 
     p {
-      font-size: 1.5rem;
+      font-size: calc(0.9rem + 0.5vw);
       line-height: 1.8em;
+
     }
 
     a {
@@ -38,37 +46,44 @@
 
   img {
     max-height: 348px;
+    box-shadow: 0px 0px 5px 0px black;
   }
 }
 
 @media screen and (min-width: $small-screen) {
   .our-story div {
-    flex-direction: row;
+    flex-direction: column;
   }
-
+  .our-story img {
+    max-width: 634px;
+    margin: 0 auto;
+  }
   .story-intro {
     p {
-      font-size: 1rem!important;
-      line-height: 1.8em;
+      margin: 0;
+      font-size: calc(1rem + 0.5vw);
+      margin-bottom: 1rem;
     }
-  }
-
-  .our-story img {
-    width: 340px;
-    height: 191px;
   }
 }
 
+
 @media screen and (min-width: $medium-screen) {
+  .our-story div {
+    flex-direction: row;
+    // align-content: flex-start;
+  }
     .our-story img {
         width: 500px;
         height: 280px;
       }
       .story-intro {
+        align-self: flex-start;
         p {
-          font-size: 1.1rem!important;
-          line-height: 1.8em;
+          font-size: calc(0.9rem + 0.4vw)!important;
         }
+
+        
       }
 }
 
@@ -81,9 +96,8 @@
 
 @media screen and (min-width: $large-screen) {
   .story-intro {
-    p {
-      font-size: 1.5rem!important;
-      line-height: 1.8em;
+    a {
+      align-self: flex-start !important;
     }
   }
 }
@@ -117,6 +131,7 @@
 
   img {
     max-width: 173px;
+    box-shadow: 0px 0px 5px 0px black;
   }
 
   .the-line {
