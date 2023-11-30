@@ -69,9 +69,13 @@
 
 
 @media screen and (min-width: $medium-screen) {
-  .our-story div {
-    flex-direction: row;
-    // align-content: flex-start;
+  .our-story {
+    div {
+      flex-direction: row;
+    }
+    h2 {
+      margin-bottom: 4rem;
+    }
   }
     .our-story img {
         width: 500px;
@@ -95,7 +99,12 @@
 }
 
 @media screen and (min-width: $large-screen) {
+  .our-story div {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
   .story-intro {
+    align-self: flex-start;
     a {
       align-self: flex-start !important;
     }
