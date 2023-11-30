@@ -83,6 +83,7 @@ get_header();
 						echo '<div class="accordionContent">';
 						echo '<b class="career-location">' . esc_html($location_name) . '</b>';
 						echo $job_descriptions;
+						echo '<p><span id="apply-message">To apply:</span> Please fill in the form below.</p>';
 						echo '</div>';
 						echo '</article>';
 

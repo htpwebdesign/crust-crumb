@@ -42,4 +42,17 @@
     line-height: 3;
     font-size: large;
   }
+  #filtered-jobs {
+    .job-information {
+      h2 {
+        font-size: calc(1rem + 0.25vw);
+      }
+    }
+  }
+  .accordionContent {
+    #apply-message {
+      text-decoration: underline;
+    }
+
+  }
 }
