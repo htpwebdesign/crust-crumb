@@ -25,31 +25,33 @@
 		echo '<a class="secondary-logo-link" href="' . $homepage_url . '"><img src="' . $secondary_logo_url . '" alt="secondary logo" class="secondary-logo"></a>';
 	}
 	?>
-	<div class='footer-flex-box'>
-		<div class="footer-left-section">
+	<div class="footer-content">
+		<div class='footer-flex-box'>
+			<div class="footer-left-section">
 
-			<h2>About Crust and Crumb</h2>
-			<?php
-			if (function_exists('get_field')) {
-				if (get_field('about_us_footer', 25)) {
-					echo '<p class="about-us-brief">' . get_field('about_us_footer', 25) . '</p>';
+				<h2>About Crust and Crumb</h2>
+				<?php
+				if (function_exists('get_field')) {
+					if (get_field('about_us_footer', 25)) {
+						echo '<p class="about-us-brief">' . get_field('about_us_footer', 25) . '</p>';
+					}
 				}
-			}
-			?>
-			<?php $year = (new DateTime)->format("Y"); ?>
-			<p class='copy-right'>&copy;
-				<?php echo $year; ?> Made by U.B.w.C
-			</p>
-		</div>
-		<div class="footer-right-section">
-			<nav class="footer-navigation">
-				<?php wp_nav_menu(array('theme_location' => 'footer-left')); ?>
+				?>
+				<?php $year = (new DateTime)->format("Y"); ?>
+				<p class='copy-right'>&copy;
+					<?php echo $year; ?> Made by U.B.w.C
+				</p>
+			</div>
+			<div class="footer-right-section">
+				<nav class="footer-navigation">
+					<?php wp_nav_menu(array('theme_location' => 'footer-left')); ?>
 
-			</nav>
+				</nav>
 
-			<nav class='footer-navigation'>
-				<?php wp_nav_menu(array('theme_location' => 'footer-right')); ?>
-			</nav>
+				<nav class='footer-navigation'>
+					<?php wp_nav_menu(array('theme_location' => 'footer-right')); ?>
+				</nav>
+			</div>
 		</div>
 	</div>
 </footer><!-- #colophon -->

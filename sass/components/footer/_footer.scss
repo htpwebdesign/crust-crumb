@@ -57,15 +57,18 @@
             left: 0;
             right: 0;
         }
-        .footer-flex-box {
-            display: flex;
-            justify-content: space-between;
-            padding: 1rem;
-            gap: 5rem;
-            background-color: $primary-color;
+        .footer-content {
+            background-color: #6f4e37;
             border-top: 2px solid white;
-             box-shadow: 1px -4px 4px -4px white;
-
+            box-shadow: 1px -4px 4px -4px white;
+            .footer-flex-box {
+                max-width: 1920px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+                padding: 1rem;
+                gap: 5rem;
+            }
         }
 
         .footer-left-section {

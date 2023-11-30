@@ -29,6 +29,7 @@
 		</a>
 
 		<header id="masthead" class="site-header">
+			<div class="header-content">
 			<div class="site-branding">
 				<?php
 				the_custom_logo();
@@ -66,7 +67,7 @@
 				crust_crumb_woocommerce_header_cart();
 			}
 			?>
-
+			</div>
 		</header><!-- #masthead -->
 	</div>
 </body>

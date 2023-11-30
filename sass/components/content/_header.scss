@@ -4,11 +4,18 @@
     top: 0;
     width: 100%;
     background: $primary-color;
-    display: flex;
     justify-content: start;
     padding-left: .5rem;
     padding-right: 2rem;
     z-index: 100;
+	.header-content {
+		display: flex;
+		justify-content: start;
+		padding-left: 0.5rem;
+		padding-right: 2rem;
+		max-width: 1920px;
+		margin: 0 auto;
+	}
 }
 
 #primary {
