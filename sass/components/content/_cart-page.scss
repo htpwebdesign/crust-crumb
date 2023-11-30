@@ -1,6 +1,12 @@
 // Style for Cart Page
 
 .page-id-20 {
+  #primary {
+    #post-20 {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+  }
   .entry-title {
     display: flex;
     justify-content: center;
@@ -34,10 +40,10 @@
       table {
         border-collapse: separate;
         border-spacing: 0 10px;
-        @media (min-width: $large-screen) {
-          padding-left: 20%;
-          padding-right: 20%;
-        }
+        // @media (min-width: $large-screen) {
+        //   padding-left: 10%;
+        //   padding-right: 10%;
+        // }
         thead {
           border-bottom: 2px solid gray;
         }
@@ -85,10 +91,10 @@
       .cart-collaterals {
         padding-top: 1rem;
         .cart_totals {
-          @media (min-width: $large-screen) {
-            padding-left: 20%;
-            padding-right: 20%;
-          }
+          // @media (min-width: $large-screen) {
+          //   padding-left: 20%;
+          //   padding-right: 20%;
+          // }
           table {
             border-collapse: collapse;
             tbody {

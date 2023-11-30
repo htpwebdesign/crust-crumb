@@ -154,7 +154,8 @@
   .cart {
     display: flex;
     gap: 5px;
-    align-items: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
   }
   .gpsc--product-image img {
     max-width: 200px;
@@ -191,7 +192,7 @@
   .single-product {
     .site-main {
       margin: 0 auto;
-      max-width: 1024px;
+      max-width: 1024px!important;
       div.product {
         .woocommerce-product-gallery {
           grid-column: 1;
