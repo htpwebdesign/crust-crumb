@@ -22,7 +22,6 @@ get_header();
 		</header>
 
 	<?php endif; ?>
-	<div class="job-wrapper">
 	<section class="job-postings">
 		<?php
 		$args = array(
@@ -99,7 +98,6 @@ get_header();
 		endif;
 		?>
 	</section>
-	</div>
 	<section class="form-wrapper">
 		<h2>Want to work with us?</h2>
 		<?php
