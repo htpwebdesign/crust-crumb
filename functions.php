@@ -235,6 +235,13 @@ function fwd_post_filter( $use_block_editor, $post ) {
 }
 add_filter( 'use_block_editor_for_post', 'fwd_post_filter', 10, 2 );
 
+/**
+ * Lower Yoast SEO Metabox location
+ */
+function yoast_to_bottom(){
+	return 'low';
+}
+add_filter( 'wpseo_metabox_prio', 'yoast_to_bottom' );
 
 /**
  * Implement the Custom Header feature.
