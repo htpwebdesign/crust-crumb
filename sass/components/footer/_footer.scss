@@ -87,6 +87,22 @@
             gap: 3rem;
             line-height: 2rem;
             padding-right: 1rem;
-     }
+            
+                .footer-navigation {
+                    
+                        li{
+                            a {
+                                transition: color 0.3s ease;
+                                &:hover {
+                                    color: $secondary-color !important;
+                                }
+                            }
+
+                        }
+                    
+                }
+                
+            
+         }
     }
 }
