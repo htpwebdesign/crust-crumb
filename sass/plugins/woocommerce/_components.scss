@@ -232,6 +232,9 @@ p.no-comments {
 	margin-bottom: 1rem;
 	a {
 		color: white;
+		&:hover {
+			color: black;
+		}
 	}
 }
 
