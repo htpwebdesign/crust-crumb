@@ -27,12 +27,11 @@
 @import "media/galleries";
 
 // Header
-@import "content/header";
+@import "header/header";
 
 // Introduction text in menu page
 @import "content/menu-page";
 
-@import "content/cart-page";
 
 /* Hero Images
 --------------------------------------------- */
@@ -48,3 +47,7 @@
 
 // Privacy Policy 
 @import "content/privacy-policy";
+
+/* Product Cards
+--------------------------------------------- */
+@import "productcard/product-card";

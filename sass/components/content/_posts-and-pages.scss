@@ -1,8 +1,6 @@
 @import "sass/components/content/contact-page.scss";
 @import "sass/components/content/archive-careers.scss";
 @import "sass/components/content/faq-page.scss";
-@import "cart-page";
-@import "checkout-page";
 @import "404-page" ;
 @import "catering-page";
 @import "my-account-page";
@@ -10,11 +8,6 @@
 .sticky {
   display: block;
 }
-
-// .post,
-// .page {
-//   margin: 0 0 1.5em;
-// }
 
 .updated:not(.published) {
   display: none;
