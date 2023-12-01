@@ -20,10 +20,6 @@ jQuery(document).ready(function ($) {
     // Initial call to set up based on the initial state
     toggleShippingOptions();
 
-    $('#billing_postcode').on('input', function () {
-        toggleShippingOptions();
-    });
-
     // Trigger the function when purchase method changes
     $('#purchase_method_field').on('change', 'input[name="purchase_method"]', function () {
         toggleShippingOptions();

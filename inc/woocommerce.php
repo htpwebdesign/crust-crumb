@@ -365,7 +365,7 @@ add_filter('woocommerce_cart_needs_shipping', 'show_shipping_on_checkout_page');
 
 
 
-
+/*Change shipping message to delivery on checkout page*/
 function shipchange($translated_text, $text, $domain)
 {
 	switch ($translated_text) {
@@ -386,3 +386,4 @@ function custom_shipping_package_name($name)
 {
 	return 'Delivery';
 }
+/* ************************************** */

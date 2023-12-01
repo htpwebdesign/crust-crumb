@@ -130,7 +130,6 @@ function crust_crumb_scripts()
 
 	wp_enqueue_script('crust-crumb-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
 
-	wp_enqueue_script('custom-accordion', get_template_directory_uri() . '/js/custom-accordion.js', array('jquery'), _S_VERSION, true);
 
 	wp_enqueue_script('filter-menu', get_template_directory_uri() . '/js/filter-menu.js', array('jquery', 'isotope'), '1.0', true);
 	wp_enqueue_script('crust-crumb-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
@@ -149,7 +148,6 @@ function crust_crumb_scripts()
 	if (is_post_type_archive('cac-careers')) {
 		wp_enqueue_script('animation-careers', get_template_directory_uri() . '/js/animation-careers.js', array('jquery'), _S_VERSION, true);
 		wp_enqueue_script('custom-accordion', get_template_directory_uri() . '/js/custom-accordion.js', array('jquery'), _S_VERSION, true);
-
 		wp_enqueue_script('filter-jobs', get_template_directory_uri() . '/js/filter-jobs.js', array('jquery'), null, true);
 	}
 	if (is_page('contact')) {
@@ -161,10 +159,8 @@ function crust_crumb_scripts()
 	// enqueue toggle-location.js only on Checkout page
 	if (is_page('checkout')) {
 		wp_enqueue_script('toggle-location', get_template_directory_uri() . '/js/toggle-location.js', array('jquery'), null, true);
+		wp_enqueue_script('toggle-shipping', get_template_directory_uri() . '/js/toggle-shipping.js', array('jquery'), null, true);
 	}
-
-
-
 
 	wp_enqueue_script('filter-menu', get_template_directory_uri() . '/js/filter-menu.js', array('jquery', 'isotope'), '1.0', true);
 
@@ -174,9 +170,7 @@ function crust_crumb_scripts()
 
 	// enqueue hamburger menu
 	wp_enqueue_script('hamburger-menu', get_template_directory_uri() . '/js/hamburger.js', array(), _S_VERSION, true);
-	if (is_post_type_archive('cac-careers')) {
-		wp_enqueue_script('filter-jobs', get_template_directory_uri() . '/js/filter-jobs.js', array('jquery'), null, true);
-	}
+
 
 
 	// add animate on scroll effect
@@ -201,13 +195,7 @@ function crust_crumb_scripts()
 		array('strategy' => 'defer')
 	);
 
-
-
-	if (is_checkout()) {
-		wp_enqueue_script('toggle-shipping', get_template_directory_uri() . '/js/toggle-shipping.js', array('jquery'), null, true);
-	}
 }
-
 
 
 add_action('wp_enqueue_scripts', 'crust_crumb_scripts');
@@ -224,24 +212,26 @@ add_action('admin_menu', 'cac_remove_admin_links');
 
 // Enable the Classic Editor 
 
-function fwd_post_filter( $use_block_editor, $post ) {
-    // About (25), Careers (30), Catering (32), Home (13), Contact (27), Menu (19)
-    $page_ids = array( 25, 30, 32, 13, 27, 19 );
-    if ( in_array( $post->ID, $page_ids ) ) {
-        return false;
-    } else {
-        return $use_block_editor;
-    }
+function fwd_post_filter($use_block_editor, $post)
+{
+	// About (25), Careers (30), Catering (32), Home (13), Contact (27), Menu (19)
+	$page_ids = array(25, 30, 32, 13, 27, 19);
+	if (in_array($post->ID, $page_ids)) {
+		return false;
+	} else {
+		return $use_block_editor;
+	}
 }
-add_filter( 'use_block_editor_for_post', 'fwd_post_filter', 10, 2 );
+add_filter('use_block_editor_for_post', 'fwd_post_filter', 10, 2);
 
 /**
  * Lower Yoast SEO Metabox location
  */
-function yoast_to_bottom(){
+function yoast_to_bottom()
+{
 	return 'low';
 }
-add_filter( 'wpseo_metabox_prio', 'yoast_to_bottom' );
+add_filter('wpseo_metabox_prio', 'yoast_to_bottom');
 
 /**
  * Implement the Custom Header feature.
@@ -282,92 +272,98 @@ if (class_exists('WooCommerce')) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
 
-add_filter( 'acf/fields/wysiwyg/toolbars' , 'my_toolbars'  );
-function my_toolbars( $toolbars )
+add_filter('acf/fields/wysiwyg/toolbars', 'my_toolbars');
+function my_toolbars($toolbars)
 {
-    // Uncomment to view format of $toolbars
-    
-    // echo '< pre >';
-    //     print_r($toolbars);
-    // echo '< /pre >';
-    // die;
-    
+	// Uncomment to view format of $toolbars
 
-    // Add a new toolbar called "Very Simple"
-    // - this toolbar has only 1 row of buttons
-    $toolbars['Very Simple' ] = array();
-    $toolbars['Very Simple' ][1] = array('bold' , 'italic' , 'underline' );
+	// echo '< pre >';
+	//     print_r($toolbars);
+	// echo '< /pre >';
+	// die;
 
-    // Edit the "Full" toolbar and remove 'code'
-    // - delete from array code from http://stackoverflow.com/questions/7225070/php-array-delete-by-value-not-key
-    if( ($key = array_search('code' , $toolbars['Full' ][2])) !== false )
-    {
-        unset( $toolbars['Full' ][2][$key] );
-    }
 
-    // remove the 'Basic' toolbar completely
-    unset( $toolbars['Basic' ] );
+	// Add a new toolbar called "Very Simple"
+	// - this toolbar has only 1 row of buttons
+	$toolbars['Very Simple'] = array();
+	$toolbars['Very Simple'][1] = array('bold', 'italic', 'underline');
 
-    // return $toolbars - IMPORTANT!
-    return $toolbars;
+	// Edit the "Full" toolbar and remove 'code'
+	// - delete from array code from http://stackoverflow.com/questions/7225070/php-array-delete-by-value-not-key
+	if (($key = array_search('code', $toolbars['Full'][2])) !== false) {
+		unset($toolbars['Full'][2][$key]);
+	}
+
+	// remove the 'Basic' toolbar completely
+	unset($toolbars['Basic']);
+
+	// return $toolbars - IMPORTANT!
+	return $toolbars;
 }
 
 
 // remove default dashboards outside of using screen options
 
-function remove_dashboard_meta() {
+function remove_dashboard_meta()
+{
 	remove_meta_box('dashboard_incoming_links', 'dashboard', 'normal');
-    remove_meta_box('dashboard_primary', 'dashboard', 'normal'); 
-    remove_meta_box('dashboard_right_now', 'dashboard', 'normal'); 
-	remove_meta_box('dashboard_quick_press', 'dashboard', 'normal'); 
-	remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal'); 
-	remove_meta_box('wc_admin_dashboard_setup', 'dashboard', 'normal'); 
+	remove_meta_box('dashboard_primary', 'dashboard', 'normal');
+	remove_meta_box('dashboard_right_now', 'dashboard', 'normal');
+	remove_meta_box('dashboard_quick_press', 'dashboard', 'normal');
+	remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal');
+	remove_meta_box('wc_admin_dashboard_setup', 'dashboard', 'normal');
 }
 
 add_action('admin_init', 'remove_dashboard_meta');
 
-function fwd_remove_admin_links() {
-	if ( !current_user_can( 'manage_options' ) ) {
-		remove_menu_page( 'edit.php' );           // Remove Posts link
-    		remove_menu_page( 'edit-comments.php' );  // Remove Comments link
+function fwd_remove_admin_links()
+{
+	if (!current_user_can('manage_options')) {
+		remove_menu_page('edit.php');           // Remove Posts link
+		remove_menu_page('edit-comments.php');  // Remove Comments link
 	}
 }
-add_action( 'admin_menu', 'fwd_remove_admin_links' );
+add_action('admin_menu', 'fwd_remove_admin_links');
 
 // Custom Widget for PDF Tutorial
-function custom_pdf_widget() {
-    ?>
-    <div class="pdf-widget">
-        <h2>Website Tutorial</h2>
-        <p>Download this PDF to know how to use the site</p>
-        <?php
-        $pdf_url = esc_url('https://crustandcrumb.bcitwebdeveloper.ca/wp-content/uploads/2023/11/Crust-and-Crumb-Client-Tutorial.pdf');
-        ?>
-        <iframe src="<?php echo $pdf_url; ?>" width="100%" height="600px" frameborder="0"></iframe>
-    </div>
-    <?php
+function custom_pdf_widget()
+{
+	?>
+	<div class="pdf-widget">
+		<h2>Website Tutorial</h2>
+		<p>Download this PDF to know how to use the site</p>
+		<?php
+		$pdf_url = esc_url('https://crustandcrumb.bcitwebdeveloper.ca/wp-content/uploads/2023/11/Crust-and-Crumb-Client-Tutorial.pdf');
+		?>
+		<iframe src="<?php echo $pdf_url; ?>" width="100%" height="600px" frameborder="0"></iframe>
+	</div>
+	<?php
 }
 
-function register_custom_pdf_widget() {
-    wp_add_dashboard_widget('custom_pdf_widget', 'Website Tutorial', 'custom_pdf_widget');
+function register_custom_pdf_widget()
+{
+	wp_add_dashboard_widget('custom_pdf_widget', 'Website Tutorial', 'custom_pdf_widget');
 }
 
 add_action('wp_dashboard_setup', 'register_custom_pdf_widget');
 
 // Login Page Styles
-function my_login_logo() { ?>
-    <style type="text/css">
-        #login h1 a, .login h1 a {
-            background-image: url(https://crustandcrumb.bcitwebdeveloper.ca/wp-content/uploads/2023/11/cc-logo-2.png);
+function my_login_logo()
+{ ?>
+	<style type="text/css">
+		#login h1 a,
+		.login h1 a {
+			background-image: url(https://crustandcrumb.bcitwebdeveloper.ca/wp-content/uploads/2023/11/cc-logo-2.png);
 			height: 151.5px;
 			width: 151.5px;
-		background-size: 151.5px 151.5px;
-		background-repeat: no-repeat;
-        	padding-bottom: 30px;
-        }
+			background-size: 151.5px 151.5px;
+			background-repeat: no-repeat;
+			padding-bottom: 30px;
+		}
+
 		.login {
-            background-color: #FED8B1
-        }
-    </style>
+			background-color: #FED8B1
+		}
+	</style>
 <?php }
-add_action( 'login_enqueue_scripts', 'my_login_logo' );
+add_action('login_enqueue_scripts', 'my_login_logo');

@@ -40,10 +40,6 @@
       table {
         border-collapse: separate;
         border-spacing: 0 10px;
-        // @media (min-width: $large-screen) {
-        //   padding-left: 10%;
-        //   padding-right: 10%;
-        // }
         thead {
           border-bottom: 2px solid gray;
         }
@@ -91,10 +87,6 @@
       .cart-collaterals {
         padding-top: 1rem;
         .cart_totals {
-          // @media (min-width: $large-screen) {
-          //   padding-left: 20%;
-          //   padding-right: 20%;
-          // }
           table {
             border-collapse: collapse;
             tbody {
