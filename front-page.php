@@ -120,7 +120,7 @@ get_header();
 									<?php
 									// Displa`y product image
 									$image_id = $product->get_image_id();
-									$image_url = wp_get_attachment_image_url($image_id, 'thumbnail');
+									$image_url = wp_get_attachment_image_url($image_id, 'woocommerce_thumbnail');
 									if ($image_url) {
 										echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($product->get_name()) . '" />';
 									}
