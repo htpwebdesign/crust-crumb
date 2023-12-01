@@ -7,7 +7,7 @@
     justify-content: start;
     padding-left: .5rem;
     padding-right: 2rem;
-    z-index: 100;
+    z-index: 1000;
 	.header-content {
 		display: flex;
 		justify-content: start;
@@ -32,7 +32,6 @@
 #primary-menu {
     padding: 1rem;
     font-size: 1.25rem;
-    // gap: 1rem;
     transition: left .6s ease;
 }
 
