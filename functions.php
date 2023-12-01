@@ -358,7 +358,6 @@ function my_login_logo()
 			width: 151.5px;
 			background-size: 151.5px 151.5px;
 			background-repeat: no-repeat;
-			padding-bottom: 30px;
 		}
 
 		.login {
