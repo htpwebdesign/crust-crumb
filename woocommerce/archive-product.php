@@ -86,10 +86,10 @@ if (woocommerce_product_loop()) {
 
 ?>
 	<!-- Custom result count based on the filter -->
-	<p id="filtered-results-count">Showing <span id="results-count"><?php $products = wc_get_products(array('posts_per_page' => -1)); ?></span> products</p>
+	<li id="filtered-results-count">Showing <span id="results-count"><?php $products = wc_get_products(array('posts_per_page' => -1)); ?></span> products</li>
 
 	<!-- Filter Buttons -->
-	<div class="filter-button-group">
+	<li class="filter-button-group">
 		<button class='is-checked' data-filter="*">All</button>
 		<?php
 		$product_categories = get_terms(array('taxonomy' => 'product_cat', 'parent' => 0));
@@ -98,30 +98,31 @@ if (woocommerce_product_loop()) {
 		?>
 			<button data-filter=".<?php echo esc_attr($category_slug); ?>"><?php echo esc_html($category->name); ?></button>
 		<?php endforeach; ?>
-	</div>
+	</li>
 
 	<!-- Product Loop -->
+	<li>
+		<section class="isotope-container">
+			<?php
 
-	<div class="isotope-container">
-		<?php
-
-		if (have_posts()) :
-			while (have_posts()) :
-				the_post();
-				$categories = get_the_terms(get_the_ID(), 'product_cat');
-				$category_classes = '';
-				if ($categories) {
-					foreach ($categories as $category) {
-						$category_classes .= $category->slug . ' ';
+			if (have_posts()) :
+				while (have_posts()) :
+					the_post();
+					$categories = get_the_terms(get_the_ID(), 'product_cat');
+					$category_classes = '';
+					if ($categories) {
+						foreach ($categories as $category) {
+							$category_classes .= $category->slug . ' ';
+						}
 					}
-				}
-				echo '<div class="isotope-item ' . esc_attr($category_classes) . '">';
-				wc_get_template_part('content', 'product');
-				echo '</div>';
-			endwhile;
-		endif;
-		?>
-	</div>
+					echo '<div class="isotope-item ' . esc_attr($category_classes) . '">';
+					wc_get_template_part('content', 'product');
+					echo '</div>';
+				endwhile;
+			endif;
+			?>
+		</section>
+	</li>
 
 <?php
 
